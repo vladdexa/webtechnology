@@ -106,16 +106,23 @@ body {
 
  @media (min-width: 320px) {
        .logo-top-bar {
-         width: 30%;
-         height: auto;
-    }
+            width: 30%;
+            height: auto;
+        }   
         .login-form {
-            width: 90%;
+            width: 80%;
             height: fit-content;
             display: inline-block;
-            height: 120%;
+            height: 90%;
            
         }
+        .auth-side {
+            height: 60%;
+        }
+        .top-side{
+            height: 25%;
+        }
+        
 }
 
 @media (min-width: 375px) {
@@ -129,6 +136,7 @@ body {
 @media (min-width: 768px) {
         .login-form {
             width: 60%;
+            max-height: 70%;
         }
 }
 
@@ -141,7 +149,7 @@ body {
             display: flex;
             flex-flow: column wrap;
             width: 25%;
-            height: 95%;
+            min-height: 80%;
             border: 5px solid rgba(149, 216, 226, 0.842);
             border-radius: 25px;
             background-color: #389ae0;
