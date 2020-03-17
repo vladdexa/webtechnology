@@ -150,8 +150,8 @@ body {
 
 @media (min-width: 600px) {
         .login-form {
-            width: 40%;
-            max-height: 80%;
+            width: 35%;
+            max-height: 90%;
         }
         .top-side {
             max-height: 22%;
