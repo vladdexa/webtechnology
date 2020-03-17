@@ -136,13 +136,28 @@ body {
         }
 }
 
-@media (min-width: 768px) {
+@media (min-width: 425px) {
+
+        .login-form{
+            margin-top: 1%;
+            max-width: 60%;
+            height: 95%;
+        }
+        .logo-top-bar{
+            max-width: 25%;
+        }
+}
+
+@media (min-width: 600px) {
         .login-form {
-            width: 60%;
-            max-height: 70%;
+            width: 40%;
+            max-height: 80%;
         }
         .top-side {
             max-height: 22%;
+        }
+        .logo-top-bar{
+            max-width: 15%;
         }
 }
 
@@ -166,10 +181,3 @@ body {
          }
 }
 
- @media  (max-device-width: 640px) and (orientation: landscape) {
-    .login-form{ 
-    width: 60%;
-    height: fit-content;
-    margin-top: 10%;
-    }
- }
