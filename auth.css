@@ -131,12 +131,18 @@ body {
             min-height: fit-content;
             max-height: fit-content;
         }
+        .top-side {
+            max-height: 25%;
+        }
 }
 
 @media (min-width: 768px) {
         .login-form {
             width: 60%;
             max-height: 70%;
+        }
+        .top-side {
+            max-height: 22%;
         }
 }
 
@@ -154,6 +160,9 @@ body {
             border-radius: 25px;
             background-color: #389ae0;
             box-shadow: 0px 1px 12px 5px rgb(9, 18, 37)
+         }
+         .login-button{
+             height: fit-content;
          }
 }
 
