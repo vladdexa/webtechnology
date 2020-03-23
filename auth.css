@@ -98,9 +98,14 @@ input {
     background-color: #abc9ca;
     font-size: 1em !important;
     font-style: italic;
+    background-clip: padding-box;
+    border: 1px solid #abc9ca;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
 }
 
-.login-container>div {
+.login-container > div {
     display: flex;
     flex-direction: column;
     margin: 2%;
@@ -120,8 +125,19 @@ input {
     padding-top: 1%;
 }
 
+.forgot-button {
+    width: 50%;
+    margin-top: 5%;
+    border: 1px solid #21354b;
+    border-radius: 15px;
+    background-color: #abc9ca;
+    color: #080d34;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
 .login-button {
-    width: 60%;
+    width: 50%;
     margin-top: 5%;
     border: 1px solid #21354b;
     border-radius: 15px;
@@ -142,88 +158,99 @@ input {
     border: 1px solid #000000;
     background-color: #abc9ca;
     color: #051a22;
-    font-size: 0.8em;
-    width: 25%;
+    font-size: 1em;
+    width: 35%;
+    height: 70%;
+    margin-top: 5%;
     border-radius: 11px;
 }
 
- @media (min-width: 320px) {
-       .logo-top-bar {
-            width: 30%;
-            height: auto;
-        }
-        .login-form {
-            width: 80%;
-            height: fit-content;
-            display: inline-block;
-            height: 90%;
+@media (min-width: 320px) {
+    .logo-top-bar {
+        width: 30%;
+        height: auto;
+    }
 
-        }
-        .auth-side {
-            height: 60%;
-        }
-        .top-side{
-            height: 25%;
-        }
+    .login-form {
+        width: 80%;
+        height: fit-content;
+        display: inline-block;
+        height: 90%;
+
+    }
+
+    .auth-side {
+        height: 60%;
+    }
+
+    .top-side {
+        height: 25%;
+    }
 
 }
 
 @media (min-width: 375px) {
-        .login-form {
-            width: 80%;
-            min-height: fit-content;
-            max-height: fit-content;
-        }
-        .top-side {
-            max-height: 25%;
-        }
+    .login-form {
+        width: 80%;
+        min-height: fit-content;
+        max-height: fit-content;
+    }
+
+    .top-side {
+        max-height: 25%;
+    }
 }
 
 @media (min-width: 425px) {
 
-        .login-form{
-            margin-top: 1%;
-            max-width: 60%;
-            height: 95%;
-        }
-        .logo-top-bar{
-            max-width: 25%;
-        }
+    .login-form {
+        margin-top: 1%;
+        max-width: 60%;
+        height: 95%;
+    }
+
+    .logo-top-bar {
+        max-width: 25%;
+    }
 }
 
 @media (min-width: 600px) {
-        .login-form {
-            width: 40%;
-            max-height: 95%;
-        }
-        .top-side {
-            max-height: 22%;
-        }
-        .logo-top-bar{
-            max-width: 15%;
-        }
+    .login-form {
+        width: 40%;
+        max-height: 95%;
+    }
+
+    .top-side {
+        max-height: 22%;
+    }
+
+    .logo-top-bar {
+        max-width: 15%;
+    }
 }
 
 @media (min-width: 1025px) {
-        .logo-top-bar{
-            width: 12%;
-            height: auto;
-        }
-        .login-form {
-            display: flex;
-            flex-flow: column wrap;
-            width: 30%;
-            height: 90%;
-            min-height: 80%;
-            border: 5px solid #6da1d826;
-            border-radius: 6px;
-            background-color: #4230154d;
-            box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
-            margin-top: 3%;
-         }
-         .login-button{
-             height: fit-content;
-         }
+    .logo-top-bar {
+        width: 12%;
+        height: auto;
+    }
+
+    .login-form {
+        display: flex;
+        flex-flow: column wrap;
+        width: 30%;
+        height: 90%;
+        min-height: 80%;
+        border: 5px solid #6da1d826;
+        border-radius: 6px;
+        background-color: #4230154d;
+        box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
+        margin-top: 3%;
+    }
+
+    .login-button {
+        height: fit-content;
+    }
 }
 
 @media (min-width: 1440px) {

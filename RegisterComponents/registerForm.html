@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="RegisterModalFunctions.js"></script>
+    <title>Register Form</title>
+</head>
+<body>
+<div>
+
+    <form class="register-form">
+        <button class="closeContainer">
+            <span
+                    class="closeButton"
+                    id="#closeModalButton"
+                    aria-hidden="true"
+                    onclick="closeRegisterModal()"
+            >
+                &times;
+            </span>
+        </button>
+        <div class="login-container">
+            <div>
+                <label>First Name</b></label>
+                <input
+                        type="text"
+                        placeholder="Enter First Name"
+                        minlength="2"
+                        required
+                >
+            </div>
+            <div>
+                <label>Last Name</b></label>
+                <input
+                        type="text"
+                        placeholder="Enter Last Name"
+                        minlength="2"
+                        required
+                >
+            </div>
+            <div>
+                <label>Email</b></label>
+                <input
+                        type="email"
+                        placeholder="Enter Email"
+                        required
+                >
+            </div>
+            <div>
+                <label>Username</b></label>
+                <input
+                        type="text"
+                        placeholder="Enter Username"
+                        minlength="3"
+                        required
+                >
+            </div>
+            <div>
+                <label>Password</b></label>
+                <input type="password"
+                       placeholder="Enter Password"
+                       minlength="6"
+                       required
+                >
+            </div>
+
+        </div>
+
+        <div class="registerButtonContainer">
+            <button type="submit" class="regbutton">Register</button>
+        </div>
+    </form>
+</div>
+</body>
+</html>
