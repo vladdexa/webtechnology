@@ -55,7 +55,7 @@ body {
     }
     100% {
         transform: translateX(0%);
-        color: 1f4369;
+        color: #1f4369;
     }
 }
 
@@ -147,55 +147,97 @@ input {
     border-radius: 11px;
 }
 
-@media (min-width: 320px) {
-    .logo-top-bar {
-        width: 30%;
-        height: auto;
-    }
-    .login-form {
-        width: 90%;
-        height: fit-content;
-        display: inline-block;
-        height: 120%;
-    }
+ @media (min-width: 320px) {
+       .logo-top-bar {
+            width: 30%;
+            height: auto;
+        }
+        .login-form {
+            width: 80%;
+            height: fit-content;
+            display: inline-block;
+            height: 90%;
+
+        }
+        .auth-side {
+            height: 60%;
+        }
+        .top-side{
+            height: 25%;
+        }
+
 }
 
 @media (min-width: 375px) {
-    .login-form {
-        width: 80%;
-        min-height: fit-content;
-        max-height: fit-content;
-    }
+        .login-form {
+            width: 80%;
+            min-height: fit-content;
+            max-height: fit-content;
+        }
+        .top-side {
+            max-height: 25%;
+        }
 }
 
-@media (min-width: 768px) {
-    .login-form {
-        width: 60%;
-    }
+@media (min-width: 425px) {
+
+        .login-form{
+            margin-top: 1%;
+            max-width: 60%;
+            height: 95%;
+        }
+        .logo-top-bar{
+            max-width: 25%;
+        }
+}
+
+@media (min-width: 600px) {
+        .login-form {
+            width: 40%;
+            max-height: 95%;
+        }
+        .top-side {
+            max-height: 22%;
+        }
+        .logo-top-bar{
+            max-width: 15%;
+        }
 }
 
 @media (min-width: 1025px) {
-    .logo-top-bar {
-        width: 15%;
-        height: 100%
-    }
+        .logo-top-bar{
+            width: 12%;
+            height: auto;
+        }
+        .login-form {
+            display: flex;
+            flex-flow: column wrap;
+            width: 30%;
+            height: 90%;
+            min-height: 80%;
+            border: 5px solid #6da1d826;
+            border-radius: 6px;
+            background-color: #4230154d;
+            box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
+            margin-top: 3%;
+         }
+         .login-button{
+             height: fit-content;
+         }
+}
+
+@media (min-width: 1440px) {
     .login-form {
-        display: flex;
-        flex-flow: column wrap;
-        width: 25%;
-        height: 105%;
-        border: 5px solid #6da1d826;
-        border-radius: 6px;
-        background-color: #4230154d;
-        box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
-        margin-top: 3%;
+        max-width: 20%;
+        max-height: 90%;
     }
 }
 
-@media (max-device-width: 640px) and (orientation: landscape) {
+@media (min-width: 2345px) {
     .login-form {
-        width: 60%;
-        height: fit-content;
-        margin-top: 10%;
+        max-width: 15%;
+        max-height: 95%;
+
     }
 }
+
