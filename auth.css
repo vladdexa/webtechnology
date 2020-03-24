@@ -111,6 +111,19 @@ input {
     margin: 2%;
 }
 
+.login-form {
+    display: flex;
+    flex-flow: column wrap;
+    width: 30%;
+    height: 90%;
+    min-height: 80%;
+    border: 5px solid #6da1d826;
+    border-radius: 6px;
+    background-color: #4230154d;
+    box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
+    margin-top: 3%;
+}
+
 .other-actions {
     display: flex;
     flex-flow: row wrap;
@@ -160,7 +173,7 @@ input {
     color: #051a22;
     font-size: 1em;
     width: 35%;
-    height: 70%;
+    height: 2.5rem;
     margin-top: 5%;
     border-radius: 11px;
 }
@@ -173,7 +186,6 @@ input {
 
     .login-form {
         width: 80%;
-        height: fit-content;
         display: inline-block;
         height: 90%;
 
@@ -233,19 +245,6 @@ input {
     .logo-top-bar {
         width: 12%;
         height: auto;
-    }
-
-    .login-form {
-        display: flex;
-        flex-flow: column wrap;
-        width: 30%;
-        height: 90%;
-        min-height: 80%;
-        border: 5px solid #6da1d826;
-        border-radius: 6px;
-        background-color: #4230154d;
-        box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
-        margin-top: 3%;
     }
 
     .login-button {

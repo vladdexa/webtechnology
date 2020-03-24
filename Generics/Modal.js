@@ -12,10 +12,10 @@ class Modal {
 
     openModal() {
         const loginForm = document.getElementById('#loginForm');
-        this.registerButton.onclick = () => {
-            this.modal.style.display = 'block';
-            loginForm.style.display = 'none';
-        }
+
+        this.modal.style.display = 'block';
+        loginForm.style.display = 'none';
+
     }
 
     async createModalContent() {

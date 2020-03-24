@@ -1,6 +1,7 @@
 <html lang="en">
 
 <head>
+    <title>Online Toys - Log In or Sign Up</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="auth.css">
@@ -8,7 +9,6 @@
     <link rel="stylesheet" href="./RegisterComponents/registerForm.css">
     <script src="RegisterComponents/RegisterModalFunctions.js"></script>
     <script src="Generics/Modal.js"></script>
-    <title>Online Toys - Log In or Sign Up</title>
 </head>
 
 <body>
@@ -17,7 +17,7 @@
     <img class="logo-top-bar" src="logo.png">
 </section>
 
-<section class="auth-side">
+<section class="auth-side" id="authSide">
     <form class="login-form" id="#loginForm">
         <div class="svg-container">
             <img src="login-icon.png" class="login-svg">
@@ -26,19 +26,38 @@
         <div class="login-container">
             <div>
                 <label>Username</b></label>
-                <input placeholder="Enter Username">
+                <input
+                        placeholder="Enter Username"
+                        minlength="3"
+                        required
+                >
             </div>
 
             <div>
                 <label>Password</b></label>
-                <input placeholder="Enter Password">
+                <input
+                        placeholder="Enter Password"
+                        minlength="6"
+                        required
+                        type="password"
+                >
             </div>
 
         </div>
 
         <div class="other-actions">
-            <button type="button" id="#forgotPassword" class="forgot-button">Forgot your password?</button>
-            <button type="button" id="#registerButton" class="register-button" onclick="createRegisterModal()">
+            <button
+                    type="button"
+                    id="#forgotPassword"
+                    class="forgot-button"
+            >
+                Forgot your password?
+            </button>
+            <button
+                    type="button"
+                    id="#registerButton"
+                    class="register-button"
+                    onclick="createRegisterModal()">
                 Register
             </button>
         </div>
@@ -47,7 +66,6 @@
             <button type="submit" class="login-button">Login</button>
         </div>
     </form>
-
 
 </section>
 
