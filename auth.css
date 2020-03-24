@@ -177,93 +177,168 @@ input {
     margin-top: 5%;
     border-radius: 11px;
 }
+/*LowestRez 320*/
+@media only screen and (min-width : 320px){
+    .top-text{
+        margin-top:14%;
+        margin-left:15%;
+        font-size:80%;
+    }
+    .logo-top-bar{
+        width:23%;
+        height:50%;
+        margin-left:2%;
+        margin-top:12%;
+    }
+    .login-form{
+        width:82%;
+        height:118%;
+    }
+    .login-svg{
+        width:117;
+        padding-left:0%;
+    }
+}
+/*IphoneX*/
+@media only screen and (min-width : 375px) {
+    .top-text{
+        margin-top:14%;
+        margin-left:15%;
+        font-size:90%;
+    }
+    .logo-top-bar{
+        width:23%;
+        height:60%;
+        margin-left:2%;
+        margin-top:12%;
+    }
+    .login-form{
+        width:82%;
+        height:118%;
+    }
+    .login-svg{
+        width:117;
+        padding-left:0%;
+    }
+}
 
-@media (min-width: 320px) {
-    .logo-top-bar {
-        width: 30%;
-        height: auto;
+/*mobileL*/
+@media only screen and (min-width : 425px){
+
+    .top-text{
+        font-size:110%;
+        margin-top:8%;
+        margin-left:20%;
+    }
+    .logo-top-bar{
+        margin-top:5%;
+        height:73%;
+        width:18%;
+    }
+        .login-form{
+            width:62%;
+            height:130%;
+        }
+        .login-svg{
+            width:117;
+            padding-left:0%;
+        }
+}
+/*line between Mobile and Browser*/
+@media only screen and (min-width : 628px){
+    .login-form{
+        height:135%;
+        width:50%;
+    }
+    .top-text{
+        font-size:130%;
+        margin-top:8%;
+        margin-left:20%;
+    }
+    .logo-top-bar{
+        margin-top:5%;
+        height:73%;
+        width:18%;
+    }
+}
+/*ipad*/
+@media only screen and (min-width:668px){
+    .login-form{
+        width: 50%;
+        height:130%;
+    }
+    .login-button{
+        width:42%;
+    }
+    .top-text{
+        font-size:130%;
+        margin-top:8%;
+        margin-left:20%;
+    }
+    .logo-top-bar{
+        margin-top:6%;
+        height:66%;
+        width:15%;
     }
 
+}
+
+/*last laptop rez*/
+@media only screen and (min-width:769px) {
+    .login-form{
+        height:132%;
+        width:44%;
+    }
+    .top-text{
+        font-size:184%;
+        margin-top:4%;
+    }
+    .logo-top-bar{
+        margin-top:4%;
+        width:15%;
+    }
+}
+@media only screen and (min-width:920px) {
+    .top-text{
+    font-size: 180%;
+    margin-top:4%;
+    }
+    .login-form{
+        height:132%;
+        width:36%;
+    }
+    .logo-top-bar{
+        margin-top:4%;
+        height:75%;
+        width:13%;
+    }
+}
+/*rez initala laptop*/
+@media only screen and (min-width: 1100px) {
     .login-form {
-        width: 80%;
-        display: inline-block;
-        height: 90%;
-
+        width: 31%;
+        height: 133%;
     }
-
-    .auth-side {
-        height: 60%;
+    .top-text{
+        margin-top:2%;
     }
-
-    .top-side {
-        height: 25%;
-    }
-
-}
-
-@media (min-width: 375px) {
-    .login-form {
-        width: 80%;
-        min-height: fit-content;
-        max-height: fit-content;
-    }
-
-    .top-side {
-        max-height: 25%;
+    .logo-top-bar{
+        height:80%;
+        margin-top:2%;
+        width:13%;
     }
 }
-
-@media (min-width: 425px) {
-
-    .login-form {
-        margin-top: 1%;
-        max-width: 60%;
-        height: 95%;
+@media only screen and (min-width: 1350px) {
+    .login-form{
+        width:30%;
+        height:135%; 
+        margin-top:2%;
     }
-
-    .logo-top-bar {
-        max-width: 25%;
+    .top-text{
+        margin-left:35%;
     }
-}
-
-@media (min-width: 600px) {
-    .login-form {
-        width: 40%;
-        max-height: 95%;
-    }
-
-    .top-side {
-        max-height: 22%;
-    }
-
-    .logo-top-bar {
-        max-width: 15%;
+    .logo-top-bar{
+        width:11%;
     }
 }
-
-@media (min-width: 1025px) {
-    .logo-top-bar {
-        width: 12%;
-        height: auto;
-    }
-
-    .login-button {
-        height: fit-content;
-    }
-}
-
-@media (min-width: 1440px) {
-    .login-form {
-        max-width: 20%;
-        max-height: 90%;
-    }
-}
-
-@media (min-width: 2345px) {
-    .login-form {
-        max-width: 15%;
-        max-height: 95%;
-
-    }
-}
-
+    
