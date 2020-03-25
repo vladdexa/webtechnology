@@ -178,7 +178,7 @@ input {
     border-radius: 11px;
 }
 /*LowestRez 320*/
-@media only screen and (min-width : 320px){
+@media only screen and (min-width : 319px){
     .top-text{
         margin-top:14%;
         margin-left:15%;
@@ -188,18 +188,18 @@ input {
         width:23%;
         height:50%;
         margin-left:2%;
-        margin-top:12%;
+        margin-top:10%;
     }
     .login-form{
-        width:82%;
-        height:118%;
+        width:88%;
+        height:159%;
+        margin-top:-2%;
     }
     .login-svg{
-        width:117;
+        width:117%;
         padding-left:0%;
     }
 }
-/*IphoneX*/
 @media only screen and (min-width : 375px) {
     .top-text{
         margin-top:14%;
@@ -210,44 +210,79 @@ input {
         width:23%;
         height:60%;
         margin-left:2%;
-        margin-top:12%;
+        margin-top:10%;
+    }
+    .logo-top-bar{
+        margin-top:10%;
     }
     .login-form{
         width:82%;
-        height:118%;
+        height:137%;
     }
     .login-svg{
-        width:117;
+        width:117%;
         padding-left:0%;
     }
 }
+/*IphoneX*/
+@media only screen and (height : 812px) {
+    .top-text{
+        margin-top:14%;
+        margin-left:15%;
+        font-size:90%;
+    }
+    .logo-top-bar{
+        width:23%;
+        height:60%;
+        margin-left:2%;
+        margin-top:10%;
+    }
+    .logo-top-bar{
+        margin-top:8%;
+    }
 
+    .login-form{
+        width:85%;
+        height:122%;
+    }
+    .login-svg{
+        width:117%;
+        padding-left:0%;
+    }
+
+}
 /*mobileL*/
 @media only screen and (min-width : 425px){
 
     .top-text{
-        font-size:110%;
+        font-size:90%;
         margin-top:8%;
         margin-left:20%;
     }
     .logo-top-bar{
-        margin-top:5%;
+        margin-top:1%;
         height:73%;
         width:18%;
     }
         .login-form{
-            width:62%;
-            height:130%;
+            width:70%;
+            height:140%;
         }
         .login-svg{
             width:117;
             padding-left:0%;
         }
+        .forgot-button{
+            width:44%;
+        }
+        .login-button{
+            width:33%;
+        }
 }
 /*line between Mobile and Browser*/
 @media only screen and (min-width : 628px){
     .login-form{
-        height:135%;
+        height:138%;
         width:50%;
     }
     .top-text{
@@ -261,11 +296,10 @@ input {
         width:18%;
     }
 }
-/*ipad*/
 @media only screen and (min-width:668px){
     .login-form{
-        width: 50%;
-        height:130%;
+        width: 43%;
+        height:137%;
     }
     .login-button{
         width:42%;
@@ -276,7 +310,7 @@ input {
         margin-left:20%;
     }
     .logo-top-bar{
-        margin-top:6%;
+        margin-top:4%;
         height:66%;
         width:15%;
     }
@@ -284,54 +318,86 @@ input {
 }
 
 /*last laptop rez*/
-@media only screen and (min-width:769px) {
+@media only screen and (min-width:768px) {
     .login-form{
-        height:132%;
-        width:44%;
+        height:135%;
+        width:40%;
+    }
+    .top-text{
+        font-size:184%;
+        margin-top:4%;
+    }
+    .logo-top-bar {
+        margin-top: 2%;
+        width: 15%;
+    }
+}
+/*Ipad rez*/
+@media only screen and (height:1024px) {
+    .login-form{
+        height:107%;
+        width:59%;
     }
     .top-text{
         font-size:184%;
         margin-top:4%;
     }
     .logo-top-bar{
-        margin-top:4%;
+        margin-top:2%;
         width:15%;
     }
 }
+
 @media only screen and (min-width:920px) {
     .top-text{
     font-size: 180%;
     margin-top:4%;
     }
     .login-form{
-        height:132%;
-        width:36%;
+        height:137%;
+        width:34%;
     }
     .logo-top-bar{
-        margin-top:4%;
+        margin-top:2%;
         height:75%;
         width:13%;
+    }
+}
+/*ipad pro*/
+@media only screen and (height:1366px) {
+    .login-form{
+        height:87%;
+        width:47%;
+        margin-top:6%;
+    }
+    .top-text{
+        font-size:184%;
+        margin-top:4%;
+    }
+    .logo-top-bar{
+        margin-top:0%;
+        width:15%;
     }
 }
 /*rez initala laptop*/
 @media only screen and (min-width: 1100px) {
     .login-form {
         width: 31%;
-        height: 133%;
+        height: 140%;
     }
     .top-text{
         margin-top:2%;
     }
     .logo-top-bar{
         height:80%;
-        margin-top:2%;
+        margin-top:0%;
         width:13%;
     }
 }
 @media only screen and (min-width: 1350px) {
     .login-form{
         width:30%;
-        height:135%; 
+        height:142%;
         margin-top:2%;
     }
     .top-text{
@@ -340,5 +406,6 @@ input {
     .logo-top-bar{
         width:11%;
     }
+}
 }
     
