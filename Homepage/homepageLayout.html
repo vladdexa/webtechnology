@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Online Toys</title>
+    <link rel="stylesheet" href="homepageLayout.css">
+</head>
+<body>
+<div class="NavbarDiv">
+    <header class="Navbar">
+        <div class="NavbarInsideDiv">
+            <button
+                    class="NavbarMenuButton"
+                    tabindex="0"
+                    type="button"
+                    aria-label="open menu"
+            >
+      <span class="NavbarMenuButtonIcon">
+          <img
+                  class="NavbarMenuIcon"
+                  alt="MenuICON"
+                  src="menu.svg"
+          >
+      </span>
+            </button>
+            <img
+                    class="AppLogo"
+                    src="oto.png"
+                    alt="Online Toys"
+            >
+            <div class="MenuItems">
+                <a href="#home">Home</a>
+                <a href="#news">News</a>
+                <a href="#sale">Sale</a>
+            </div>
+            <div class="SearchBarDiv">
+                <div class="SearchDivIcon">
+                    <img class="SearchIcon" src="search.svg" alt="Search ICON">
+                </div>
+                <div class="SearchDivInput">
+                    <input
+                            class="SearchInput"
+                            placeholder="What are you looking for?"
+                            type="text"
+                            aria-label="search"
+                    >
+                </div>
+            </div>
+            <div class="UserActions">
+                <button
+                        class="UserActionsButton1"
+                        tabindex="0"
+                        type="button"
+                >
+                        <span class="MyAccountSpan">
+                            <img
+                                    class="MyActionsLogo"
+                                    src="user.png"
+                                    alt="User ICON"
+                            >
+                        </span>
+                    <span class="MyAccountButtonDropdown">My Account</span>
+                </button>
+
+                <div id="myDropdown" class="DropdownContent">
+                    <a href="#">Details</a>
+                    <a href="#">My Orders</a>
+                    <a href="#">Settings</a>
+                    <a href="#">Log out</a>
+                </div>
+                <button
+                    class="UserActionsButton2"
+                    tabindex="0"
+                    type="button"
+                    >
+                    <span>
+                        <img class="MyActionsLogo"
+                                src="shopping-bag.svg"
+                                alt="My Bag"
+                        >
+                    </span>
+                    <span class="MyBagButtonDropdown">My Shopping Bag</span>
+                </button>
+            </div>
+        </div>
+    </header>
+</div>
+</body>
+</html>
