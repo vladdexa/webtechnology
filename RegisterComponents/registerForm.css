@@ -3,19 +3,13 @@
     margin-left: 35%;
     margin-right: 2%;
     flex-flow: column wrap;
-    width: 25%;
-    height: 70%;
+    width: 27%;
+    height: 65%;
     border: 5px solid #6da1d826;
     border-radius: 6px;
     background-color: #4230154d;
     box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
-    margin-top: 10%;
-}
-
-.register-container {
-    display: flex;
-    flex-direction: column;
-    padding: 5% 5%;
+    margin-top: 12%;
 }
 
 .closeContainer {
@@ -53,24 +47,29 @@
     font-size: 1em;
     margin-bottom: 5px;
 }
-@media only screen and (min-width:320px){
+
+@media only screen and (min-width:320px) {
     .register-form {
         margin-left: 17%;
         margin-right: 2%;
         width: 75%;
         height: 72%;
-        margin-top:37%;
+        margin-top: 37%;
     }
 }
-@media only screen and (height:640px){
-    .register-form{
-        height:75%;
-        margin-top:38%;
+
+@media only screen and (height:640px) {
+    .register-form {
+        height: 75%;
+        margin-top: 38%;
     }
 }
+
+
 /*iphone 5/SE */
-@media only screen and (height:568px){
-    .register-form{
+
+@media only screen and (height:568px) {
+    .register-form {
         margin-left: 10%;
         margin-right: 2%;
         width: 77%;
@@ -79,47 +78,50 @@
     }
 }
 
+
 /* iphones 6-7-8 */
-@media only screen and (height:667px){
-    .register-form{
+
+@media only screen and (height:667px) {
+    .register-form {
         margin-left: 13%;
         margin-right: 2%;
         width: 77%;
         height: 71%
     }
 }
-@media only screen and (min-width:495px) {
 
-    .register-form{
-        margin-top:27%;
-        width:53%;
-        height:70%;
+@media only screen and (min-width:495px) {
+    .register-form {
+        margin-top: 27%;
+        width: 53%;
+        height: 70%;
         margin-left: 29%;
     }
 }
-@media only screen and (min-width:600px) {
 
-    .register-form{
-        margin-top:25%;
-        width:42%;
-        height:72%;
+@media only screen and (min-width:600px) {
+    .register-form {
+        margin-top: 25%;
+        width: 42%;
+        height: 72%;
         margin-left: 29%;
     }
 }
 
 @media only screen and (min-width:700px) {
-
-    .register-form{
-        margin-top:22%;
-        width:39%;
-        height:70%;
+    .register-form {
+        margin-top: 22%;
+        width: 39%;
+        height: 70%;
         margin-left: 29%;
     }
 }
-/* IPAD */
-@media only screen and (height:1024px) {
 
-    .register-form{
+
+/* IPAD */
+
+@media only screen and (height:1024px) {
+    .register-form {
         margin-top: 28%;
         width: 38%;
         height: 49%
@@ -127,26 +129,26 @@
 }
 
 @media only screen and (min-width:860px) {
-
-    .register-form{
-        margin-top:20%;
-        width:34%;
-        height:73%;
+    .register-form {
+        margin-top: 20%;
+        width: 34%;
+        height: 73%;
     }
 }
 
 @media only screen and (min-width:1000px) {
-
-    .register-form{
-        margin-top:15%;
-        width:30%;
-        height:73%;
+    .register-form {
+        margin-top: 15%;
+        width: 30%;
+        height: 73%;
     }
 }
-/* Ipad PRO */
-@media only screen and (height:1366px) {
 
-    .register-form{
+
+/* Ipad PRO */
+
+@media only screen and (height:1366px) {
+    .register-form {
         margin-top: 35%;
         width: 38%;
         height: 39%
@@ -154,20 +156,19 @@
 }
 
 @media only screen and (min-width:1200px) {
-
-    .register-form{
-        margin-top:12%;
-        width:26%;
-        height:72%;
-        margin-left:35%;
+    .register-form {
+        margin-top: 12%;
+        width: 26%;
+        height: 72%;
+        margin-left: 35%;
     }
 }
-@media only screen and (min-width:1340px) {
 
-    .register-form{
-        margin-top:12%;
-        width:26%;
-        height:75%;
-        margin-left:35%;
+@media only screen and (min-width:1340px) {
+    .register-form {
+        margin-top: 12%;
+        width: 26%;
+        height: 75%;
+        margin-left: 35%;
     }
 }
