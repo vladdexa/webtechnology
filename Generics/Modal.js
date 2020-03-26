@@ -1,10 +1,6 @@
 class Modal {
     constructor(type) {
         this.type = type;
-        this.registerButton = type === 'register' ?
-            document.getElementById('#registerButton')
-            :
-            document.getElementById('#forgotPassword');
         this.modal = document.createElement('div');
         this.modal.className = 'modal';
         this.modal.id = '#modal';
