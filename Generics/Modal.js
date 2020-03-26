@@ -15,20 +15,24 @@ class Modal {
     }
 
     async createModalContent() {
-        if (this.type === 'register') {
-            try {
-                await fetch('RegisterComponents/registerForm.html')
-                    .then((response) => response.text())
-                    .then((html) => {
-                        Promise.resolve(this.modal.innerHTML = html);
-                    })
-                    .catch((error) => {
-                        console.warn(error);
-                    });
-            } catch (e) {
-                throw new Error(e);
-            }
+        const registerHtmlPath = 'RegisterComponents/registerForm.html';
+        const forgotPasswordHtmlPath = 'ForgotPasswordComponent/forgotPasswordForm.html';
+
+        const fetchPath = this.type === 'register' ? registerHtmlPath : forgotPasswordHtmlPath;
+
+        try {
+            await fetch(fetchPath)
+                .then((response) => response.text())
+                .then((html) => {
+                    Promise.resolve(this.modal.innerHTML = html);
+                })
+                .catch((error) => {
+                    console.warn(error);
+                });
+        } catch (e) {
+            throw new Error(e);
         }
+
         document.body.append(this.modal);
     }
 
