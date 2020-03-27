@@ -274,6 +274,9 @@
     top: 2.4rem;
 }
 
+
+
+
 @media (min-width: 375px) and (max-width: 768px) {
 .AppLogo {
     max-width: 20%;
