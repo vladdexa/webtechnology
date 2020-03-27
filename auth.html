@@ -6,74 +6,57 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="auth.css">
     <link rel="stylesheet" href="Generics/modal.css">
-    <link rel="stylesheet" href="./RegisterComponents/registerForm.css">
     <script src="RegisterComponents/RegisterModalFunctions.js"></script>
     <script src="Generics/Modal.js"></script>
+    <script src="ForgotPasswordComponent/forgotPasswordFunctions.js"></script>
 </head>
 
 <body>
-<section class="top-side">
-    <div class="top-text">WELCOME TO ONLINE</div>
-    <img class="logo-top-bar" src="logo.png">
-</section>
+    <section class="top-side">
+        <div class="top-text">WELCOME TO ONLINE</div>
+        <img class="logo-top-bar" src="logo.png">
+    </section>
 
-<section class="auth-side" id="authSide">
-    <form class="login-form" id="#loginForm">
-        <div class="svg-container">
-            <img src="login-icon.png" class="login-svg">
-        </div>
-
-        <div class="login-container">
-            <div>
-                <label>Username</b></label>
-                <input
-                        placeholder="Enter Username"
-                        minlength="3"
-                        required
-                >
+    <section class="auth-side" id="authSide">
+        <form class="login-form" id="#loginForm">
+            <div class="svg-container">
+                <img src="login-icon.png" class="login-svg">
             </div>
 
-            <div>
-                <label>Password</b></label>
-                <input
-                        placeholder="Enter Password"
-                        minlength="6"
-                        required
-                        type="password"
-                >
+            <div class="login-container">
+                <div>
+                    <label>Username</b></label>
+                    <input placeholder="Enter Username" minlength="3" required>
+                </div>
+
+                <div>
+                    <label>Password</b></label>
+                    <input placeholder="Enter Password" minlength="6" required type="password">
+                </div>
+
             </div>
 
-        </div>
+            <div class="other-actions">
+                <button type="button" id="#forgotPassword" class="forgot-button" onclick="createForgotPasswordModal()">
+                    Forgot your password?
+                </button>
+                <button type="button" id="#registerButton" class="register-button" onclick="createRegisterModal()">
+                    Register
+                </button>
+            </div>
 
-        <div class="other-actions">
-            <button
-                    type="button"
-                    id="#forgotPassword"
-                    class="forgot-button"
-            >
-                Forgot your password?
-            </button>
-            <button
-                    type="button"
-                    id="#registerButton"
-                    class="register-button"
-                    onclick="createRegisterModal()">
-                Register
-            </button>
-        </div>
+            <div class="button-login">
+                <button type="submit" class="login-button">Login</button>
+            </div>
+        </form>
 
-        <div class="button-login">
-            <button type="submit" class="login-button">Login</button>
-        </div>
-    </form>
+    </section>
 
-</section>
+    <section class="bottom-side">
+        <footer>
 
-<section class="bottom-side">
-    <footer>
-
-    </footer>
-</section>
+        </footer>
+    </section>
 </body>
 
 </html>
