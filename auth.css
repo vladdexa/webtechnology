@@ -192,12 +192,27 @@ input {
     }
     .login-form{
         width:88%;
-        height:159%;
+        height:115%;
         margin-top:-2%;
     }
-    .login-svg{
-        width:117%;
-        padding-left:0%;
+    .login-button {
+        width: 35%;
+    }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size:14;
+    }
+    .login-svg {
+        height:70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
     }
 }
 @media only screen and (min-width : 375px) {
@@ -216,12 +231,62 @@ input {
         margin-top:10%;
     }
     .login-form{
-        width:82%;
-        height:137%;
+        width:75%;
+        height:119%;
+        margin-top:5%;
     }
-    .login-svg{
-        width:117%;
-        padding-left:0%;
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size:14;
+    }
+    .login-svg {
+        height:70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
+    }
+}
+@media only screen and (min-width : 500px) {
+    .top-text{
+        margin-top:14%;
+        margin-left:15%;
+        font-size:90%;
+    }
+    .logo-top-bar{
+        width:23%;
+        height:60%;
+        margin-left:2%;
+        margin-top:10%;
+    }
+    .logo-top-bar{
+        margin-top:10%;
+    }
+    .login-form{
+        width:63%;
+        height:119%;
+        margin-top:5%;
+    }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size:14;
+    }
+    .login-svg {
+        height:70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
     }
 }
 /*IphoneX*/
@@ -252,57 +317,15 @@ input {
 
 }
 /*mobileL*/
-@media only screen and (min-width : 425px){
 
-    .top-text{
-        font-size:90%;
-        margin-top:8%;
-        margin-left:20%;
-    }
-    .logo-top-bar{
-        margin-top:1%;
-        height:73%;
-        width:18%;
-    }
-        .login-form{
-            width:70%;
-            height:140%;
-        }
-        .login-svg{
-            width:117;
-            padding-left:0%;
-        }
-        .forgot-button{
-            width:44%;
-        }
-        .login-button{
-            width:33%;
-        }
-}
-/*line between Mobile and Browser*/
-@media only screen and (min-width : 628px){
+@media only screen and (min-width:643px){
     .login-form{
-        height:138%;
-        width:50%;
-    }
-    .top-text{
-        font-size:130%;
-        margin-top:8%;
-        margin-left:20%;
-    }
-    .logo-top-bar{
+        width: 45%;
+        height:113%;
         margin-top:5%;
-        height:73%;
-        width:18%;
-    }
-}
-@media only screen and (min-width:668px){
-    .login-form{
-        width: 43%;
-        height:137%;
     }
     .login-button{
-        width:42%;
+        width:32%;
     }
     .top-text{
         font-size:130%;
@@ -314,14 +337,30 @@ input {
         height:66%;
         width:15%;
     }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size:14;
+    }
+    .login-svg {
+        height:70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
+    }
 
 }
 
-/*last laptop rez*/
 @media only screen and (min-width:768px) {
     .login-form{
-        height:135%;
-        width:40%;
+        height:115%;
+        width:45%;
+        margin-top:5%;
     }
     .top-text{
         font-size:184%;
@@ -330,6 +369,22 @@ input {
     .logo-top-bar {
         margin-top: 2%;
         width: 15%;
+    }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size:14;
+    }
+    .login-svg {
+        height:70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
     }
 }
 /*Ipad rez*/
@@ -350,17 +405,34 @@ input {
 
 @media only screen and (min-width:920px) {
     .top-text{
-    font-size: 180%;
-    margin-top:4%;
+        font-size: 180%;
+        margin-top:4%;
     }
     .login-form{
-        height:137%;
+        height:120%;
         width:34%;
+        margin-top:5%;
     }
     .logo-top-bar{
         margin-top:2%;
         height:75%;
         width:13%;
+    }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size:14;
+    }
+    .login-svg {
+        height:70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
     }
 }
 /*ipad pro*/
@@ -383,7 +455,8 @@ input {
 @media only screen and (min-width: 1100px) {
     .login-form {
         width: 31%;
-        height: 140%;
+        height: 123%;
+        margin-top:1%;
     }
     .top-text{
         margin-top:2%;
@@ -393,12 +466,28 @@ input {
         margin-top:0%;
         width:13%;
     }
+    .other-actions {
+         display: flex;
+         flex-flow: row wrap;
+         justify-content: space-around;
+         margin-top: 6%;
+        font-size:14;
+     }
+    .login-svg {
+        height:70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
+    }
 }
 @media only screen and (min-width: 1350px) {
     .login-form{
-        width:30%;
-        height:142%;
-        margin-top:2%;
+        width:22%;
+        height:122%;
+        margin-top:1%;
     }
     .top-text{
         margin-left:35%;
@@ -406,6 +495,22 @@ input {
     .logo-top-bar{
         width:11%;
     }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size:14;
+    }
+    .login-svg {
+        height:70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
+    }
 }
-}
+
     
