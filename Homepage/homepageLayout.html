@@ -4,8 +4,13 @@
     <meta charset="UTF-8">
     <title>Online Toys</title>
     <link rel="stylesheet" href="homepageLayout.css">
+    <link rel="stylesheet" href="carousel.css">
+    <script src="../Generics/carousel.js"></script>
+    <script src="carousels.js"></script>
+
+
 </head>
-<body>
+<body onload="loadCarousels()">
 <div class="NavbarDiv">
     <header class="Navbar">
         <div class="NavbarInsideDiv">
@@ -85,5 +90,26 @@
         </div>
     </header>
 </div>
+
+
+
+<div class="carousel" >
+    <button class="left-btn" id="lbtn1"><i class="arrow"></i></button>
+    <button class="right-btn" id="rbtn1"><i class="arrow"></i></button>
+    <div class="container" id="ctn1"></div>
+</div>
+
+<div class="carousel" >
+    <button class="left-btn" id="lbtn2"><i class="arrow"></i></button>
+    <button class="right-btn" id="rbtn2"><i class="arrow"></i></button>
+    <div class="container" id="ctn2"></div>
+</div>
+
+<div class="carousel" >
+    <button class="left-btn" id="lbtn3"><i class="arrow"></i></button>
+    <button class="right-btn" id="rbtn3"><i class="arrow"></i></button>
+    <div class="container" id="ctn3"></div>
+</div>
+
 </body>
 </html>
