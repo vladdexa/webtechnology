@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="carousel.css">
     <script src="../Generics/carousel.js"></script>
     <script src="carousels.js"></script>
+    <script src="homepageFunctions.js"></script>
 
 
 </head>
@@ -38,17 +39,18 @@
                 <a href="#news">News</a>
                 <a href="#sale">Sale</a>
             </div>
-            <div class="SearchBarDiv">
+            <div class="SearchBarDiv" id="#SearchBar">
                 <div class="SearchDivIcon">
                     <img class="SearchIcon" src="search.svg" alt="Search ICON">
                 </div>
                 <div class="SearchDivInput">
-                    <input
-                            class="SearchInput"
-                            placeholder="What are you looking for?"
-                            type="text"
-                            aria-label="search"
-                    >
+                        <input
+                                class="SearchInput"
+                                placeholder="What are you looking for?"
+                                type="search"
+                                aria-label="search"
+                                id="#searchInput"
+                        >
                 </div>
             </div>
             <div class="UserActions">
@@ -74,14 +76,14 @@
                     <a href="#">Log out</a>
                 </div>
                 <button
-                    class="UserActionsButton2"
-                    tabindex="0"
-                    type="button"
-                    >
+                        class="UserActionsButton2"
+                        tabindex="0"
+                        type="button"
+                >
                     <span>
                         <img class="MyActionsLogo"
-                                src="shopping-bag.svg"
-                                alt="My Bag"
+                             src="shopping-bag.svg"
+                             alt="My Bag"
                         >
                     </span>
                     <span class="MyBagButtonDropdown">My Shopping Bag</span>
@@ -91,21 +93,19 @@
     </header>
 </div>
 
-
-
-<div class="carousel" >
+<div class="carousel">
     <button class="left-btn" id="lbtn1"><i class="arrow"></i></button>
     <button class="right-btn" id="rbtn1"><i class="arrow"></i></button>
     <div class="container" id="ctn1"></div>
 </div>
 
-<div class="carousel" >
+<div class="carousel">
     <button class="left-btn" id="lbtn2"><i class="arrow"></i></button>
     <button class="right-btn" id="rbtn2"><i class="arrow"></i></button>
     <div class="container" id="ctn2"></div>
 </div>
 
-<div class="carousel" >
+<div class="carousel">
     <button class="left-btn" id="lbtn3"><i class="arrow"></i></button>
     <button class="right-btn" id="rbtn3"><i class="arrow"></i></button>
     <div class="container" id="ctn3"></div>
