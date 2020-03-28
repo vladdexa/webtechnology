@@ -198,7 +198,7 @@
 }
 
 .DropdownContent {
-    display: block;
+    display: none;
     position: absolute;
     background-color: white;
     min-width: 10%;
@@ -212,7 +212,7 @@
     text-decoration: none;
     font-family: Waltograph, serif;
     font-size: 1.7rem;
-    display: none;
+    display: block;
 }
 
 .UserActionsButton1 {

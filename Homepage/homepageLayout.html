@@ -6,12 +6,11 @@
     <link rel="stylesheet" href="homepageLayout.css">
     <link rel="stylesheet" href="carousel.css">
     <script src="../Generics/carousel.js"></script>
-    <script src="carousels.js"></script>
     <script src="homepageFunctions.js"></script>
 
 
 </head>
-<body onload="loadCarousels()">
+<body onload="initialize()">
 <div class="NavbarDiv">
     <header class="Navbar">
         <div class="NavbarInsideDiv">
@@ -25,13 +24,13 @@
           <img
                   class="NavbarMenuIcon"
                   alt="MenuICON"
-                  src="menu.svg"
+                  src="NavbarImages/menu.svg"
           >
       </span>
             </button>
             <img
                     class="AppLogo"
-                    src="oto.png"
+                    src="NavbarImages/oto.png"
                     alt="Online Toys"
             >
             <div class="MenuItems">
@@ -41,7 +40,7 @@
             </div>
             <div class="SearchBarDiv" id="#SearchBar">
                 <div class="SearchDivIcon">
-                    <img class="SearchIcon" src="search.svg" alt="Search ICON">
+                    <img class="SearchIcon" src="NavbarImages/search.svg" alt="Search ICON">
                 </div>
                 <div class="SearchDivInput">
                         <input
@@ -58,11 +57,12 @@
                         class="UserActionsButton1"
                         tabindex="0"
                         type="button"
+                        id="dropdownTrigger"
                 >
                         <span class="MyAccountSpan">
                             <img
                                     class="MyActionsLogo"
-                                    src="user.png"
+                                    src="NavbarImages/user.png"
                                     alt="User ICON"
                             >
                         </span>
@@ -82,7 +82,7 @@
                 >
                     <span>
                         <img class="MyActionsLogo"
-                             src="shopping-bag.svg"
+                             src="NavbarImages/shopping-bag.svg"
                              alt="My Bag"
                         >
                     </span>
