@@ -35,7 +35,7 @@ class Carousel {
         try {
             slide.map(picture => {
                 let img = document.createElement('img');
-                img.src = picture;
+                img.src = `../Homepage/CarouselImages/${picture}`;
                 img.className = 'img';
                 cont.appendChild(img);
             })
