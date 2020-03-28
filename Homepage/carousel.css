@@ -1,35 +1,33 @@
 button {
     height: 10%;
-    border: none;
-    background: rgba(62, 43, 35, 0.82);
     cursor: pointer;
     padding: 1em;
+    background: white;
+    border: 0;
+    outline: none;
 }
 
-button .arrow {
-    border: solid #9a9174;
-    border-width: 0 4px 4px 0;
-    display: inline-block;
-    padding: 10px;
-}
 
 .right-btn {
     position: absolute;
     margin-top: 6%;
-    margin-left: 85.8%;
-}
-
-.right-btn .arrow {
-    transform: rotate(-45deg);
+    left: 87%;
+    width: 3rem;
 }
 
 .left-btn {
+    width: 3rem;
     position: absolute;
+    left: 8vw;
     margin-top: 6%;
 }
 
-.left-btn .arrow {
-    transform: rotate(135deg);
+.left-arrow {
+    width: 3rem;
+}
+
+.right-arrow {
+    width: 3rem;
 }
 
 .carousel {
@@ -37,8 +35,7 @@ button .arrow {
     width: 90%;
     height: 260px;
     /* margin-bottom: 20%; */
-    border: 3px solid #461d02a6;
-    background-color: #fb523b;
+    background-color: white;
     /* border-radius: 0%; */
     margin-left: 5%;
 }
@@ -50,19 +47,17 @@ button .arrow {
     margin-left: 10%;
     height: 100%;
     width: 80%;
-    background-color: #e4c6c6ed;
+    background-color: white;
     margin-top: 4%;
-    box-shadow: 2px 2px 11px 16px rgba(45, 31, 31, 0.75);
 }
-
 
 
 .img {
     width: 30%;
     height: 90%;
     margin-top: 1%;
+    border: black 2px;
     border-radius: 7%;
-    border: 1px solid #af1616;
     -webkit-transform: scale(1);
     transform: scale(1);
     -webkit-transition: .3s ease-in-out;
@@ -71,6 +66,7 @@ button .arrow {
 
 .img:hover {
     border-radius: 50%;
+    border: black 2px;
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
