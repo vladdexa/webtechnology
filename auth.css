@@ -215,7 +215,6 @@ input {
         padding: 0% 5%;
     }
 }
-
 @media only screen and (min-width : 500px) {
     .top-text{
         margin-top:14%;
@@ -253,7 +252,6 @@ input {
         padding: 0% 5%;
     }
 }
-
 @media only screen and (min-width:643px){
     .login-form{
         width: 45%;
@@ -291,7 +289,6 @@ input {
     }
 
 }
-
 @media only screen and (min-width:768px) {
     .login-form{
         height:126%;
@@ -323,7 +320,6 @@ input {
         padding: 0% 5%;
     }
 }
-
 @media only screen and (min-width:900px) {
     .top-text{
         font-size: 180%;
@@ -356,7 +352,6 @@ input {
         padding: 0% 5%;
     }
 }
-
 @media only screen and (min-width: 1100px) {
     .login-form {
         width: 31%;
@@ -388,7 +383,6 @@ input {
         padding: 0% 5%;
     }
 }
-
 @media only screen and (min-width: 1350px) {
     .login-form{
         width:22%;
@@ -445,7 +439,7 @@ input {
         padding-left:0%;
     }
 
-}
+} /*Mobile M */
 @media only screen and (height:1024px) {
     .login-form{
         height:107%;
@@ -459,7 +453,7 @@ input {
         margin-top:2%;
         width:15%;
     }
-}
+} /*Tableta 1 */
 @media only screen and (height:1366px) {
     .login-form{
         height:87%;
@@ -474,4 +468,4 @@ input {
         margin-top:0%;
         width:15%;
     }
-}
+} /*Tableta 2 */

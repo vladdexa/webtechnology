@@ -66,17 +66,6 @@
         margin-bottom: 20px;
     }
 }
-
-/*iphone X*/
-@media only screen and (height : 812px) {
-    .register-form
-    {
-        width:auto;
-        margin-left: -135px;
-        height:55%;
-    }
-}
-
 @media screen and (min-width: 600px) {
     .register-form {
         width: auto;
@@ -95,15 +84,6 @@
     }
 
 }
-
-@media screen and (height : 1024px){
-    .register-form {
-        width: auto;
-        height: 48%;
-        margin-top: -263px;
-    }
-}
-
 @media screen and (min-width:1000px) {
 
     .register-form {
@@ -119,30 +99,11 @@
         width:49%;
     }
 }
-
-@media screen and (height : 1366px){
-    .register-form {
-        width: auto;
-        height: 35%;
-        margin-top: -263px;
-
-    }
-    .login-container {
-        display: flex;
-        flex-direction: column;
-        padding: 6% 8%;
-    }
-    .login-form {
-        height: 81%;
-        width: 44%;
-        margin-top: 6%;
-    }
-}
 @media only screen and (min-width:1340px) {
     .register-form {
 
-        width: auto;
-        height: 62%;
+        width: max-content;
+        height: 58%;
 
         position: fixed;
         top: 50%;
@@ -151,6 +112,8 @@
         margin-left: -140px;
     }
 }
+
+
 @media screen and (min-height:640px){
     .register-form {
 
@@ -163,7 +126,7 @@
         margin-top: -200px;
         margin-left: -140px;
     }
-}
+} /*Rez laptop mic */
 @media screen and (min-height:720px){
     .register-form {
 
@@ -173,10 +136,60 @@
         position: fixed;
         top: 50%;
         left: 50%;
+        margin-top: -230px;
+        margin-left: -140px;
+    }
+} /*Rez laptop 2 */
+@media screen and (min-height:738px){
+    .register-form {
+
+        width: auto;
+        height: 60%;
+
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -230px;
+        margin-left: -140px;
+    }
+} /*Rez laptop 3 */
+
+
+@media only screen and (height : 812px) {
+    .register-form {
+        width: auto;
+        height: 59%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
         margin-top: -200px;
         margin-left: -140px;
     }
-}
+} /*Mobile m */
+@media only screen and (height: 1024px) {
+    .register-form {
+        width: 40%;
+        height: 47%;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        margin-top: -200px;
+        margin-left: -140px;
+    }
+} /* Tableta 1 */
+@media only screen and (height: 1366px) {
+    .register-form {
+        width: 37%;
+        height: 37%;
+        position: fixed;
+        top: 46%;
+        left: 50%;
+        margin-top: -200px;
+        margin-left: -188px;
+    }
+} /*Tableta 2*/
+
+
 
 
 
