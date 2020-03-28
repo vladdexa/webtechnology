@@ -16,15 +16,15 @@ function createCarousels() {
 
     const carousel1 = new Carousel(countainerCarousel1, leftButtonCarousel1, rightButtonCarousel1);
     carousel1.leftButton.addEventListener('click', carousel1.moveLeft);
-    carousel1.rightButton.addEventListener('click', carousel1.moveLeft);
+    carousel1.rightButton.addEventListener('click', carousel1.moveRight);
 
     const carousel2 = new Carousel(countainerCarousel2, leftButtonCarousel2, rightButtonCarousel2);
     carousel2.leftButton.addEventListener('click', carousel2.moveLeft);
-    carousel2.rightButton.addEventListener('click', carousel2.moveLeft);
+    carousel2.rightButton.addEventListener('click', carousel2.moveRight);
 
     const carousel3 = new Carousel(countainerCarousel3, leftButtonCarousel3, rightButtonCarousel3);
     carousel3.leftButton.addEventListener('click', carousel3.moveLeft);
-    carousel3.rightButton.addEventListener('click', carousel3.moveLeft);
+    carousel3.rightButton.addEventListener('click', carousel3.moveRight);
 
     return new Object({
         carousel1,
