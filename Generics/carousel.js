@@ -1,6 +1,6 @@
 
 /*momentan vom avea un set de date hardcodat si anume un array in care pun stringuri(denumiri ale imaginilor)*/
-let pictures = [
+const pictures = [
     ['bck2.jpg', 'bck3.jpg', 'bck6.jpg'],
     ['j1.jpg', 'j2.jpg', 'j3.jpg']
 ];
@@ -35,7 +35,7 @@ class Carousel {
         try {
             slide.map(picture => {
                 let img = document.createElement('img');
-                img.src = picture;
+                img.src = `../Homepage/CarouselImages/${picture}`;
                 img.className = 'img';
                 cont.appendChild(img);
             })
