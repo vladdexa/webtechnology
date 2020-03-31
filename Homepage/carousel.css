@@ -51,7 +51,6 @@ button {
     margin-top: 4%;
 }
 
-
 .img {
     width: 30%;
     height: 90%;
@@ -70,3 +69,32 @@ button {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
 }
+
+@media screen and (max-width:1271px) {
+    .container {
+        height: 80%;
+    }
+
+    .carousel {
+        margin-top: 6%;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .container{
+        height:71%;
+        margin-top:8%;
+        width:89%;
+        margin-left:4%;
+    }
+    .left-arrow{
+        width:2rem;
+        margin-left:-9vh;
+    }
+    .right-arrow {
+        width: 2rem;
+        margin-right:-9vh;
+    }
+
+}
+

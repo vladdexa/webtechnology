@@ -82,7 +82,7 @@
     float: left;
     color: black;
     text-align: center;
-    padding: 14px 16px;
+    padding: 5px 16px;
     text-decoration: none;
     font-size: 2rem;
     font-family: Waltograph, serif;
@@ -307,4 +307,58 @@
     color:white;
     width:100%;
     display:block;
+}
+
+@media (max-width:1600px){
+    .MenuItems a{
+            font-size:30px;
+    }
+    .MyAccountButtonDropdown{
+        font-size:25px;
+    }
+    .MyBagButtonDropdown{
+        font-size:25px;
+    }
+    .AppLogo{
+        margin-left:-1rem;
+    }
+    .inner_footer {
+
+    }
+    .NavbarInsideDiv{
+        left:1.5rem;
+    }
+    .SearchInput {
+        width:27ch;
+    }
+    .NavbarMenuIcon{
+        margin-left:-3rem;
+    }
+
+}
+
+@media (max-width:1200px){
+    .SearchInput{
+        width:23ch;
+        height:40px;
+    }
+    .MenuItems{
+        padding:5px 5px;
+    }
+    .UserActions{
+        width:14rem;
+    }
+    .NavbarInsideDiv{
+        left:0.5rem;
+    }
+    .NavbarMenuIcon{
+        margin-left:-3rem;
+    }
+    .MyActionsLogo{
+        margin-left:-20px;
+    }
+    .MyBagButtonDropdown{
+        margin-left:-60px;
+
+    }
 }
