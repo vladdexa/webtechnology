@@ -286,12 +286,6 @@
     z-index: 0;
 }
 
-.carouselContainer {
-    position: absolute;
-    margin-top: 3rem;
-    top: 90%;
-}
-
 @media (max-width: 1385px) {
     .AppLogo {
         max-width: 20%;
