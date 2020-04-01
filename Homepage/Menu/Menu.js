@@ -5,20 +5,18 @@ class Menu {
 
     async getItems () {
         try{
-            await fetch('Menu/menuItems.json')
-                .then(response => {
-                    return response.json()
-                })
-                .then(data => {
-                    this.items = data.Items;
-                })
+           const response =  await fetch('Menu/menuItems.json');
+
+           const data = await response.json();
+
+           this.items = data.Items;
         } catch (e) {
             throw e;
         }
     }
 
     async buildMenu() {
-       await  this.getItems();
+       await this.getItems();
 
         const div = document.getElementById('#menuContainer');
         const ul = document.createElement('ul');
