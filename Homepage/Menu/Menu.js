@@ -5,7 +5,6 @@ class Menu {
 
     async getItems () {
         try{
-            let i = 0;
             await fetch('Menu/menuItems.json')
                 .then(response => {
                     return response.json()
