@@ -1,0 +1,279 @@
+{
+  "Items": [
+    {
+      "Gaming": [
+        {
+          "Subcategory": "Console Gaming",
+          "List": [
+            "Playstation",
+            "Xbox",
+            "Nintendo"
+          ]
+        },
+        {
+          "Subcategory": "Gaming Accessories",
+          "List": [
+            "VR Gaming",
+            "Gamepads/Controllers"
+          ]
+        },
+        {
+          "Subcategory": "Console & PC Games",
+          "List": [
+            "Playstation",
+            "Xbox",
+            "Nintendo",
+            "PC"
+          ]
+        }
+      ]
+    },
+    {
+      "Action Figures": [
+        {
+          "Subcategory": "Funko Pop Collectibles",
+          "List": [
+            "Marvel",
+            "Games",
+            "Movie",
+            "StarWars",
+            "Sports"
+          ]
+        },
+        {
+          "Subcategory": "Preschool Action Figures & Playsets",
+          "List": [
+            "Scooby-Doo",
+            "Toy-Story",
+            "Jurassic World",
+            "Marvel",
+            "Transformers",
+            "Sport"
+          ]
+        },
+        {
+          "Subcategory": "Bobble Heads",
+          "List": [
+            "StarWars",
+            "Marvel",
+            "Wrestling",
+            "Animation"
+          ]
+        },
+        {
+          "Subcategory": "Treasure X Action Figures",
+          "List": [
+            "Moose Toys",
+            "Treasure X"
+          ]
+        }
+      ]
+    },
+    {
+      "Games & Puzzles": [
+        {
+          "Subcategory": "Classic Games",
+          "List": [
+            "Trouble",
+            "UNO",
+            "Monopoly",
+            "Sorry"
+          ]
+        },
+        {
+          "Subcategory": "Board Games",
+          "List": [
+            "Skill & Action Games",
+            "Strategy Games",
+            "Party Games",
+            "Kids & Family Games"
+          ]
+        },
+        {
+          "Subcategory": "Puzzles",
+          "List": [
+            "Departments",
+            " Jigsaw Puzzles",
+            "1000 Piece Jigsaws",
+            "Kids Puzzles",
+            "Puzzles by Brand",
+            "Wood Puzzles"
+          ]
+        }
+      ]
+    },
+    {
+      "Outdoor Plays": [
+        {
+          "Subcategory": "Ball Pits",
+          "List": [
+            " 0 to 12 Months",
+            " 12 to 24 Months",
+            " 2 to 4 Years",
+            " 5 to 7 Years",
+            " 8 to 11 Years",
+            " 4 & Under"
+          ]
+        },
+        {
+          "Subcategory": "NERF and Blaster Toys",
+          "List": [
+            "Foam Blasters",
+            "Laser Tag",
+            "Blaster Accessories"
+          ]
+        },
+        {
+          "Subcategory": "Sport Toys",
+          "List": [
+            "Baseball Toys",
+            "Basketball Toys",
+            "Soccer Toys",
+            "Toy Bowling",
+            "Hula Hoops",
+            "Sleds",
+            "Toy Balls"
+          ]
+        }
+      ]
+    },
+    {
+      "Gaming": [
+        {
+          "Subcategory": "Console Gaming",
+          "List": [
+            "Playstation",
+            "Xbox",
+            "Nintendo"
+          ]
+        },
+        {
+          "Subcategory": "Gaming Accessories",
+          "List": [
+            "VR Gaming",
+            "Gamepads/Controllers"
+          ]
+        },
+        {
+          "Subcategory": "Console & PC Games",
+          "List": [
+            "Playstation",
+            "Xbox",
+            "Nintendo",
+            "PC"
+          ]
+        }
+      ]
+    },
+    {
+      "Action Figures": [
+        {
+          "Subcategory": "Funko Pop Collectibles",
+          "List": [
+            "Marvel",
+            "Games",
+            "Movie",
+            "StarWars",
+            "Sports"
+          ]
+        },
+        {
+          "Subcategory": "Preschool Action Figures & Playsets",
+          "List": [
+            "Scooby-Doo",
+            "Toy-Story",
+            "Jurassic World",
+            "Marvel",
+            "Transformers",
+            "Sport"
+          ]
+        },
+        {
+          "Subcategory": "Bobble Heads",
+          "List": [
+            "StarWars",
+            "Marvel",
+            "Wrestling",
+            "Animation"
+          ]
+        },
+        {
+          "Subcategory": "Treasure X Action Figures",
+          "List": [
+            "Moose Toys",
+            "Treasure X"
+          ]
+        }
+      ]
+    },
+    {
+      "Games & Puzzles": [
+        {
+          "Subcategory": "Classic Games",
+          "List": [
+            "Trouble",
+            "UNO",
+            "Monopoly",
+            "Sorry"
+          ]
+        },
+        {
+          "Subcategory": "Board Games",
+          "List": [
+            "Skill & Action Games",
+            "Strategy Games",
+            "Party Games",
+            "Kids & Family Games"
+          ]
+        },
+        {
+          "Subcategory": "Puzzles",
+          "List": [
+            "Departments",
+            " Jigsaw Puzzles",
+            "1000 Piece Jigsaws",
+            "Kids Puzzles",
+            "Puzzles by Brand",
+            "Wood Puzzles"
+          ]
+        }
+      ]
+    },
+    {
+      "Outdoor Plays": [
+        {
+          "Subcategory": "Ball Pits",
+          "List": [
+            " 0 to 12 Months",
+            " 12 to 24 Months",
+            " 2 to 4 Years",
+            " 5 to 7 Years",
+            " 8 to 11 Years",
+            " 4 & Under"
+          ]
+        },
+        {
+          "Subcategory": "NERF and Blaster Toys",
+          "List": [
+            "Foam Blasters",
+            "Laser Tag",
+            "Blaster Accessories"
+          ]
+        },
+        {
+          "Subcategory": "Sport Toys",
+          "List": [
+            "Baseball Toys",
+            "Basketball Toys",
+            "Soccer Toys",
+            "Toy Bowling",
+            "Hula Hoops",
+            "Sleds",
+            "Toy Balls"
+          ]
+        }
+      ]
+    }
+  ]
+}
+

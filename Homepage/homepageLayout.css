@@ -3,6 +3,12 @@
     src: url("../Fonts/waltograph42.otf");
 }
 
+@font-face {
+    font-family: Junior;
+    src: url("../Fonts/Junior-Bold.otf");
+}
+
+
 .NavbarDiv {
     flex-grow: 1;
     display: block;
@@ -34,7 +40,6 @@
 
 .NavbarTitle {
     font-size: 1.25rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 0.0075em;
@@ -257,7 +262,7 @@
     justify-content: center;
     text-decoration: none;
     background-color: transparent;
-    left:3rem;
+    left: 3rem;
     width: 10rem;
 }
 
@@ -272,30 +277,48 @@
     top: 2.4rem;
 }
 
+.AdImage {
+    width: 80%;
+    position: absolute;
+    left: 10%;
+    margin-top: 2rem;
+    top: 15%;
+    z-index: 0;
+}
 
-
+.carouselContainer {
+    position: absolute;
+    margin-top: 3rem;
+    top: 90%;
+}
 
 @media (max-width: 1385px) {
-.AppLogo {
-    max-width: 20%;
-    min-width: 20%;
-}
+    .AppLogo {
+        max-width: 20%;
+        min-width: 20%;
+    }
+
     .MenuItems a {
         font-size: 3rem;
         margin-right: 1rem;
     }
+
     .SearchInput {
         width: 25ch;
     }
-    .UserActions{
+
+    .UserActions {
         font-size: 2rem;
     }
-    .NavbarDiv{
+
+    .NavbarDiv {
         min-width: max-content;
     }
+
     .Navbar {
         min-width: max-content;
     }
+
     .NavbarInsideDiv {
         min-width: max-content;
     }
