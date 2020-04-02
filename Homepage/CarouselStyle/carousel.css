@@ -1,3 +1,26 @@
+@font-face {
+    font-family: Junior;
+    src: url("../../Fonts/Junior-Bold.otf");
+}
+
+.carouselContainer {
+    position: absolute;
+    margin-top: 3rem;
+    top: 90%;
+}
+
+.carouselHeader{
+    padding: 2rem 2rem 0 2rem;
+    margin-left: 3rem;
+}
+
+.carouselTitle {
+    font-family: Junior, serif;
+    font-size: 2.125rem;
+    margin-left: 3rem;
+}
+
+
 button {
     height: 10%;
     cursor: pointer;
@@ -31,7 +54,6 @@ button {
 }
 
 .carousel {
-    margin-top: 5%;
     width: 90%;
     height: 260px;
     /* margin-bottom: 20%; */
@@ -48,7 +70,7 @@ button {
     height: 100%;
     width: 80%;
     background-color: white;
-    margin-top: 4%;
+    margin-top: 1rem;
 }
 
 
