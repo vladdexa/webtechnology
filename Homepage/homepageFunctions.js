@@ -1,5 +1,8 @@
 /*implementam functia pentru crearea caruselelor si punem pe butoanele de left si
 right un eventListener care va apela metodele din clasa Carousel pentru fiecare carusel in parte*/
+
+import { loadFooter } from "../Generics/Footer/footer.js";
+
 function createCarousels() {
     /*cu acesti paramestri vom stoca id-urile necesare fiecarui carusel in parte*/
     const countainerCarousel1 = 'ctn1';
@@ -37,7 +40,7 @@ function createCarousels() {
 /*aici implementam functia care va face load la carusele in body*/
 function loadCarousels() {
     const carousels = createCarousels();
-    const {carousel1, carousel2, carousel3} = carousels;
+    const { carousel1, carousel2, carousel3 } = carousels;
     carousel1.loadImages(0);
     carousel2.loadImages(0);
     carousel3.loadImages(0);
@@ -45,7 +48,11 @@ function loadCarousels() {
 }
 
 async function initialize() {
+    const htmlFooterPath = '../Generics/Footer/footer.html';
+    const idFooterContainer = '#footer-container';
+
     loadCarousels();
+    await loadFooter(idFooterContainer, htmlFooterPath);
 
     const inputSearch = document.getElementById('#searchInput');
 
@@ -65,9 +72,9 @@ async function initialize() {
 
     document.addEventListener('click', (event) => {
 
-        (button.contains(event.target) || dropdown.contains(event.target))
-            ? (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay')
-            : (dropdown.style.display = 'none');
+        (button.contains(event.target) || dropdown.contains(event.target)) ?
+        (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay') :
+        (dropdown.style.display = 'none');
     });
 
     document.addEventListener('keyup', (event) => {
@@ -103,3 +110,4 @@ async function initialize() {
 
 
 
+document.getElementById('#body').addEventListener('load', initialize());

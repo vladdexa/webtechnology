@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Online Toys</title>
@@ -8,21 +9,19 @@
     <link rel="stylesheet" href="CarouselStyle/carousel.css">
     <link rel="stylesheet" href="Menu/menu.css">
     <script src="../Generics/carousel.js"></script>
-    <script src="homepageFunctions.js"></script>
+    <script type="module" src="homepageFunctions.js"></script>
     <script src="Menu/Menu.js"></script>
+    <link rel="stylesheet" href="../Generics/Footer/footer.css">
+
 
 
 </head>
-<body onload="initialize()">
-<div class="NavbarDiv">
-    <header class="Navbar">
-        <div class="NavbarInsideDiv">
-            <button
-                    class="NavbarMenuButton"
-                    tabindex="0"
-                    type="button"
-                    aria-label="open menu"
-            >
+
+<body id="#body">
+    <div class="NavbarDiv">
+        <header class="Navbar">
+            <div class="NavbarInsideDiv">
+                <button class="NavbarMenuButton" tabindex="0" type="button" aria-label="open menu">
       <span class="NavbarMenuButtonIcon">
           <img
                   class="NavbarMenuIcon"
@@ -32,37 +31,22 @@
           >
       </span>
             </button>
-            <img
-                    class="AppLogo"
-                    src="NavbarImages/oto.png"
-                    alt="Online Toys"
-            >
-            <div class="MenuItems">
-                <a href="#home">Home</a>
-                <a href="#news">News</a>
-                <a href="#sale">Sale</a>
-            </div>
-            <div class="SearchBarDiv" id="#SearchBar">
-                <div class="SearchDivIcon">
-                    <img class="SearchIcon" src="NavbarImages/search.svg" alt="Search ICON">
+                <img class="AppLogo" src="NavbarImages/oto.png" alt="Online Toys">
+                <div class="MenuItems">
+                    <a href="#home">Home</a>
+                    <a href="#news">News</a>
+                    <a href="#sale">Sale</a>
                 </div>
-                <div class="SearchDivInput">
-                    <input
-                            class="SearchInput"
-                            placeholder="What are you looking for?"
-                            type="search"
-                            aria-label="search"
-                            id="#searchInput"
-                    >
+                <div class="SearchBarDiv" id="#SearchBar">
+                    <div class="SearchDivIcon">
+                        <img class="SearchIcon" src="NavbarImages/search.svg" alt="Search ICON">
+                    </div>
+                    <div class="SearchDivInput">
+                        <input class="SearchInput" placeholder="What are you looking for?" type="search" aria-label="search" id="#searchInput">
+                    </div>
                 </div>
-            </div>
-            <div class="UserActions">
-                <button
-                        class="UserActionsButton1"
-                        tabindex="0"
-                        type="button"
-                        id="dropdownTrigger"
-                >
+                <div class="UserActions">
+                    <button class="UserActionsButton1" tabindex="0" type="button" id="dropdownTrigger">
                         <span class="MyAccountSpan">
                             <img
                                     class="MyActionsLogo"
@@ -73,17 +57,13 @@
                     <span class="MyAccountButtonDropdown">My Account</span>
                 </button>
 
-                <div id="myDropdown" class="DropdownContent">
-                    <a href="#">Details</a>
-                    <a href="#">My Orders</a>
-                    <a href="#">Settings</a>
-                    <a href="#">Log out</a>
-                </div>
-                <button
-                        class="UserActionsButton2"
-                        tabindex="0"
-                        type="button"
-                >
+                    <div id="myDropdown" class="DropdownContent">
+                        <a href="#">Details</a>
+                        <a href="#">My Orders</a>
+                        <a href="#">Settings</a>
+                        <a href="#">Log out</a>
+                    </div>
+                    <button class="UserActionsButton2" tabindex="0" type="button">
                     <span>
                         <img class="MyActionsLogo"
                              src="NavbarImages/shopping-bag.svg"
@@ -92,109 +72,78 @@
                     </span>
                     <span class="MyBagButtonDropdown">My Shopping Bag</span>
                 </button>
+                </div>
             </div>
+        </header>
+    </div>
+
+    <div class="MenuContainer" id="#menuContainer">
+
+    </div>
+
+    <div class="AdContainer">
+        <img class="AdImage" src="NavbarImages/poster3.jpg" alt="Ad" id="#Ad">
+    </div>
+
+    <div class="carouselContainer">
+        <div class="carouselHeader">
+            <h1 class="carouselTitle"> LATEST on GAMING</h1>
         </div>
-    </header>
-</div>
-
-<div class="MenuContainer" id="#menuContainer">
-
-</div>
-
-<div class="AdContainer">
-    <img
-            class="AdImage"
-            src="NavbarImages/poster3.jpg"
-            alt="Ad"
-            id="#Ad"
-    >
-</div>
-
-<div class="carouselContainer">
-    <div class="carouselHeader">
-        <h1 class="carouselTitle"> LATEST on GAMING</h1>
-    </div>
-    <div class="carousel">
-        <button class="left-btn" id="lbtn1">
+        <div class="carousel">
+            <button class="left-btn" id="lbtn1">
             <img
                     class="left-arrow"
                     src="CarouselStyle/left.svg"
             >
         </button>
 
-        <button class="right-btn" id="rbtn1">
+            <button class="right-btn" id="rbtn1">
             <img class="right-arrow"
                  src="CarouselStyle/right.svg"
             >
         </button>
-        <div class="container" id="ctn1"></div>
-    </div>
-
-    <div class="carouselHeader">
-        <h1 class="carouselTitle"> LATEST on OUTDOOR PLAYS</h1>
-    </div>
-    <div class="carousel">
-        <button class="left-btn" id="lbtn2">
-            <img
-                    class="left-arrow"
-                    src="CarouselStyle/left.svg"
-            >
-        </button>
-        <button class="right-btn" id="rbtn2">
-            <img class="right-arrow"
-                 src="CarouselStyle/right.svg"
-            >
-        </button>
-        <div class="container" id="ctn2"></div>
-    </div>
-
-    <div class="carouselHeader">
-        <h1 class="carouselTitle"> LATEST on SPORTS TOYS</h1>
-    </div>
-    <div class="carousel">
-        <button class="left-btn" id="lbtn3">
-            <img
-                    class="left-arrow"
-                    src="CarouselStyle/left.svg"
-            >
-        </button>
-        <button class="right-btn" id="rbtn3">
-            <img class="right-arrow"
-                 src="CarouselStyle/right.svg"
-            >
-        </button>
-        <div class="container" id="ctn3"></div>
-    </div>
-
-</div>
-<section class="bottom-side">
-    <footer>
-        <div class="inner_footer">
-            <div class="footer_third">
-                <h1>Follow Us</h1>
-                <a href="#" class="facebook"><i class="fa fa-facebook">     Facebook</i></a>
-                <a href="#" class="twitter"><i class="fa fa-twitter">    Twitter</i></a>
-                <a href="#" class="instagram"><i class="fa fa-instagram">       Instagram</i></a>
-            </div>
-            <div class="footer_third">
-                <h2>Contact Us</h2>
-                <a >EMAIL : info@mywebsite.com</a>
-                <a >GMAIL : info@gmail.com</a>
-                <a >PHONE : 123-456-789</a>
-
-            </div>
-            <div class="footer_third">
-                <h3>About Us</h3>
-                <a>This is a web application that manages collections of toys.
-                    The system offers support for the purchase of these toys, plus user management. </a>
-            </div>
-            <div class="footer_third">
-                <h4></h4>
-                <b>Copyright © 2020 Web Technology project A7</b>
-            </div>
+            <div class="container" id="ctn1"></div>
         </div>
-    </footer>
-</section>
+
+        <div class="carouselHeader">
+            <h1 class="carouselTitle"> LATEST on OUTDOOR PLAYS</h1>
+        </div>
+        <div class="carousel">
+            <button class="left-btn" id="lbtn2">
+            <img
+                    class="left-arrow"
+                    src="CarouselStyle/left.svg"
+            >
+        </button>
+            <button class="right-btn" id="rbtn2">
+            <img class="right-arrow"
+                 src="CarouselStyle/right.svg"
+            >
+        </button>
+            <div class="container" id="ctn2"></div>
+        </div>
+
+        <div class="carouselHeader">
+            <h1 class="carouselTitle"> LATEST on SPORTS TOYS</h1>
+        </div>
+        <div class="carousel">
+            <button class="left-btn" id="lbtn3">
+            <img
+                    class="left-arrow"
+                    src="CarouselStyle/left.svg"
+            >
+        </button>
+            <button class="right-btn" id="rbtn3">
+            <img class="right-arrow"
+                 src="CarouselStyle/right.svg"
+            >
+        </button>
+            <div class="container" id="ctn3"></div>
+        </div>
+
+        <div class="footer-container" id="#footer-container"></div>
+
 
 </body>
+
 </html>
