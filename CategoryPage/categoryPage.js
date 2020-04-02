@@ -24,14 +24,14 @@
  }
 
  const loadFooter = async() => {
-     const footerContainer= document.getElementById('#footer-container');
+     const footerContainer = document.getElementById('#footer-container');
      const footerPath = '../Generics/footer.html';
 
      try {
          await fetch(footerPath)
              .then(response => response.text())
              .then(html => {
-                 footerContainer.innerHTML=html;
+                 footerContainer.innerHTML = html;
 
              })
              .catch(error => {
@@ -42,7 +42,8 @@
          throw new Error(e);
      }
  }
-    function load (){
-        loadCards(5);
-        loadFooter();
-    }
+
+ function load() {
+     loadCards(9);
+     loadFooter();
+ }
