@@ -1,9 +1,9 @@
 /*implementam functia pentru crearea caruselelor si punem pe butoanele de left si
 right un eventListener care va apela metodele din clasa Carousel pentru fiecare carusel in parte*/
-'use strict';
+
 import initializeNavbar from "../Generics/Navbar/navbar.js";
 
-const  createCarousels = () => {
+const createCarousels = () => {
     /*cu acesti paramestri vom stoca id-urile necesare fiecarui carusel in parte*/
     const countainerCarousel1 = 'ctn1';
     const leftButtonCarousel1 = 'lbtn1';
@@ -38,7 +38,7 @@ const  createCarousels = () => {
 
 
 /*aici implementam functia care va face load la carusele in body*/
-const  loadCarousels = ()=> {
+const loadCarousels = () => {
     const carousels = createCarousels();
     const {carousel1, carousel2, carousel3} = carousels;
     carousel1.loadImages(0);
@@ -63,12 +63,14 @@ const loadNavbar = async () => {
 
 };
 
-const initializePage = async () => {
+const initialize = async () => {
 
     await loadNavbar();
     await initializeNavbar();
     loadCarousels();
 };
+document.getElementById('#body').addEventListener('load',initialize());
 
-export default initializePage();
+
+
 

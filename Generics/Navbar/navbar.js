@@ -1,4 +1,3 @@
-'use strict';
 const initilizeSearch = () => {
     const inputSearch = document.getElementById('#searchInput');
 
