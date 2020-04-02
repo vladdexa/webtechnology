@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <title>Online Toys</title>
     <link rel="stylesheet" href="homepageLayout.css">
-    <link rel="stylesheet" href="carousel.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CarouselStyle/carousel.css">
+    <link rel="stylesheet" href="Menu/menu.css">
     <script src="../Generics/carousel.js"></script>
     <script src="homepageFunctions.js"></script>
+    <script src="Menu/Menu.js"></script>
 
 
 </head>
@@ -26,6 +28,7 @@
                   class="NavbarMenuIcon"
                   alt="MenuICON"
                   src="NavbarImages/menu.svg"
+                  id="#menuButton"
           >
       </span>
             </button>
@@ -93,50 +96,76 @@
         </div>
     </header>
 </div>
-<div class="carousel">
-    <button class="left-btn" id="lbtn1">
-        <img
-                class="left-arrow"
-                src="CarouselStyle/left.svg"
-        >
-    </button>
 
-    <button class="right-btn" id="rbtn1">
-        <img class="right-arrow"
-             src="CarouselStyle/right.svg"
-        >
-    </button>
-    <div class="container" id="ctn1"></div>
+<div class="MenuContainer" id="#menuContainer">
+
 </div>
 
-<div class="carousel">
-    <button class="left-btn" id="lbtn2">
-        <img
-                class="left-arrow"
-                src="CarouselStyle/left.svg"
-        >
-    </button>
-    <button class="right-btn" id="rbtn2">
-        <img class="right-arrow"
-             src="CarouselStyle/right.svg"
-        >
-    </button>
-    <div class="container" id="ctn2"></div>
+<div class="AdContainer">
+    <img
+            class="AdImage"
+            src="NavbarImages/poster3.jpg"
+            alt="Ad"
+            id="#Ad"
+    >
 </div>
 
-<div class="carousel">
-    <button class="left-btn" id="lbtn3">
-        <img
-                class="left-arrow"
-                src="CarouselStyle/left.svg"
-        >
-    </button>
-    <button class="right-btn" id="rbtn3">
-        <img class="right-arrow"
-             src="CarouselStyle/right.svg"
-        >
-    </button>
-    <div class="container" id="ctn3"></div>
+<div class="carouselContainer">
+    <div class="carouselHeader">
+        <h1 class="carouselTitle"> LATEST on GAMING</h1>
+    </div>
+    <div class="carousel">
+        <button class="left-btn" id="lbtn1">
+            <img
+                    class="left-arrow"
+                    src="CarouselStyle/left.svg"
+            >
+        </button>
+
+        <button class="right-btn" id="rbtn1">
+            <img class="right-arrow"
+                 src="CarouselStyle/right.svg"
+            >
+        </button>
+        <div class="container" id="ctn1"></div>
+    </div>
+
+    <div class="carouselHeader">
+        <h1 class="carouselTitle"> LATEST on OUTDOOR PLAYS</h1>
+    </div>
+    <div class="carousel">
+        <button class="left-btn" id="lbtn2">
+            <img
+                    class="left-arrow"
+                    src="CarouselStyle/left.svg"
+            >
+        </button>
+        <button class="right-btn" id="rbtn2">
+            <img class="right-arrow"
+                 src="CarouselStyle/right.svg"
+            >
+        </button>
+        <div class="container" id="ctn2"></div>
+    </div>
+
+    <div class="carouselHeader">
+        <h1 class="carouselTitle"> LATEST on SPORTS TOYS</h1>
+    </div>
+    <div class="carousel">
+        <button class="left-btn" id="lbtn3">
+            <img
+                    class="left-arrow"
+                    src="CarouselStyle/left.svg"
+            >
+        </button>
+        <button class="right-btn" id="rbtn3">
+            <img class="right-arrow"
+                 src="CarouselStyle/right.svg"
+            >
+        </button>
+        <div class="container" id="ctn3"></div>
+    </div>
+
 </div>
 <section class="bottom-side">
     <footer>

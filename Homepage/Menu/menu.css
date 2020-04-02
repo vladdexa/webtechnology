@@ -1,0 +1,172 @@
+@font-face {
+    font-family: Junior;
+    src: url("../../Fonts/Junior-Bold.otf");
+}
+
+.MenuContainer {
+    font: bold 1.7rem Junior, serif;
+    position: relative;
+    width: 20%;
+    margin-left: 2.5rem;
+    display: none;
+}
+
+/* MenuContainer Top Level  */
+.MenuContainer ul {
+    z-index: 100;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    list-style: none;
+}
+
+/*  Top level items list*/
+.MenuContainer ul li {
+    position: relative;
+    border: 2px black;
+}
+
+/* Top level  items */
+.MenuContainer ul li a, .MenuContainer ul li span {
+    display: block;
+    position: relative;
+    background: white;
+    color: black;
+    padding: 14px 10px;
+    text-decoration: none;
+}
+
+.MenuContainer ul li a:link, .MenuContainer ul li a:visited {
+    color: black;
+}
+
+/* On hover Top Level */
+.MenuContainer ul li:hover > a {
+    background: #d0e1eb;
+}
+
+/* subList level Container */
+.MenuContainer ul li ul {
+    position: absolute;
+    left: -5000px;
+    top: 0;
+    opacity: 0;
+    width: 230px;
+    visibility: hidden;
+    box-shadow: 2px 2px 5px gray;
+    -webkit-transition: opacity .3s, visibility 0s .3s, left 0s .3s;
+    transition: opacity .3s, visibility 0s .3s, left 0s .3s;
+}
+
+/* on hover subList */
+.MenuContainer ul li:hover > ul {
+    visibility: visible;
+    left: 100%;
+    opacity: 1;
+    -webkit-transition: opacity .5s;
+    transition: opacity .5s;
+}
+
+/* subLevel Menu list items  */
+.MenuContainer ul li ul li {
+    display: list-item;
+    float: none;
+}
+
+.MenuContainer ul li ul li ul {
+    top: 0;
+    left: 100%;
+}
+
+/* Sub Levels link style on hover and when active */
+.MenuContainer ul ul li:hover > a {
+    background: #d0e1eb;
+}
+
+/* Sub Levels UL style on hover */
+.MenuContainer ul ul li:hover > ul {
+    left: 100%;
+}
+
+/* Sub Levels menu links style */
+.MenuContainer ul li ul li a {
+    font: 1.3rem Junior, serif;
+    padding: 10px;
+    margin: 0;
+    background: white;
+    border-right: none;
+    border-top-width: 0;
+}
+
+/* Nested LI */
+.MenuContainer ul li > a {
+    padding-right: 25px;
+}
+
+/* LI Simple */
+.MenuContainer ul li > a:only-child {
+
+    padding-right: 10px;
+}
+
+/* LIs with a sub UL pseudo class  */
+.MenuContainer ul li > a:after {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 0;
+    border: 5px solid transparent;
+    border-left-color: rgba(0, 0, 0, 0.98);
+    top: 40%;
+    right: 8px;
+}
+
+/* LIs with NO sub UL pseudo class */
+.MenuContainer ul li > a:only-child:after {
+    display: none;
+}
+
+
+@media (max-width: 923px) {
+
+    .MenuContainer ul li:nth-last-of-type(-n+1) ul li:hover > ul {
+        left: -100%;
+    }
+}
+
+@media (max-width: 500px) {
+
+    .MenuContainer {
+        width: 100%;
+    }
+
+    .MenuContainer ul li > a:after {
+        content: "";
+        position: absolute;
+        height: 0;
+        width: 0;
+        border: 5px solid transparent;
+        border-left-color: transparent;
+        border-top-color: #fff;
+        top: 40%;
+        right: 8px;
+    }
+
+    .MenuContainer ul li {
+        position: static;
+    }
+
+    .MenuContainer ul li ul {
+        width: 100%;
+        border-top: 2px solid rgba(0, 0, 0, .6);
+        display: none;
+    }
+
+    .MenuContainer ul li:hover > ul {
+        display: block;
+        left: 0 !important;
+        top: auto;
+        box-shadow: 0 0 12px gray;
+    }
+
+}

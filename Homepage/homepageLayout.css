@@ -3,6 +3,12 @@
     src: url("../Fonts/waltograph42.otf");
 }
 
+@font-face {
+    font-family: Junior;
+    src: url("../Fonts/Junior-Bold.otf");
+}
+
+
 .NavbarDiv {
     flex-grow: 1;
     display: block;
@@ -34,7 +40,6 @@
 
 .NavbarTitle {
     font-size: 1.25rem;
-    font-family: "Roboto", "Helvetica", "Arial", sans-serif;
     font-weight: 500;
     line-height: 1.6;
     letter-spacing: 0.0075em;
@@ -257,7 +262,7 @@
     justify-content: center;
     text-decoration: none;
     background-color: transparent;
-    left:3rem;
+    left: 3rem;
     width: 10rem;
 }
 
@@ -271,6 +276,18 @@
     left: 6rem;
     top: 2.4rem;
 }
+.AdImage {
+     width: 80%;
+     position: absolute;
+     left: 10%;
+     margin-top: 2rem;
+     top: 15%;
+     z-index: 0;
+ }
+.bottom-side{
+    position: absolute;
+    top: 250%;
+}
 .inner_footer{
     margin:0 auto;
     width:100%;
@@ -282,6 +299,7 @@
     grid-gap: 20px;
 }
 
+
 .footer_third h1,h2,h3,h4{
     font-family: 'Georgia';
     font-size: 22px;
@@ -290,7 +308,6 @@
     margin-bottom: 20px;
     display:block;
 }
-
 .footer_third a{
     font-family: 'Georgia';
     font-size: 18px;
@@ -309,56 +326,82 @@
     display:block;
 }
 
-@media (max-width:1600px){
-    .MenuItems a{
-            font-size:30px;
+
+@media (max-width:1600px) {
+    .MenuItems a {
+        font-size: 30px;
     }
-    .MyAccountButtonDropdown{
-        font-size:25px;
+
+    .MyAccountButtonDropdown {
+        font-size: 25px;
     }
-    .MyBagButtonDropdown{
-        font-size:25px;
+
+    .MyBagButtonDropdown {
+        font-size: 25px;
     }
-    .AppLogo{
-        margin-left:-1rem;
+
+    .AppLogo {
+        margin-left: -1rem;
     }
+
     .inner_footer {
 
     }
-    .NavbarInsideDiv{
-        left:1.5rem;
-    }
-    .SearchInput {
-        width:27ch;
-    }
-    .NavbarMenuIcon{
-        margin-left:-3rem;
+
+    .NavbarInsideDiv {
+        left: 1.5rem;
     }
 
-}
+    @media (max-width: 1385px) {
+        .AppLogo {
+            max-width: 20%;
+            min-width: 20%;
+        }
 
-@media (max-width:1200px){
-    .SearchInput{
-        width:23ch;
-        height:40px;
-    }
-    .MenuItems{
-        padding:5px 5px;
-    }
-    .UserActions{
-        width:14rem;
-    }
-    .NavbarInsideDiv{
-        left:0.5rem;
-    }
-    .NavbarMenuIcon{
-        margin-left:-3rem;
-    }
-    .MyActionsLogo{
-        margin-left:-20px;
-    }
-    .MyBagButtonDropdown{
-        margin-left:-60px;
+        .MenuItems a {
+            font-size: 3rem;
+            margin-right: 1rem;
+        }
 
+        .SearchInput {
+            width: 27ch;
+        }
+
+        .NavbarMenuIcon {
+            margin-left: -3rem;
+        }
+
+    }
+
+    @media (max-width: 1200px) {
+        .SearchInput {
+            width: 23ch;
+            height: 40px;
+        }
+
+        .MenuItems {
+            padding: 5px 5px;
+        }
+
+        .UserActions {
+            width: 14rem;
+        }
+
+        .NavbarInsideDiv {
+            left: 0.5rem;
+        }
+
+        .NavbarMenuIcon {
+            margin-left: -3rem;
+        }
+
+        .MyActionsLogo {
+            margin-left: -20px;
+        }
+
+        .MyBagButtonDropdown {
+            margin-left: -60px;
+
+        }
     }
 }

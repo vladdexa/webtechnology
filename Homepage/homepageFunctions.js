@@ -44,7 +44,7 @@ function loadCarousels() {
 
 }
 
-function initialize() {
+async function initialize() {
     loadCarousels();
 
     const inputSearch = document.getElementById('#searchInput');
@@ -61,12 +61,13 @@ function initialize() {
 
     const dropdown = document.getElementById('myDropdown');
     const button = document.getElementById('dropdownTrigger');
+    const adImage = document.getElementById('#Ad');
 
     document.addEventListener('click', (event) => {
 
         (button.contains(event.target) || dropdown.contains(event.target))
-            ? dropdown.style.display = 'block'
-            : dropdown.style.display = 'none';
+            ? (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay')
+            : (dropdown.style.display = 'none');
     });
 
     document.addEventListener('keyup', (event) => {
@@ -76,6 +77,27 @@ function initialize() {
             }
         }
     });
+
+    const menu = new Menu();
+    await menu.buildMenu();
+
+    const menuButton = document.getElementById('#menuButton');
+    const menuContainer = document.getElementById('#menuContainer');
+    const ad = document.getElementById('#Ad');
+
+    menuButton.onmouseover = () => {
+        menuContainer.style.display = 'block';
+        ad.style.width = '70%';
+        ad.style.left = '25%';
+
+    };
+
+    menuContainer.onmouseleave = () => {
+        menuContainer.style.display = 'none';
+        ad.style.width = '80%';
+        ad.style.left = '10%';
+    };
+
 
 }
 
