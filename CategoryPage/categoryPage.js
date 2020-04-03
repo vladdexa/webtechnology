@@ -23,7 +23,6 @@ const loadCards = async(numberOfCards) => {
     }
 }
 
-
 async function load() {
     const htmlFooterPath = '../Generics/Footer/footer.html';
     const idFooterContainer = '#footer-container';
@@ -31,6 +30,5 @@ async function load() {
     await loadCards(9);
     await loadFooter(idFooterContainer, htmlFooterPath);
 }
-
 
 document.getElementById('body').addEventListener('load', load());
