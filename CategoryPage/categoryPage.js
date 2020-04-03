@@ -2,7 +2,7 @@ import { loadFooter } from "../Generics/Footer/footer.js";
 
 const loadCards = async(numberOfCards) => {
     const cardsContainer = document.getElementById('#cards-container');
-    const cardPath = '../Generics/card.html';
+    const cardPath = '../Generics/Card/card.html';
 
     try {
         await fetch(cardPath)

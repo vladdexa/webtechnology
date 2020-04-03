@@ -1,3 +1,5 @@
+import Menu from "../Menu/Menu.js";
+
 const initilizeSearch = () => {
     const inputSearch = document.getElementById('#searchInput');
 
@@ -13,8 +15,9 @@ const initilizeSearch = () => {
 
 }
 
-const initializeMenu = async () => {
-    const menu = new Menu();
+const initializeMenu = async (path) => {
+
+    const menu = new Menu(path);
     await menu.buildMenu();
 
     const menuButton = document.getElementById('#menuButton');
@@ -58,10 +61,10 @@ const initializeDropdown = () => {
     });
 }
 
-const initializeNavbar = async () => {
+const initializeNavbar = async (path) => {
     initilizeSearch();
     initializeDropdown();
-    await initializeMenu();
+    await initializeMenu(path);
 };
 
 export default initializeNavbar;

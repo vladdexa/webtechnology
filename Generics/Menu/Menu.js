@@ -1,11 +1,12 @@
 class Menu {
-    constructor() {
+    constructor(path) {
         this.items = [];
+        this.path = path;
     }
 
     async getItems () {
         try{
-           const response =  await fetch('Menu/menuItems.json');
+           const response =  await fetch(this.path);
 
            const data = await response.json();
 
@@ -63,3 +64,4 @@ class Menu {
         })
     }
 }
+export default Menu;

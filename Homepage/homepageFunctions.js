@@ -3,8 +3,9 @@ right un eventListener care va apela metodele din clasa Carousel pentru fiecare 
 
 import { loadFooter } from "../Generics/Footer/footer.js";
 import initializeNavbar from "../Generics/Navbar/navbar.js";
+import Carousel from "../Generics/Carousel/carousel.js";
 
-function createCarousels() {
+const createCarousels = () => {
     /*cu acesti paramestri vom stoca id-urile necesare fiecarui carusel in parte*/
     const countainerCarousel1 = 'ctn1';
     const leftButtonCarousel1 = 'lbtn1';
@@ -67,9 +68,10 @@ const loadNavbar = async () => {
 const initialize = async () => {
     const htmlFooterPath = '../Generics/Footer/footer.html';
     const idFooterContainer = '#footer-container';
+    const pathForMenu = '../Generics/Menu/menuItems.json';
 
     await loadNavbar();
-    await initializeNavbar();
+    await initializeNavbar(pathForMenu);
     loadCarousels();
     await loadFooter(idFooterContainer, htmlFooterPath);
 };

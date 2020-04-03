@@ -30,12 +30,12 @@ class Carousel {
 /*    accesez o bucata din setul de date si fac map pentru a realiza pentru fiecare valoare din array cate un element img pe care il adaug la containerul caruselului*/
     loadImages(indexParameter) {
 
-        let slide = this.ownPictures[indexParameter];
-        let cont = this.container;
+        const slide = this.ownPictures[indexParameter];
+        const cont = this.container;
         try {
             slide.map(picture => {
-                let img = document.createElement('img');
-                img.src = `../Homepage/CarouselImages/${picture}`;
+                const img = document.createElement('img');
+                img.src = `../Generics/Carousel/CarouselImages/${picture}`;
                 img.className = 'img';
                 cont.appendChild(img);
             })
@@ -45,14 +45,14 @@ class Carousel {
     }
 /*    functie realizata pentru curatarea containerului cand se face moveright sau moveleft*/
     cleanContainer = () => {
-        let container = this.container;
+        const container = this.container;
         while (container.firstChild) {
             container.removeChild(container.lastChild);
         }
     }
 }
 
-
+export default Carousel;
 
 
 
