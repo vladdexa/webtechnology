@@ -13,7 +13,7 @@ const initilizeSearch = () => {
 
 }
 
-const initializeMenu = async () => {
+const initializeMenu = async() => {
     const menu = new Menu();
     await menu.buildMenu();
 
@@ -44,9 +44,9 @@ const initializeDropdown = () => {
 
     document.addEventListener('click', (event) => {
 
-        (button.contains(event.target) || dropdown.contains(event.target))
-            ? (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay')
-            : (dropdown.style.display = 'none');
+        (button.contains(event.target) || dropdown.contains(event.target)) ?
+        (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay') :
+        (dropdown.style.display = 'none');
     });
 
     document.addEventListener('keyup', (event) => {
@@ -58,7 +58,7 @@ const initializeDropdown = () => {
     });
 }
 
-const initializeNavbar = async () => {
+const initializeNavbar = async() => {
     initilizeSearch();
     initializeDropdown();
     await initializeMenu();
