@@ -8,14 +8,12 @@ const loadCards = async(numberOfCards) => {
         await fetch(cardPath)
             .then(response => response.text())
             .then(html => {
-                new Promise(() => {
                     for (let i = 1; i <= numberOfCards; i++) {
-                        let genericDiv = document.createElement('div');
+                        const genericDiv = document.createElement('div');
                         genericDiv.innerHTML = html;
                         cardsContainer.appendChild(genericDiv);
                     }
                 })
-            })
             .catch(error => {
                 console.log(error);
             })
