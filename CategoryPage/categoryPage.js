@@ -1,49 +1,34 @@
- const loadCards = async(numberOfCards) => {
-     const cardsContainer = document.getElementById('#cards-container');
-     const cardPath = '../Generics/card.html';
+import { loadFooter } from "../Generics/Footer/footer.js";
 
-     try {
-         await fetch(cardPath)
-             .then(response => response.text())
-             .then(html => {
-                 new Promise(() => {
-                     for (let i = 1; i <= numberOfCards; i++) {
-                         let genericDiv = document.createElement('div');
-                         genericDiv.innerHTML = html;
-                         cardsContainer.appendChild(genericDiv);
-                     }
-                 })
-             })
-             .catch(error => {
-                 console.log(error);
-             })
+const loadCards = async(numberOfCards) => {
+    const cardsContainer = document.getElementById('#cards-container');
+    const cardPath = '../Generics/card.html';
 
-     } catch (e) {
-         throw new Error(e);
-     }
- }
+    try {
+        await fetch(cardPath)
+            .then(response => response.text())
+            .then(html => {
+                    for (let i = 1; i <= numberOfCards; i++) {
+                        const genericDiv = document.createElement('div');
+                        genericDiv.innerHTML = html;
+                        cardsContainer.appendChild(genericDiv);
+                    }
+                })
+            .catch(error => {
+                console.log(error);
+            })
 
- const loadFooter = async() => {
-     const footerContainer = document.getElementById('#footer-container');
-     const footerPath = '../Generics/footer.html';
+    } catch (e) {
+        throw new Error(e);
+    }
+}
 
-     try {
-         await fetch(footerPath)
-             .then(response => response.text())
-             .then(html => {
-                 footerContainer.innerHTML = html;
+async function load() {
+    const htmlFooterPath = '../Generics/Footer/footer.html';
+    const idFooterContainer = '#footer-container';
 
-             })
-             .catch(error => {
-                 console.log(error);
-             })
+    await loadCards(9);
+    await loadFooter(idFooterContainer, htmlFooterPath);
+}
 
-     } catch (e) {
-         throw new Error(e);
-     }
- }
-
- function load() {
-     loadCards(9);
-     loadFooter();
- }
+document.getElementById('body').addEventListener('load', load());
