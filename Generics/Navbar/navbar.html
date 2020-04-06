@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head id="#navbarHead">
     <meta charset="UTF-8">
     <title>Online Toys</title>
-    <base href="../Homepage/homapgeLayout.html">
-    <link rel="stylesheet" href="../Generics/Navbar/navbar.css" type="text/css">
     <script src="navbar.js"></script>
 </head>
 <body>
@@ -22,15 +20,16 @@
           <img
                   class="NavbarMenuIcon"
                   alt="MenuICON"
-                  src="../Generics/Navbar/NavbarImages/menu.svg"
+                  src="./NavbarImages/menu.svg"
                   id="#menuButton"
           >
       </span>
             </button>
             <img
                     class="AppLogo"
-                    src="../Generics/Navbar/NavbarImages/oto.png"
+                    src="./NavbarImages/oto.png"
                     alt="Online Toys"
+                    id="#appLogo"
             >
             <div class="MenuItems">
                 <a href="#home">Home</a>
@@ -39,7 +38,12 @@
             </div>
             <div class="SearchBarDiv" id="#SearchBar">
                 <div class="SearchDivIcon">
-                    <img class="SearchIcon" src="../Generics/Navbar/NavbarImages/search.svg" alt="Search ICON">
+                    <img
+                            class="SearchIcon"
+                            src="./NavbarImages/search.svg"
+                            alt="Search ICON"
+                            id="#searchIcon"
+                    >
                 </div>
                 <div class="SearchDivInput">
                     <input
@@ -61,8 +65,9 @@
                         <span class="MyAccountSpan">
                             <img
                                     class="MyActionsLogo"
-                                    src="../Generics/Navbar/NavbarImages/user.png"
+                                    src="./NavbarImages/user.png"
                                     alt="User ICON"
+                                    id="#userIcon"
                             >
                         </span>
                     <span class="MyAccountButtonDropdown">My Account</span>
@@ -81,8 +86,9 @@
                 >
                     <span>
                         <img class="MyActionsLogo"
-                             src="../Generics/Navbar/NavbarImages/shopping-bag.svg"
+                             src="./NavbarImages/shopping-bag.svg"
                              alt="My Bag"
+                             id="#shoppingBag"
                         >
                     </span>
                     <span class="MyBagButtonDropdown">My Shopping Bag</span>

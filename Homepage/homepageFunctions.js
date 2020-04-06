@@ -69,9 +69,10 @@ const initialize = async () => {
     const htmlFooterPath = '../Generics/Footer/footer.html';
     const idFooterContainer = '#footer-container';
     const pathForMenu = '../Generics/Menu/menuItems.json';
+    const pathForStyles = '../Generics/Navbar';
 
     await loadNavbar();
-    await initializeNavbar(pathForMenu);
+    await initializeNavbar(pathForMenu, pathForStyles);
     loadCarousels();
     await loadFooter(idFooterContainer, htmlFooterPath);
 };

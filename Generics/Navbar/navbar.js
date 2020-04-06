@@ -15,12 +15,23 @@ const initilizeSearch = () => {
 
 }
 
-const initializeMenu = async (path) => {
+const initializeMenu = async (path, pathForStyle) => {
 
     const menu = new Menu(path);
     await menu.buildMenu();
 
+
+
     const menuButton = document.getElementById('#menuButton');
+
+
+    menuButton.src = pathForStyle + '/NavbarImages/menu.svg';
+    document.getElementById('#appLogo').src= pathForStyle + '/NavbarImages/oto.png';
+    document.getElementById('#searchIcon').src= pathForStyle + '/NavbarImages/search.svg';
+    document.getElementById('#userIcon').src=pathForStyle + '/NavbarImages/user.png';
+    document.getElementById('#shoppingBag').src=pathForStyle + '/NavbarImages/shopping-bag.svg';
+
+
     const menuContainer = document.getElementById('#menuContainer');
     const ad = document.getElementById('#Ad');
 
@@ -37,7 +48,9 @@ const initializeMenu = async (path) => {
         ad.style.left = '10%';
     };
 
-}
+
+
+};
 
 const initializeDropdown = () => {
 
@@ -61,10 +74,10 @@ const initializeDropdown = () => {
     });
 }
 
-const initializeNavbar = async (path) => {
+const initializeNavbar = async (pathForMenu, pathForStyle, baseUrl) => {
     initilizeSearch();
     initializeDropdown();
-    await initializeMenu(path);
+    await initializeMenu(pathForMenu, pathForStyle, baseUrl);
 };
 
 export default initializeNavbar;
