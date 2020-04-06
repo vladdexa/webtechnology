@@ -1,7 +1,7 @@
 /*implementam functia pentru crearea caruselelor si punem pe butoanele de left si
 right un eventListener care va apela metodele din clasa Carousel pentru fiecare carusel in parte*/
 
-import { loadFooter } from "../Generics/Footer/footer.js";
+import {loadFooter} from "../Generics/Footer/footer.js";
 import initializeNavbar from "../Generics/Navbar/navbar.js";
 import Carousel from "../Generics/Carousel/carousel.js";
 
@@ -42,7 +42,7 @@ const createCarousels = () => {
 /*aici implementam functia care va face load la carusele in body*/
 const loadCarousels = () => {
     const carousels = createCarousels();
-    const { carousel1, carousel2, carousel3 } = carousels;
+    const {carousel1, carousel2, carousel3} = carousels;
     carousel1.loadImages(0);
     carousel2.loadImages(0);
     carousel3.loadImages(0);
@@ -76,7 +76,7 @@ const initialize = async () => {
     loadCarousels();
     await loadFooter(idFooterContainer, htmlFooterPath);
 };
-document.getElementById('#body').addEventListener('load',initialize());
+document.getElementById('#body').addEventListener('load', initialize());
 
 
 

@@ -21,15 +21,14 @@ const initializeMenu = async (path, pathForStyle) => {
     await menu.buildMenu();
 
 
-
     const menuButton = document.getElementById('#menuButton');
 
 
     menuButton.src = pathForStyle + '/NavbarImages/menu.svg';
-    document.getElementById('#appLogo').src= pathForStyle + '/NavbarImages/oto.png';
-    document.getElementById('#searchIcon').src= pathForStyle + '/NavbarImages/search.svg';
-    document.getElementById('#userIcon').src=pathForStyle + '/NavbarImages/user.png';
-    document.getElementById('#shoppingBag').src=pathForStyle + '/NavbarImages/shopping-bag.svg';
+    document.getElementById('#appLogo').src = pathForStyle + '/NavbarImages/oto.png';
+    document.getElementById('#searchIcon').src = pathForStyle + '/NavbarImages/search.svg';
+    document.getElementById('#userIcon').src = pathForStyle + '/NavbarImages/user.png';
+    document.getElementById('#shoppingBag').src = pathForStyle + '/NavbarImages/shopping-bag.svg';
 
 
     const menuContainer = document.getElementById('#menuContainer');
@@ -47,7 +46,6 @@ const initializeMenu = async (path, pathForStyle) => {
         ad.style.width = '80%';
         ad.style.left = '10%';
     };
-
 
 
 };
