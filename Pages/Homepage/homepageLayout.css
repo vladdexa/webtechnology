@@ -1,7 +1,7 @@
 .AdImage {
     width: 80%;
     position: absolute;
-    left: 6%;
+    left: 10%;
     margin-top: 2rem;
     top: 15%;
     z-index: 0;
@@ -11,4 +11,14 @@
     position:absolute;
     top: 260%;
 }
+
+@media(max-width: 768px){
+    .AdImage {
+        top:8%;
+    }
+    .footer-container {
+        top:92%;
+    }
+}
+
 

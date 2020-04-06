@@ -12,7 +12,6 @@
 .NavbarDiv {
     flex-grow: 1;
     display: block;
-    max-width: max-content;
 }
 
 .Navbar {
@@ -25,17 +24,16 @@
     box-sizing: border-box;
     flex-shrink: 0;
     flex-direction: column;
-    max-width: max-content;
 }
 
 .NavbarInsideDiv {
-    display: flex;
+    display: grid;
+    grid-template-columns: 5% 15% 25% 30% 20%;
     position: relative;
     align-items: center;
     padding-left: 2rem;
     left: 0.5rem;
     min-height: 64px;
-    max-width: max-content;
 }
 
 .NavbarTitle {
@@ -74,8 +72,7 @@
 }
 
 .AppLogo {
-    width: 10%;
-    max-width: 10%;
+    width: 70%;
     margin-left: 2rem;
 }
 
@@ -99,8 +96,8 @@
 
     width: auto;
     position: relative;
-    margin-left: 0.5rem;
-    margin-right: 0.5rem;
+    margin-left: 2rem;
+    margin-right: 1rem;
     border-radius: 2px;
     background-color: rgba(255, 255, 255, 0.15);
 }
@@ -157,11 +154,11 @@
 }
 
 .UserActions {
-    margin-left: 3.5rem;
+    margin-left: 2rem;
     position: inherit;
-    bottom: 1.2rem;
     display: inline-block;
-    width: 15rem;
+    width: 100%;
+    bottom: 1rem;
 }
 
 .MyAccountButtonDropdown {
@@ -233,7 +230,6 @@
     cursor: pointer;
     margin: 0;
     display: contents;
-    width: 5rem;
     outline: 0;
     position: relative;
     align-items: center;
@@ -243,8 +239,11 @@
     bottom: 1rem;
 }
 
+.UserActions2 {
+
+}
+
 .UserActionsButton2 {
-    flex: 0 0 auto;
     color: #fff;
     padding: 12px;
     overflow: visible;
@@ -262,8 +261,7 @@
     justify-content: center;
     text-decoration: none;
     background-color: transparent;
-    left: 3rem;
-    width: 10rem;
+
 }
 
 .MyBagButtonDropdown {
@@ -273,82 +271,136 @@
     font-size: 1.5rem;
     color: black;
     outline: none;
-    left: 6rem;
-    top: 2.4rem;
+    right: 2rem;
+    top: 2.5rem;
 }
 
-@media (max-width:1600px) {
+@media (min-width: 320px) {
     .MenuItems a {
-        font-size: 30px;
-    }
-
-    .MyAccountButtonDropdown {
-        font-size: 25px;
-    }
-
-    .MyBagButtonDropdown {
-        font-size: 25px;
+        font-size: 1.5rem;
+        padding: 0 0 5px 0;
     }
 
     .AppLogo {
-        margin-left: -1rem;
+        width: 90%;
+        margin-left: 0;
     }
 
-
-    .NavbarInsideDiv {
-        left: 1.5rem;
+    .SearchBarDiv {
+        margin-left: 0;
     }
 
-    @media (max-width: 1385px) {
-        .AppLogo {
-            max-width: 20%;
-            min-width: 20%;
-        }
-
-        .MenuItems a {
-            font-size: 3rem;
-            margin-right: 1rem;
-        }
-
-        .SearchInput {
-            width: 27ch;
-        }
-
-        .NavbarMenuIcon {
-            margin-left: -3rem;
-        }
-
+    .SearchInput {
+        width: 30ch;
     }
 
-    @media (max-width: 1200px) {
-        .SearchInput {
-            width: 23ch;
-            height: 40px;
-        }
+    .MyAccountButtonDropdown {
+        right: 3rem;
+    }
 
-        .MenuItems {
-            padding: 5px 5px;
-        }
-
-        .UserActions {
-            width: 14rem;
-        }
-
-        .NavbarInsideDiv {
-            left: 0.5rem;
-        }
-
-        .NavbarMenuIcon {
-            margin-left: -3rem;
-        }
-
-        .MyActionsLogo {
-            margin-left: -20px;
-        }
-
-        .MyBagButtonDropdown {
-            margin-left: -60px;
-
-        }
+    .MyBagButtonDropdown {
+        right: 0.2rem;
     }
 }
+
+@media (min-width: 1060px) and (max-width: 1100px) {
+    .MenuItems a {
+        font-size: 1.9rem;
+    }
+
+    .SearchBarDiv {
+        margin-left: 1rem;
+    }
+}
+
+@media (min-width: 1100px) {
+    .MenuItems a {
+        font-size: 2rem;
+    }
+
+    .MyBagButtonDropdown {
+        right: 1rem;
+    }
+}
+
+@media (min-width: 1160px) {
+    .MyBagButtonDropdown {
+        right: 15%;
+    }
+
+    .SearchInput {
+        width: 35ch;
+    }
+}
+
+@media (min-width: 1280px) {
+    .MyBagButtonDropdown {
+        right: 25%;
+    }
+
+    .MenuItems a {
+        font-size: 2.5rem;
+    }
+
+    .AppLogo {
+        width: 100%;
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 1440px) {
+    .MenuItems {
+        margin-left: 10%;
+    }
+
+    .MyBagButtonDropdown {
+        right: 35%;
+    }
+
+    .SearchInput {
+        width: 40ch;
+    }
+}
+
+@media (min-width: 1660px) {
+    .MyAccountButtonDropdown {
+        right: 5rem;
+        font-size: 2rem;
+        top: 1.5rem;
+    }
+
+    .MyBagButtonDropdown {
+        right: 30%;
+        font-size: 2rem;
+    }
+}
+
+@media(min-width: 1850px) {
+    .SearchBarDiv {
+        margin-left: 10%;
+    }
+    .SearchInput {
+        width: 45ch;
+    }
+    .MenuItems {
+        margin-left: 20%;
+    }
+    .MyBagButtonDropdown {
+        right: 35%;
+        font-size: 2rem;
+    }
+}
+
+@media(min-width: 2048px) {
+    .MenuItems a {
+        font-size: 3.5rem;
+    }
+    .SearchInput {
+        width: 50ch;
+    }
+    .MyBagButtonDropdown {
+        right: 40%;
+        font-size: 2rem;
+    }
+}
+
