@@ -9,16 +9,5 @@
 
 .footer-container {
     position:absolute;
-    top: 260%;
+    top: 275%;
 }
-
-@media(max-width: 768px){
-    .AdImage {
-        top:8%;
-    }
-    .footer-container {
-        top:92%;
-    }
-}
-
-
