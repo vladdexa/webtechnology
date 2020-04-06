@@ -15,8 +15,8 @@ class Modal {
     }
 
     async createModalContent() {
-        const registerHtmlPath = 'RegisterComponents/registerForm.html';
-        const forgotPasswordHtmlPath = 'ForgotPasswordComponent/forgotPasswordForm.html';
+        const registerHtmlPath = '../../Components/RegisterComponents/registerForm.html';
+        const forgotPasswordHtmlPath = '../../Components/ForgotPasswordComponent/forgotPasswordForm.html';
 
         const fetchPath = this.type === 'register' ? registerHtmlPath : forgotPasswordHtmlPath;
 

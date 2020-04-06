@@ -13,7 +13,7 @@ const initilizeSearch = () => {
         }
     });
 
-}
+};
 
 const initializeMenu = async (path, pathForStyle) => {
 

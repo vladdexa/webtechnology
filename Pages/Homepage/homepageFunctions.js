@@ -1,9 +1,9 @@
 /*implementam functia pentru crearea caruselelor si punem pe butoanele de left si
 right un eventListener care va apela metodele din clasa Carousel pentru fiecare carusel in parte*/
 
-import {loadFooter} from "../Generics/Footer/footer.js";
-import initializeNavbar from "../Generics/Navbar/navbar.js";
-import Carousel from "../Generics/Carousel/carousel.js";
+import {loadFooter} from "../../Components/Generics/Footer/footer.js";
+import initializeNavbar from "../../Components/Generics/Navbar/navbar.js";
+import Carousel from "../../Components/Generics/Carousel/carousel.js";
 
 const createCarousels = () => {
     /*cu acesti paramestri vom stoca id-urile necesare fiecarui carusel in parte*/
@@ -52,7 +52,7 @@ const loadCarousels = () => {
 const loadNavbar = async () => {
     const navbarSection = document.getElementById('#navbarSection');
 
-    const path = '../Generics/Navbar/navbar.html';
+    const path = '../../Components/Generics/Navbar/navbar.html';
 
     try {
         const response = await fetch(path);
@@ -66,10 +66,10 @@ const loadNavbar = async () => {
 };
 
 const initialize = async () => {
-    const htmlFooterPath = '../Generics/Footer/footer.html';
+    const htmlFooterPath = '../../Components/Generics/Footer/footer.html';
     const idFooterContainer = '#footer-container';
-    const pathForMenu = '../Generics/Menu/menuItems.json';
-    const pathForStyles = '../Generics/Navbar';
+    const pathForMenu = '../../Components/Generics/Menu/menuItems.json';
+    const pathForStyles = '../../Components/Generics/Navbar';
 
     await loadNavbar();
     await initializeNavbar(pathForMenu, pathForStyles);

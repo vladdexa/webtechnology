@@ -1,8 +1,8 @@
-import { loadFooter } from "../Generics/Footer/footer.js";
+import { loadFooter } from "../../Components/Generics/Footer/footer.js";
 
 const loadCards = async(numberOfCards) => {
     const cardsContainer = document.getElementById('#cards-container');
-    const cardPath = '../Generics/Card/card.html';
+    const cardPath = '../../Components/Generics/Card/card.html';
 
     try {
         await fetch(cardPath)
@@ -24,7 +24,7 @@ const loadCards = async(numberOfCards) => {
 }
 
 async function load() {
-    const htmlFooterPath = '../Generics/Footer/footer.html';
+    const htmlFooterPath = '../../Components/Generics/Footer/footer.html';
     const idFooterContainer = '#footer-container';
 
     await loadCards(9);
