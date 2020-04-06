@@ -72,7 +72,7 @@ const initialize = async () => {
     const pathForStyles = '../../Components/Generics/Navbar';
 
     await loadNavbar();
-    await initializeNavbar(pathForMenu, pathForStyles);
+    await initializeNavbar(pathForMenu, pathForStyles, '#Ad');
     loadCarousels();
     await loadFooter(idFooterContainer, htmlFooterPath);
 };

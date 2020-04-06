@@ -1,7 +1,14 @@
+@font-face {
+    font-family: Junior;
+    src: url("../../../Fonts/Junior-Bold.otf");
+}
+
+
     .card-container {
         display: flex;
         flex-direction: column;
         align-items: center;
+        font-family: Junior, serif;
         width: 90%;
         height: 100%;
         margin: 5%;
@@ -13,27 +20,27 @@
         -webkit-transition: .3s ease-in-out;
         transition: .3s ease-in-out;
     }
-    
+
     .card-container:hover {
         -webkit-transform: scale(1.2);
         transform: scale(1.2);
     }
-    
+
     .image-container {
         display: flex;
         width: 100%;
         height: 90%;
     }
-    
+
     .product-description {
         display: flex;
-        font-family: cursive;
+        font-family: Junior, serif;;
         font-size: 18px;
         text-align: center;
         margin-top: 3%;
         font-weight: bold;
     }
-    
+
     .price {
         display: flex;
         height: 20%;
@@ -41,7 +48,7 @@
         font-size: 20px;
         margin-top: 6%;
     }
-    
+
     img {
         width: 100%;
         height: auto;

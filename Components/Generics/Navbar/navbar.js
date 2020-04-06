@@ -15,7 +15,7 @@ const initilizeSearch = () => {
 
 };
 
-const initializeMenu = async (path, pathForStyle) => {
+const initializeMenu = async (path, pathForStyle, elementToOverlay) => {
 
     const menu = new Menu(path);
     await menu.buildMenu();
@@ -32,19 +32,19 @@ const initializeMenu = async (path, pathForStyle) => {
 
 
     const menuContainer = document.getElementById('#menuContainer');
-    const ad = document.getElementById('#Ad');
+    const elementOverlayd = document.getElementById(elementToOverlay);
 
     menuButton.onmouseover = () => {
         menuContainer.style.display = 'block';
-        ad.style.width = '70%';
-        ad.style.left = '25%';
+        elementOverlayd.style.width = '70%';
+        elementOverlayd.style.left = '25%';
 
     };
 
     menuContainer.onmouseleave = () => {
         menuContainer.style.display = 'none';
-        ad.style.width = '80%';
-        ad.style.left = '10%';
+        elementOverlayd.style.width = '80%';
+        elementOverlayd.style.left = '10%';
     };
 
 
@@ -58,9 +58,9 @@ const initializeDropdown = () => {
 
     document.addEventListener('click', (event) => {
 
-        (button.contains(event.target) || dropdown.contains(event.target))
-            ? (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay')
-            : (dropdown.style.display = 'none');
+        (button.contains(event.target) || dropdown.contains(event.target)) ?
+        (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay') :
+        (dropdown.style.display = 'none');
     });
 
     document.addEventListener('keyup', (event) => {
@@ -72,10 +72,10 @@ const initializeDropdown = () => {
     });
 }
 
-const initializeNavbar = async (pathForMenu, pathForStyle, baseUrl) => {
+const initializeNavbar = async(pathForMenu, pathForStyle, elementToOverlay) => {
     initilizeSearch();
     initializeDropdown();
-    await initializeMenu(pathForMenu, pathForStyle, baseUrl);
+    await initializeMenu(pathForMenu, pathForStyle, elementToOverlay);
 };
 
 export default initializeNavbar;
