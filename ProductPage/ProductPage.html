@@ -4,13 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <title>Document</title>
     <link href="ProductPage.css" rel ="stylesheet">
-    <script src="ProductPage.js">
+
+    <link rel="stylesheet" href="../Generics/Footer/footer.css">
+    <title>Document</title>
+    <script type="module" src="ProductPage.js">
     </script>
+    <script src="ProductPage2.js"></script>
 
 </head>
-<body>
+<body id="#body">
 <main class="container">
 
     <!-- Left Column / Headphones Image -->
@@ -46,34 +49,6 @@
     <button class="button" onclick="plusDivs(-1)"><span>Prev recommendation</span></button>
     <button class="button-right" onclick="plusDivs(1)"><span>See the next recommendation</span></button>
 </div>
-
-<section class="bottom-side",id="footerId">
-    <footer>
-        <div class="inner_footer">
-            <div class="footer_third">
-                <h1>Follow Us</h1>
-                <a href="#" class="facebook"><i class="fa fa-facebook">     Facebook</i></a>
-                <a href="#" class="twitter"><i class="fa fa-twitter">    Twitter</i></a>
-                <a href="#" class="instagram"><i class="fa fa-instagram">       Instagram</i></a>
-            </div>
-            <div class="footer_third">
-                <h2>Contact Us</h2>
-                <a >EMAIL : info@mywebsite.com</a>
-                <a >GMAIL : info@gmail.com</a>
-                <a >PHONE : 123-456-789</a>
-
-            </div>
-            <div class="footer_third">
-                <h3>About Us</h3>
-                <a>This is a web application that manages collections of toys.
-                    The system offers support for the purchase of these toys, plus user management. </a>
-            </div>
-            <div class="footer_third">
-                <h4></h4>
-                <b>Copyright © 2020 Web Technology project A7</b>
-            </div>
-        </div>
-    </footer>
-</section>
+    <div class="footer-container" id="#footer-container"></div>
 </body>
 </html>
