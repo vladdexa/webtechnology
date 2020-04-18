@@ -18,20 +18,20 @@
     </section>
 
     <section class="auth-side" id="authSide">
-        <form class="login-form" id="#loginForm">
+        <form class="login-form" id="#loginForm" method="POST" action="/auth/login">
             <div class="svg-container">
                 <img src="LoginImages/login-icon.png" class="login-svg">
             </div>
 
             <div class="login-container">
                 <div>
-                    <label>Username</b></label>
-                    <input placeholder="Enter Username" minlength="3" required>
+                    <label for="username">Username</b></label>
+                    <input name="username" placeholder="Enter Username" minlength="3" required>
                 </div>
 
                 <div>
-                    <label>Password</b></label>
-                    <input placeholder="Enter Password" minlength="6" required type="password">
+                    <label for="password">Password</b></label>
+                    <input name="password" placeholder="Enter Password" minlength="6" required type="password">
                 </div>
 
             </div>

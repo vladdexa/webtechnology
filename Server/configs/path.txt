@@ -1,0 +1,12 @@
+..\Components\RegisterComponents\RegisterModalFunctions.js
+..\Components\Generics\Modal\Modal.js
+..\Components\ForgotPasswordComponent\forgotPasswordFunctions.js
+..\Components\Generics\Modal\modal.css
+..\Pages\LoginPage\LoginImages\bck8.jpg
+..\Pages\LoginPage\LoginImages\logo.png
+..\Pages\LoginPage\LoginImages\login-icon.png
+..\Pages\LoginPage\auth.css
+../Components/ForgotPasswordComponent/forgotPasswordForm.html
+..\Components\ForgotPasswordComponent\forgotPasswordForm.css
+..\Components\RegisterComponents\registerForm.css
+..\Components\RegisterComponents\registerForm.html
