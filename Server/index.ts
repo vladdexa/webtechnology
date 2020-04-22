@@ -3,8 +3,8 @@ import routerFrom from "./routes"
 import { configs } from './configs'
 import { Render } from "./Utils";
 import "reflect-metadata";
-import { createConnection } from "typeorm";
-import { User } from "./models/entities/User";
+import { createConnection, useContainer } from "typeorm";
+import { UserRepository } from "./repositories/UserRepository";
 
 
 const finalhandler = require('finalhandler');
@@ -46,5 +46,4 @@ router.use('/', routerFrom);
 server.listen(configs.PORT, () => {
     console.log(`App is listening on port: ${configs.PORT}`);
 })
-
 
