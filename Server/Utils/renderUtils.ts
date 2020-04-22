@@ -4,10 +4,10 @@ import { configs } from '../configs'
 const path = require('path');
 const lineReader = require('line-reader');
 
-function render(res: any, HtmlFilePath: string) {
-    fs.stat(HtmlFilePath, (error: any, stats: any) => {
+function render(res: any, FilePath: string) {
+    fs.stat(FilePath, (error: any, stats: any) => {
         if (stats) {
-            fs.createReadStream(HtmlFilePath).pipe(res);
+            fs.createReadStream(FilePath).pipe(res);
         }
         else {
             throw new Error(error?.message);

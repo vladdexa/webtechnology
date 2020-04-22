@@ -1,4 +1,5 @@
 import auth from "./auth";
+import home from "./home"
 
 const Router  = require('router');
 
@@ -15,6 +16,6 @@ router.get('/', (req:any,res:any) => {
 })
 
 router.use('/auth',auth);
-
+router.use('/home',home);
 
 export = router;

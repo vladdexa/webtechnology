@@ -2,6 +2,9 @@ import http from "http"
 import routerFrom from "./routes"
 import { configs } from './configs'
 import { Render } from "./Utils";
+import "reflect-metadata";
+import { createConnection } from "typeorm";
+import { User } from "./models/entities/User";
 
 
 const finalhandler = require('finalhandler');
@@ -12,6 +15,7 @@ const router = Router();
 
 const server = http.createServer((req: any, res: any) => {
     router(req, res, finalhandler(req, res))
+
 
     if (req.url.match("\.css$")) {
         res.writeHead(200, { 'Content-Type': 'text/css' });
@@ -42,4 +46,5 @@ router.use('/', routerFrom);
 server.listen(configs.PORT, () => {
     console.log(`App is listening on port: ${configs.PORT}`);
 })
+
 
