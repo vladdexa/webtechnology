@@ -1,10 +1,14 @@
+import HttpStatus from 'http-status-codes'
+import {render} from '../Utils'
 const Router = require('router');
 
 const router = Router();
 
 router.get('/', (req: any, res: any) => {
-    res.writeHead(200, { 'Content-Type': 'text/plain' });
-    res.end('Welcome to HomePage')
+    res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
+    // res.end('Welcome to HomePage')
+    const page= 'D:\\proiectTW\\Pages\\Homepage\\homepageLayout.html';
+    render(res,page);
 })
 
 export = router

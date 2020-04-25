@@ -10,6 +10,7 @@
 ..\Components\ForgotPasswordComponent\forgotPasswordForm.css
 ..\Components\RegisterComponents\registerForm.css
 ..\Components\RegisterComponents\registerForm.html
+..\Pages\LoginPage\auth.js
 
 ..\Pages\Homepage\homepageLayout.css
 ..\Components\Generics\Carousel\CarouselStyle\carousel.css
@@ -18,6 +19,12 @@
 ..\Components\Generics\Menu\Menu.js
 ..\Components\Generics\Navbar\navbar.css
 ..\Components\Generics\Navbar\navbar.html
+..\Components\Generics\Navbar\navbar.js
 ..\Components\Generics\Footer\footer.css
 ..\Components\Generics\Footer\footer.html
 ..\Components\Generics\Footer\footer.js
+..\Components\Generics\Carousel\CarouselStyle\left.svg
+..\Components\Generics\Carousel\CarouselStyle\right.svg
+..\Fonts\Junior-Bold.otf
+..\Components\Generics\Navbar\NavbarImages\poster3.jpg
+..\Pages\Homepage\homepageFunctions.js

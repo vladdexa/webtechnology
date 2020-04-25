@@ -9,6 +9,7 @@
     <script src="../../Components/RegisterComponents/RegisterModalFunctions.js"></script>
     <script src="../../Components/Generics/Modal/Modal.js"></script>
     <script src="../../Components/ForgotPasswordComponent/forgotPasswordFunctions.js"></script>
+    <script src="auth.js"></script>
 </head>
 
 <body>
@@ -26,12 +27,12 @@
             <div class="login-container">
                 <div>
                     <label for="username">Username</b></label>
-                    <input name="username" placeholder="Enter Username" minlength="3" required>
+                    <input id="#username" name="username" placeholder="Enter Username" minlength="3" required>
                 </div>
 
                 <div>
                     <label for="password">Password</b></label>
-                    <input name="password" placeholder="Enter Password" minlength="6" required type="password">
+                    <input id="#password " name="password" placeholder="Enter Password" minlength="6" required type="password">
                 </div>
 
             </div>
@@ -46,7 +47,7 @@
             </div>
 
             <div class="button-login">
-                <button type="submit" class="login-button">Login</button>
+                <button type="submit" class="login-button" onclick="handle()">Login</button>
             </div>
         </form>
     </section>

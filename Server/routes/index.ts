@@ -1,13 +1,15 @@
+import HttpStatus from 'http-status-codes'
 import auth from "./auth";
 import home from "./home"
+import admin from "./admin"
+
 
 const Router  = require('router');
 
 const router = Router();
 
-//404
 router.get('/', (req:any,res:any) => {
-   res.writeHead(200, { 'Content-Type': 'text/json' });
+   res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/json' });
     const responseObj = {
        status:'active'
     }
@@ -17,5 +19,6 @@ router.get('/', (req:any,res:any) => {
 
 router.use('/auth',auth);
 router.use('/home',home);
+router.use('/admin',admin);
 
 export = router;

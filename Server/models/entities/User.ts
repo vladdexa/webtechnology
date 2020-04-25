@@ -9,7 +9,7 @@ export class User {
   @Column("varchar", { name: "username", length: 50, default: () => "'0'" })
   username: string;
 
-  @Column("varchar", { name: "password", length: 50, default: () => "'0'" })
+  @Column("varchar", { name: "password", length: 150, default: () => "'0'" })
   password: string;
 
   @Column("varchar", { name: "firstName", length: 50, default: () => "'0'" })
