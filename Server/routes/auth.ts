@@ -22,6 +22,12 @@ router.get('/login', (req: any, res: any) => {
     render(res, loginPageHtmlPath);
 })
 
+router.get('/register', (req:any,res:any) => {
+    res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
+    const registerModalPageHtmlPath = '../Components/RegisterComponents/registerForm.html';
+    render(res, registerModalPageHtmlPath);
+})
+
 router.post('/login', urlencodedParser, login);
 router.post('/register',urlencodedParser,register);
 

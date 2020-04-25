@@ -1,24 +1,51 @@
-
-const logdata = async ()=> {
+const sendData = async() => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
 
+    const userNotFound = 'User not found';
+    const incorrectPassword = 'Incorrect password';
+    const user = 'user';
+    const admin = 'admin';
+
     console.log(username.toString(), password.toString());
 
-    const response = await fetch('http://localhost:3000/auth/login', {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-             'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow',
-        referrerPolicy: 'no-referrer',
-        body: `username=${username}&password=${password}` // body data type must match "Content-Type" header
-    });
-   const responseError = await response.json();
-   alert(responseError.message);
+    if (username && password) {
+        const response = await fetch('http://localhost:3000/auth/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `username=${username}&password=${password}`
+        });
+
+        const messageFromServer = await response.json();
+        console.log(messageFromServer.message);
+
+        switch (messageFromServer.message) {
+
+            case userNotFound:
+                {
+                    alert(userNotFound);
+                    break;
+                }
+            case incorrectPassword:
+                {
+                    alert(incorrectPassword);
+                    break;
+                }
+            case user:
+                {
+                    window.location.replace("http://localhost:3000/home");
+                    break;
+                }
+            case admin:
+                {
+                    window.location.replace("http://localhost:3000/admin");
+                    break;
+                }
+        }
+    } else {
+        alert('You must complete all fields.');
+    }
+
 };
-
-
