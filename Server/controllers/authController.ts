@@ -9,7 +9,7 @@ async function login(req: any, res: any) {
     const username: string = body.username;
     const password: string = body.password;
 
-    console.log(username +" " + password);
+    console.log(username, password);
 
     const userRepository = new UserRepository();
     const user = await userRepository.getByUsername(username);
@@ -20,15 +20,8 @@ async function login(req: any, res: any) {
         if (passwordHash.verify(password, hashedPassword)) {
             if (role.localeCompare('user') === 0) {
               // res.writeHead(HttpStatus.MOVED_PERMANENTLY, { Location: 'http://localhost:3000/auth/home' });
-               //res.writeHead(HttpStatus.OK)
-                //res.end(JSON.stringify(user));
-
-                
-                const response  = {
-                            message:'username not found'
-                        }
-             //res.end();
-              
+               res.writeHead(HttpStatus.OK, {'Content-Type':'application/json'});
+               res.end(JSON.stringify({message: 'Error'}));
 
             }
             else {
@@ -37,11 +30,11 @@ async function login(req: any, res: any) {
             }
 
         }
-    } 
-    
+    }
+
     // console.log(user);
-    
-     
+
+
     //     res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
 
     //     const response  = {
@@ -51,7 +44,7 @@ async function login(req: any, res: any) {
     //     res.on('end', () => response)
 
         //res.end(JSON.stringify(response));
-    
+
 }
 
 async function register(req: any, res: any) {
