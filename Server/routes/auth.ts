@@ -18,7 +18,7 @@ router.get('/', (req: any, res: any) => {
 
 router.get('/login', (req: any, res: any) => {
     res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
-    const loginPageHtmlPath = 'D:\\proiectTW\\Pages\\LoginPage\\auth.html';
+    const loginPageHtmlPath = '../Pages/LoginPage/auth.html';
     render(res, loginPageHtmlPath);
 })
 

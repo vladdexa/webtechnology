@@ -7,7 +7,7 @@ const router = Router();
 router.get('/', (req: any, res: any) => {
     res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
     // res.end('Welcome to HomePage')
-    const page= 'D:\\proiectTW\\Pages\\Homepage\\homepageLayout.html';
+    const page= '../Pages/Homepage/homepageLayout.html';
     render(res,page);
 })
 

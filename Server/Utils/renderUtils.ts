@@ -10,7 +10,7 @@ function render(res: any, FilePath: string) {
             fs.createReadStream(FilePath).pipe(res);
         }
         else {
-            throw new Error(error?.message);
+            throw Error(error.message);
         }
     });
 }
