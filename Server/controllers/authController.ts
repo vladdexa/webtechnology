@@ -2,6 +2,10 @@ import { UserRepository } from '../repositories/UserRepository';
 import HttpStatus from 'http-status-codes'
 import passwordHash from 'password-hash'
 import { User } from '../models/entities/User';
+import passwordGenerator from 'password-generator'
+import { config } from 'process';
+
+const nodemailer = require('nodemailer');
 
 async function login(req: any, res: any) {
 
@@ -23,30 +27,30 @@ async function login(req: any, res: any) {
             if (role.localeCompare('user') === 0) {
                 res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
                 const response = {
-                    message:'user'
+                    message: 'user'
                 }
                 res.end(JSON.stringify(response));
 
             }
-            if(role.localeCompare('admin') === 0){
-                res.writeHead(HttpStatus.OK,  { 'Content-Type': 'application/json' });
+            if (role.localeCompare('admin') === 0) {
+                res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
                 const response = {
-                    message:'admin'
+                    message: 'admin'
                 }
                 res.end(JSON.stringify(response));
             }
 
         } else {
             res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
-                const response = {
-                    message:'Incorrect password'
-                }
-                res.end(JSON.stringify(response));
+            const response = {
+                message: 'Incorrect password'
+            }
+            res.end(JSON.stringify(response));
         }
     } else {
         res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
         const response = {
-            message:'User not found'
+            message: 'User not found'
         }
         res.end(JSON.stringify(response));
     }
@@ -62,43 +66,55 @@ async function register(req: any, res: any) {
     const password: string = body.password;
     const role: string = 'user';
 
+    let ok: boolean = true;
+
+    console.log(firstName);
+    console.log(lastName);
+
+    console.log(email);
+
+
     const newUser: User = new User();
-    const regexpEmail = new RegExp(/[a-zA-Z0-9_\\.\\+-]+@+[a-z].com|/);
+    const regexpEmail = new RegExp(/[a-zA-Z0-9_\\.\\+-]+@[a-z]+[\\.][a-z]/);
 
     if (username.length < 5 || username.length > 50) {
+        ok = false;
 
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response  = {
-            message:"Username is not the right length. It must contain 5-50 characters"
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
+            message: "Username is not the right length. It must contain 5-50 characters"
         }
         res.end(JSON.stringify(response));
     }
     newUser.username = username;
 
-    if (password.toString().length < 5 || password.toString().length > 50) {
+    if (password.length < 5 || password.length > 50) {
+        ok = false;
 
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response  = {
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
             message: "Password is not the right length. It must contain 5-50 characters."
         }
         res.end(JSON.stringify(response));
     }
- 
+
 
     if (password.localeCompare(password.toUpperCase()) == 0) {
+        ok = false;
 
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response  = {
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
             message: "Password does not contain lower case letters"
         }
         res.end(JSON.stringify(response));
     }
 
     if (password.localeCompare(password.toLowerCase()) == 0) {
+        ok = false;
 
-        
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response  = {
+
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
             message: "Password does not contain upper case letters"
         }
         res.end(JSON.stringify(response));
@@ -107,10 +123,11 @@ async function register(req: any, res: any) {
     const hashedPassword: string = passwordHash.generate(password);
     newUser.password = hashedPassword;
 
-    if (firstName.toString().length < 3 || firstName.toString().length > 50) {
+    if (firstName.length < 3 || firstName.length > 50) {
+        ok = false;
 
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response  = {
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
             message: "First Name not the right length. It must contain 3-50 characters"
         }
         res.end(JSON.stringify(response));
@@ -118,11 +135,12 @@ async function register(req: any, res: any) {
     }
     newUser.firstName = firstName;
 
-    if (lastName.toString().length < 3 || lastName.toString().length > 50) {
+    if (lastName.length < 3 || lastName.length > 50) {
+        ok = false;
 
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response  = {
-            message:"Last Name not the right length. It must contain 3-50 characters"
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
+            message: "Last Name not the right length. It must contain 3-50 characters"
         }
         res.end(JSON.stringify(response));
 
@@ -130,10 +148,11 @@ async function register(req: any, res: any) {
     newUser.lastName = lastName;
 
     if (!regexpEmail.test(email)) {
+        ok = false;
 
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response  = {
-            message:"Email not valid"
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
+            message: "Invalid email format"
         }
         res.end(JSON.stringify(response));
     }
@@ -143,24 +162,173 @@ async function register(req: any, res: any) {
 
 
     const userRepository = new UserRepository();
-    const user = await userRepository.getByUsername(username);
+    const userByUsername = await userRepository.getByUsername(username);
+    const userByEmail = await userRepository.getByEmail(email);
 
-    if(user.length) {
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response  = {
-            message:"Username already exist"
+    if (userByUsername.length) {
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
+            message: "Username already exists"
         }
         res.end(JSON.stringify(response));
-    } else {
-       await userRepository.create(newUser);
-        res.writeHead(HttpStatus.OK, {'Content-Type':'application/json'});
-        const response  = {
-            message:"register successfully"
+    } else if(userByEmail.length) {
+        res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+        const response = {
+            message: "Email already exists"
+        }
+        res.end(JSON.stringify(response));
+    }
+     else if (ok) {
+        await userRepository.create(newUser);
+        res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
+        const response = {
+            message: "register successfully"
         }
         res.end(JSON.stringify(response));
     }
 
 }
 
+async function forgotPass(req:any,res:any) {
+    const body = req.body;
 
-export { login, register }
+    const email:string = body.email;
+    const sentPassword:string = body.sentPassword;
+    const newPassword:string = body.newPassword;
+    const reset:string = body.reset;
+    const change:string = body.change;
+
+    console.log(email);
+    console.log(sentPassword);
+    console.log(newPassword);
+    console.log(reset);
+    console.log(change);
+
+
+    let ok:boolean=true;
+    const regexpEmail = new RegExp(/[a-zA-Z0-9_\\.\\+-]+@[a-z]+[\\.][a-z]/);
+  
+    if(email && reset) {
+        if (!regexpEmail.test(email)) {
+
+            res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+            const response = {
+                message: "Invalid email format"
+            }
+            res.end(JSON.stringify(response));
+        } else {
+            const generatedPassword = passwordGenerator(); 
+            console.log(generatedPassword);
+
+            //const account = await nodemailer.createTestAccount();
+
+            const transporter = nodemailer.createTransport("SMTP",
+                {
+                    service: "Gmail",
+                    auth: {
+                      XOAuth2: {
+                        user: "codrin.epure@gmail.com", // Your gmail address.
+                      }
+                }
+                }
+            
+            );
+        
+            const info = await transporter.sendMail({
+                from:"codrin.epure@gmail.com",
+                to: email,
+                subject:'Online Toys forgot password service',
+                text:generatedPassword
+            }).catch(console.error);
+     
+
+            console.log(nodemailer.getTestMessageUrl(info));
+        //    sendMail( {
+        //        from:'codrin.epure@gmail.com',
+        //        to:email,
+        //        subject: "Online Toys forgot password service",
+        //        html: generatedPassword
+        //    }, (err:any,reply:any) => {
+        //        console.log(err && err.stack);
+        //        console.dir(reply);
+        //    })
+
+
+
+
+            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
+            const response = {
+                message: "We sent a new password on e-mail"
+            }
+            res.end(JSON.stringify(response));
+        }
+    
+    } 
+    
+    if(sentPassword && newPassword && change) {
+        if(!sentPassword.localeCompare("codcod")) {
+
+            if (newPassword.length < 5 || newPassword.length > 50) {
+                ok = false;
+        
+                res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+                const response = {
+                    message: "New password is not the right length. It must contain 5-50 characters."
+                }
+                res.end(JSON.stringify(response));
+            }
+        
+        
+            if (newPassword.localeCompare(newPassword.toUpperCase()) == 0) {
+                ok = false;
+        
+                res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+                const response = {
+                    message:"New password does not contain lower case letters"
+                }
+                res.end(JSON.stringify(response));
+            }
+        
+            if (newPassword.localeCompare(newPassword.toLowerCase()) == 0) {
+                ok = false;
+        
+        
+                res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+                const response = {
+                    message: "New password does not contain upper case letters"
+                }
+                res.end(JSON.stringify(response));
+        
+            }
+
+            if(ok) {
+                const hashedPassword: string = passwordHash.generate(newPassword);
+                console.log(newPassword);
+
+                const userRepository = new UserRepository();
+                const user = await userRepository.getByEmail(email);
+                await userRepository.updatePassword(hashedPassword,user[0].id);
+                console.log(user);
+
+                res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+                const response = {
+                    message: "Successfully changed password"
+                }
+                res.end(JSON.stringify(response));
+            }
+           
+        } else {
+            res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+            const response = {
+                message: "Sent password does not correspond"
+            }
+            res.end(JSON.stringify(response));
+        }
+    }
+
+ 
+    
+}
+
+
+export { login, register, forgotPass }

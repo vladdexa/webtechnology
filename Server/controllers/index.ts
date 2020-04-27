@@ -1,5 +1,4 @@
-import  {login,register}  from './authController'
-//import register  from './authController'
+import  {login,register,forgotPass}  from './authController'
 
 
-export  {login,register}
+export  {login,register,forgotPass}

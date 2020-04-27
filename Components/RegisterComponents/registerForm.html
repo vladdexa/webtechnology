@@ -4,23 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <script src="RegisterModalFunctions.js"></script>
-    <link rel="stylesheet" href="../../Components/RegisterComponents/registerForm.css">
-    <title>Register Form</title>
+    <link rel="stylesheet" href="./registerForm.css">
+    <title>Online Toys</title>
 </head>
 
 <body>
-    <div>
 
+    <section class="register-side">
         <form class="register-form">
-            <button class="closeContainer" type="button" id="#closeModalButton" onclick="closeRegisterModal()">
-            <span
-                    class="closeButton"
-                    aria-hidden="true"
-            >
-                &times;
-            </span>
-        </button>
-            <div class="login-container">
+
+            <div class="register-container">
                 <div>
                     <label for="firstName">First Name</b></label>
                     <input id="firstName" name="firstName" type="text" placeholder="Enter First Name">
@@ -31,7 +24,7 @@
                 </div>
                 <div>
                     <label for="email">Email</b></label>
-                    <input id="email" name="email" type="email" placeholder="Enter Email">
+                    <input id="email" name="email" type="text" placeholder="Enter Email">
                 </div>
                 <div>
                     <label for="username">Username</b></label>
@@ -45,10 +38,10 @@
             </div>
 
             <div class="registerButtonContainer ">
-                <button type="button " class="regbutton " id="registerBtn " onclick="sendata()">Register</button>
+                <button type="button" class="regbutton " onclick="sendata()">Register</button>
             </div>
         </form>
-    </div>
+    </section>
 </body>
 
 </html>

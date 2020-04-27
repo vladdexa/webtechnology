@@ -1,4 +1,4 @@
-import  {login,register}  from "../controllers"
+import  {login,register,forgotPass}  from "../controllers"
 import bodyParser from "body-parser"
 import { render } from "../Utils"
 import HttpStatus from 'http-status-codes'
@@ -24,11 +24,18 @@ router.get('/login', (req: any, res: any) => {
 
 router.get('/register', (req:any,res:any) => {
     res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
-    const registerModalPageHtmlPath = '../Components/RegisterComponents/registerForm.html';
-    render(res, registerModalPageHtmlPath);
+    const registerPageHtmlPath = '../Components/RegisterComponents/registerForm.html';
+    render(res, registerPageHtmlPath);
+})
+
+router.get('/forgot-password', (req:any,res:any) => {
+    res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
+    const forgotPasswordPageHtmlPath = '../Components/ForgotPasswordComponent/forgotPasswordForm.html';
+    render(res, forgotPasswordPageHtmlPath);
 })
 
 router.post('/login', urlencodedParser, login);
 router.post('/register',urlencodedParser,register);
+router.post('/forgot-password',urlencodedParser,forgotPass);
 
 export = router;
