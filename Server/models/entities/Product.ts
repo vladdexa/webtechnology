@@ -7,22 +7,15 @@ export class Product {
   @PrimaryGeneratedColumn({ type: "int", name: "id", unsigned: true })
   id: number;
 
-  @Column("varchar", { name: "name", length: 50, default: () => "'0'" })
+  @Column("varchar", { name: "name", length: 100, default: () => "'0'" })
   name: string;
 
   @Column("varchar", {
-    name: "shortDescription",
-    length: 250,
-    default: () => "'0'",
-  })
-  shortDescription: string;
-
-  @Column("varchar", {
-    name: "longDescription",
+    name: "description",
     length: 500,
     default: () => "'0'",
   })
-  longDescription: string;
+  description: string;
 
   @Column("varchar", { name: "picture", length: 500, default: () => "'0'" })
   picture: string;

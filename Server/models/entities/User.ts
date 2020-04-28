@@ -21,7 +21,7 @@ export class User {
   @Column("varchar", { name: "email", length: 50, default: () => "'0'" })
   email: string;
 
-  @Column("varchar", { name: "role", length: 5 })
+  @Column("varchar", { name: "role", length: 5})
   role: string;
 
   @OneToMany(() => Userproduct, (userproduct) => userproduct.user)

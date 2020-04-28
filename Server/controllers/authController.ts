@@ -3,7 +3,6 @@ import HttpStatus from 'http-status-codes'
 import passwordHash from 'password-hash'
 import { User } from '../models/entities/User';
 import passwordGenerator from 'password-generator'
-import { config } from 'process';
 
 const nodemailer = require('nodemailer');
 
@@ -16,6 +15,7 @@ async function login(req: any, res: any) {
 
     const userRepository = new UserRepository();
     const user = await userRepository.getByUsername(username);
+
 
 
     if (user.length) {
