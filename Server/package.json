@@ -13,7 +13,7 @@
         "alert-node": "^3.0.11",
         "body-parser": "^1.19.0",
         "finalhandler": "^1.1.2",
-        "http-server": "^0.12.1",
+        "http-server": "^0.12.3",
         "http-status-codes": "^1.4.0",
         "line-reader": "^0.4.0",
         "mysql": "^2.14.1",
