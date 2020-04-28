@@ -3,6 +3,18 @@
     src: url("../../Fonts/Junior-Bold.otf");
 }
 
+.closeButtonContainer {
+    background-color: #0201002e;
+    border: none;
+}
+
+.closeButton {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #000;
+    opacity: .5;
+}
+
 .basket-container {
     display: flex;
     flex-direction: row;
