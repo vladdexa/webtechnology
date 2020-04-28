@@ -12,11 +12,8 @@ async function login(req: any, res: any) {
     const username: string = body.username;
     const password: string = body.password;
 
-
     const userRepository = new UserRepository();
     const user = await userRepository.getByUsername(username);
-
-
 
     if (user.length) {
         const role: string = user[0].role;
@@ -171,14 +168,14 @@ async function register(req: any, res: any) {
             message: "Username already exists"
         }
         res.end(JSON.stringify(response));
-    } else if(userByEmail.length) {
+    } else if (userByEmail.length) {
         res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
         const response = {
             message: "Email already exists"
         }
         res.end(JSON.stringify(response));
     }
-     else if (ok) {
+    else if (ok) {
         await userRepository.create(newUser);
         res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
         const response = {
@@ -189,26 +186,21 @@ async function register(req: any, res: any) {
 
 }
 
-async function forgotPass(req:any,res:any) {
+async function forgotPass(req: any, res: any) {
     const body = req.body;
 
-    const email:string = body.email;
-    const sentPassword:string = body.sentPassword;
-    const newPassword:string = body.newPassword;
-    const reset:string = body.reset;
-    const change:string = body.change;
-
-    console.log(email);
-    console.log(sentPassword);
-    console.log(newPassword);
-    console.log(reset);
-    console.log(change);
+    const email: string = body.email;
+    const sentPassword: string = body.sentPassword;
+    const newPassword: string = body.newPassword;
+    const reset: string = body.reset;
+    const change: string = body.change;
+    const genPass: string = body.genPass;
 
 
-    let ok:boolean=true;
+    let ok: boolean = true;
     const regexpEmail = new RegExp(/[a-zA-Z0-9_\\.\\+-]+@[a-z]+[\\.][a-z]/);
 
-    if(email && reset) {
+    if (email && reset) {
         if (!regexpEmail.test(email)) {
 
             res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
@@ -234,36 +226,25 @@ async function forgotPass(req:any,res:any) {
 
             const info = await transporter.sendMail({
                 to: email,
-                subject:'Online Toys forgot password service',
-                text:generatedPassword,
+                subject: 'Online Toys forgot password service',
+                text: generatedPassword,
             }).catch(console.error);
 
-
             console.log(info);
-        //    sendMail( {
-        //        from:'codrin.epure@gmail.com',
-        //        to:email,
-        //        subject: "Online Toys forgot password service",
-        //        html: generatedPassword
-        //    }, (err:any,reply:any) => {
-        //        console.log(err && err.stack);
-        //        console.dir(reply);
-        //    })
-
-
 
 
             res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
             const response = {
-                message: "We sent a new password on e-mail"
+                message: "We sent a new password on e-mail",
+                gPass: generatedPassword
             }
             res.end(JSON.stringify(response));
         }
 
     }
 
-    if(sentPassword && newPassword && change) {
-        if(!sentPassword.localeCompare("codcod")) {
+    if (sentPassword && newPassword && change) {
+        if (!sentPassword.localeCompare(genPass)) {
 
             if (newPassword.length < 5 || newPassword.length > 50) {
                 ok = false;
@@ -281,7 +262,7 @@ async function forgotPass(req:any,res:any) {
 
                 res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
                 const response = {
-                    message:"New password does not contain lower case letters"
+                    message: "New password does not contain lower case letters"
                 }
                 res.end(JSON.stringify(response));
             }
@@ -298,14 +279,12 @@ async function forgotPass(req:any,res:any) {
 
             }
 
-            if(ok) {
+            if (ok) {
                 const hashedPassword: string = passwordHash.generate(newPassword);
-                console.log(newPassword);
 
                 const userRepository = new UserRepository();
                 const user = await userRepository.getByEmail(email);
-                await userRepository.updatePassword(hashedPassword,user[0].id);
-                console.log(user);
+                await userRepository.updatePassword(hashedPassword, user[0].id);
 
                 res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
                 const response = {

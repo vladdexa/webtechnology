@@ -3,6 +3,7 @@ function loadForgotPasswordPage() {
 }
 
 let email;
+let generatedPassword;
 
 const sendEmail = async() => {
     email = document.getElementById('email').value;
@@ -21,7 +22,9 @@ const sendEmail = async() => {
         });
 
         const messageFromServer = await response.json();
+        generatedPassword = messageFromServer.gPass;
         console.log(messageFromServer.message);
+        console.log(messageFromServer.gPass);
 
         if (!messageFromServer.message.localeCompare(invalidEmailFormat)) {
             alert(invalidEmailFormat);
@@ -54,7 +57,7 @@ const sendNewPassword = async() => {
             headers: {
                 'Content-Type': 'application/x-www-form-urlencoded',
             },
-            body: `sentPassword=${sentPassword}&newPassword=${newPassword}&email=${email}&change=${change}`
+            body: `sentPassword=${sentPassword}&newPassword=${newPassword}&email=${email}&change=${change}&genPass=${generatedPassword}`
         });
 
         const messageFromServer = await response.json();
