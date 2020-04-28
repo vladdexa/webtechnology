@@ -13,7 +13,7 @@ export class Category {
     name: "parentName",
     nullable: true,
     length: 100,
-    default: () => "'0'",
+    default: () => null,
   })
   parentName: string | null;
 

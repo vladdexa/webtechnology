@@ -12,7 +12,7 @@ export class Product {
 
   @Column("varchar", {
     name: "description",
-    length: 500,
+    length: 1000,
     default: () => "'0'",
   })
   description: string;
@@ -20,10 +20,9 @@ export class Product {
   @Column("varchar", { name: "picture", length: 500, default: () => "'0'" })
   picture: string;
 
-  @Column("decimal", {
+  @Column("varchar", {
     name: "price",
-    precision: 4,
-    scale: 0,
+    length:10,
     default: () => "'0'",
   })
   price: string;
