@@ -207,7 +207,7 @@ async function forgotPass(req:any,res:any) {
 
     let ok:boolean=true;
     const regexpEmail = new RegExp(/[a-zA-Z0-9_\\.\\+-]+@[a-z]+[\\.][a-z]/);
-  
+
     if(email && reset) {
         if (!regexpEmail.test(email)) {
 
@@ -217,32 +217,29 @@ async function forgotPass(req:any,res:any) {
             }
             res.end(JSON.stringify(response));
         } else {
-            const generatedPassword = passwordGenerator(); 
+            const generatedPassword = passwordGenerator();
             console.log(generatedPassword);
 
-            //const account = await nodemailer.createTestAccount();
 
-            const transporter = nodemailer.createTransport("SMTP",
+            const transporter = nodemailer.createTransport(
                 {
-                    service: "Gmail",
+                    service: 'gmail',
                     auth: {
-                      XOAuth2: {
-                        user: "codrin.epure@gmail.com", // Your gmail address.
-                      }
+                        user: 'twonlinetoys@gmail.com',
+                        pass: 'Asdfg.123',
+                    }
                 }
-                }
-            
+
             );
-        
+
             const info = await transporter.sendMail({
-                from:"codrin.epure@gmail.com",
                 to: email,
                 subject:'Online Toys forgot password service',
-                text:generatedPassword
+                text:generatedPassword,
             }).catch(console.error);
-     
 
-            console.log(nodemailer.getTestMessageUrl(info));
+
+            console.log(info);
         //    sendMail( {
         //        from:'codrin.epure@gmail.com',
         //        to:email,
@@ -262,43 +259,43 @@ async function forgotPass(req:any,res:any) {
             }
             res.end(JSON.stringify(response));
         }
-    
-    } 
-    
+
+    }
+
     if(sentPassword && newPassword && change) {
         if(!sentPassword.localeCompare("codcod")) {
 
             if (newPassword.length < 5 || newPassword.length > 50) {
                 ok = false;
-        
+
                 res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
                 const response = {
                     message: "New password is not the right length. It must contain 5-50 characters."
                 }
                 res.end(JSON.stringify(response));
             }
-        
-        
+
+
             if (newPassword.localeCompare(newPassword.toUpperCase()) == 0) {
                 ok = false;
-        
+
                 res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
                 const response = {
                     message:"New password does not contain lower case letters"
                 }
                 res.end(JSON.stringify(response));
             }
-        
+
             if (newPassword.localeCompare(newPassword.toLowerCase()) == 0) {
                 ok = false;
-        
-        
+
+
                 res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
                 const response = {
                     message: "New password does not contain upper case letters"
                 }
                 res.end(JSON.stringify(response));
-        
+
             }
 
             if(ok) {
@@ -316,7 +313,7 @@ async function forgotPass(req:any,res:any) {
                 }
                 res.end(JSON.stringify(response));
             }
-           
+
         } else {
             res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
             const response = {
@@ -326,8 +323,8 @@ async function forgotPass(req:any,res:any) {
         }
     }
 
- 
-    
+
+
 }
 
 
