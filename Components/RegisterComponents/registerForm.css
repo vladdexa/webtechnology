@@ -72,3 +72,52 @@ input {
     height: 35px;
 }
 
+@media screen and (max-width:1000px) {
+    .register-form {
+        margin-top: 6%;
+        width: 33%;
+        height: 125%;
+    }
+}
+
+@media screen and (max-width:760px){
+    .register-form {
+        margin-top: 10%;
+        width: 39%;
+        height: 117%;
+    }
+    label {
+        font-size: medium;
+    }
+    .regbutton{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:570px){
+    .register-form {
+        margin-top: 19%;
+        width: 52%;
+        height: 117%;
+    }
+    label {
+        font-size: medium;
+    }
+    .regbutton{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:450px){
+    .register-form {
+        margin-top: 24%;
+        width: 63%;
+        height: 117%;
+    }
+    label {
+        font-size: medium;
+    }
+    .regbutton{
+        font-size: 14px;
+    }
+}
