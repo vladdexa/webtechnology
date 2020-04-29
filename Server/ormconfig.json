@@ -1,0 +1,14 @@
+{
+    "name": "default",
+    "type": "mysql",
+    "host": "34.89.135.86",
+    "port": 3306,
+    "username": "root",
+    "password": "koLthJiI9P0n6zNH",
+    "database": "toysdb",
+    "synchronize": true,
+    "logging": false,
+    "entities": [
+        "./models/entities/**/*.ts"
+    ]
+}

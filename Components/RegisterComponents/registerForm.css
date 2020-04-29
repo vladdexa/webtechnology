@@ -1,121 +1,72 @@
+body {
+    background-image: url("LoginImages/bck8.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% 135%;
+}
+
+.register-side {
+    display: flex;
+    justify-content: center;
+    height: 50%;
+    margin-top: 10%;
+}
+
 .register-form {
     display: flex;
-    margin-left: 35%;
-    margin-right: 2%;
-    flex-flow: column wrap;
-    width: 27%;
-    height: 65%;
+    flex-flow: column;
+    width: 25%;
     border: 5px solid #6da1d826;
     border-radius: 6px;
     background-color: #4230154d;
     box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
-    margin-top: 12%;
 }
 
-.closeContainer {
-    background-color: #5d59562e;
-    border: 0px;
+.register-container {
+    display: flex;
+    padding: 0% 9%;
+    margin-top: 8%;
+    flex-direction: column;
 }
 
-.closeButton {
-    float: right;
-    justify-content: right;
-    display: inline-grid;
-    font-size: 1.5rem;
-    font-weight: 700;
-    line-height: 1;
-    color: #000;
-    text-shadow: 0 1px 0 #fff;
-    opacity: .5;
+.register-container>div {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+label {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    font-family: serif;
+    color: #0d1535
+}
+
+input {
+    padding: 1%;
+    background-color: #abc9ca;
+    font-size: 1em !important;
+    font-style: italic;
+    background-clip: padding-box;
+    border: 1px solid #abc9ca;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
 .registerButtonContainer {
     display: flex;
-    justify-content: center;
-    height: 15%;
-    padding-top: 1%;
-    margin-top: 2%;
+    flex-direction: column;
+    margin-top: 15%;
+    align-items: center;
 }
 
-.regButton {
-    width: 60%;
-    margin-top: 5%;
+.regbutton {
+    width: 45%;
     border: 1px solid #21354b;
-    border-radius: 15px;
+    border-radius: 7px;
     background-color: #abc9ca;
     color: #080d34;
     font-size: 1em;
-    margin-bottom: 5px;
-    font-size: 17px;
-}
-
-@media screen and (max-width:1800px){
-    .regButton {
-        margin-top: 16%;
-        margin-bottom: -7%;
-        width: 35%;
-        height:65%;
-    }
-    .register-form {
-        width: 23%;
-        margin-left: 37%;
-        height: 59%;
-    }
-}
-
-@media screen and (max-width:1300px){
-    .register-form {
-        height: 66%;
-        margin-top: 13%;
-        width: 26%;
-    }
-    .regButton {
-        margin-top: 17%;
-        margin-bottom: -6%;
-    }
-}
-
-@media screen and (max-width:1015px){
-    .register-form {
-        height: 63%;
-        margin-top: 21%;
-        width: 32%;
-        margin-left: 34%;
-    }
-    .regButton {
-        margin-top: 9%;
-        margin-bottom: -6%;
-    }
-}
-
-@media screen and (max-width:760px){
-
-    .register-form {
-        height: 63%;
-        margin-top: 28%;
-        width: 46%;
-        margin-left: 29%;
-    }
-    .regButton {
-        margin-top: 14%;
-        margin-bottom: -6%;
-    }
-}
-
-@media screen and (max-width:600px){
-    .register-form {
-        height: 65%;
-        margin-top: 34%;
-        width: 60%;
-        margin-left: 15%;
-    }
-}
-
-@media screen and (max-width:400px){
-    .register-form {
-        height: 60%;
-        margin-top: 44%;
-        width: 66%;
-        margin-left: 15%;
-    }
+    margin-bottom: 9%;
+    height: 35px;
 }

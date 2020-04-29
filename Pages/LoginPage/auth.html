@@ -9,6 +9,7 @@
     <script src="../../Components/RegisterComponents/RegisterModalFunctions.js"></script>
     <script src="../../Components/Generics/Modal/Modal.js"></script>
     <script src="../../Components/ForgotPasswordComponent/forgotPasswordFunctions.js"></script>
+    <script src="auth.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -25,28 +26,28 @@
 
             <div class="login-container">
                 <div>
-                    <label>Username</b></label>
-                    <input placeholder="Enter Username" minlength="3" required>
+                    <label for="username">Username</b></label>
+                    <input id="username" name="username" placeholder="Enter Username">
                 </div>
 
                 <div>
-                    <label>Password</b></label>
-                    <input placeholder="Enter Password" minlength="6" required type="password">
+                    <label for="password">Password</b></label>
+                    <input id="password" name="password" placeholder="Enter Password" type="password">
                 </div>
 
             </div>
 
             <div class="other-actions">
-                <button type="button" id="#forgotPassword" class="forgot-button" onclick="createForgotPasswordModal()">
+                <button type="button" id="#forgotPassword" class="forgot-button" onclick="loadForgotPasswordPage()">
                     Forgot your password?
                 </button>
-                <button type="button" id="#registerButton" class="register-button" onclick="createRegisterModal()">
+                <button type="button" id="#registerButton" class="register-button" onclick="loadRegisterPage()">
                     Register
                 </button>
             </div>
 
             <div class="button-login">
-                <button type="submit" class="login-button">Login</button>
+                <button type="button" class="login-button" id="loginButton" onclick="sendData()">Login</button>
             </div>
         </form>
     </section>

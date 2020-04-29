@@ -4,51 +4,44 @@
 <head>
     <meta charset="UTF-8">
     <script src="RegisterModalFunctions.js"></script>
-    <link rel="stylesheet" href="../../Components/RegisterComponents/registerForm.css">
-    <title>Register Form</title>
+    <link rel="stylesheet" href="./registerForm.css">
+    <title>Online Toys</title>
 </head>
 
 <body>
-    <div>
 
+    <section class="register-side">
         <form class="register-form">
-            <button class="closeContainer" type="button" id="#closeModalButton" onclick="closeRegisterModal()">
-            <span
-                    class="closeButton"
-                    aria-hidden="true"
-            >
-                &times;
-            </span>
-        </button>
-            <div class="login-container">
+
+            <div class="register-container">
                 <div>
-                    <label>First Name</b></label>
-                    <input type="text" placeholder="Enter First Name" minlength="2" required>
+                    <label for="firstName">First Name</b></label>
+                    <input id="firstName" name="firstName" type="text" placeholder="Enter First Name">
                 </div>
                 <div>
-                    <label>Last Name</b></label>
-                    <input type="text" placeholder="Enter Last Name" minlength="2" required>
+                    <label for="lastName">Last Name</b></label>
+                    <input id="lastName" name="lastName" type="text" placeholder="Enter Last Name ">
                 </div>
                 <div>
-                    <label>Email</b></label>
-                    <input type="email" placeholder="Enter Email" required>
+                    <label for="email">Email</b></label>
+                    <input id="email" name="email" type="text" placeholder="Enter Email">
                 </div>
                 <div>
-                    <label>Username</b></label>
-                    <input type="text" placeholder="Enter Username" minlength="3" required>
+                    <label for="username">Username</b></label>
+                    <input id="username" name="username" type="text" placeholder="Enter Username ">
                 </div>
                 <div>
-                    <label>Password</b></label>
-                    <input type="password" placeholder="Enter Password" minlength="6" required>
+                    <label for="password">Password</b></label>
+                    <input id="password" name="password" type="password" placeholder="Enter Password">
                 </div>
 
             </div>
 
-            <div class="registerButtonContainer">
-                <button type="submit" class="regbutton">Register</button>
+            <div class="registerButtonContainer ">
+                <button type="button" class="regbutton " onclick="sendata()">Register</button>
             </div>
         </form>
-    </div>
+    </section>
 </body>
 
 </html>
