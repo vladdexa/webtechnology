@@ -24,9 +24,6 @@ const sendata = async() => {
     const emailAlreadyExists = "Email already exists";
 
 
-    console.log(firstName.toString(), lastName.toString(), email.toString(), username.toString(), password.toString());
-
-
     if (username && password && firstName && lastName && email) {
         const response = await fetch('http://localhost:3000/auth/register', {
             method: 'POST',
@@ -37,7 +34,6 @@ const sendata = async() => {
         });
 
         const messageFromServer = await response.json();
-        console.log(messageFromServer.message);
 
         switch (messageFromServer.message) {
 

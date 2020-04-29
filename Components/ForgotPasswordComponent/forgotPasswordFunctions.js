@@ -10,7 +10,6 @@ const sendEmail = async() => {
     const reset = 'reset';
     const invalidEmailFormat = "Invalid email format";
     const successfullySent = "We sent a new password on e-mail";
-    console.log(email.toString());
 
     if (email) {
         const response = await fetch('http://localhost:3000/auth/forgot-password', {
@@ -23,8 +22,7 @@ const sendEmail = async() => {
 
         const messageFromServer = await response.json();
         generatedPassword = messageFromServer.gPass;
-        console.log(messageFromServer.message);
-        console.log(messageFromServer.gPass);
+
 
         if (!messageFromServer.message.localeCompare(invalidEmailFormat)) {
             alert(invalidEmailFormat);
@@ -49,7 +47,6 @@ const sendNewPassword = async() => {
     const newPasswordNotLowerLetters = "New password does not contain lower case letters";
     const successfullyChangedPassword = "Successfully changed password";
 
-    console.log(sentPassword.toString(), newPassword.toString());
 
     if (sentPassword && newPassword) {
         const response = await fetch('http://localhost:3000/auth/forgot-password', {
@@ -61,7 +58,6 @@ const sendNewPassword = async() => {
         });
 
         const messageFromServer = await response.json();
-        console.log(messageFromServer.message);
 
         switch (messageFromServer.message) {
             case invalidSentPassword:

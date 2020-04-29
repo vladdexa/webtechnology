@@ -65,12 +65,6 @@ async function register(req: any, res: any) {
 
     let ok: boolean = true;
 
-    console.log(firstName);
-    console.log(lastName);
-
-    console.log(email);
-
-
     const newUser: User = new User();
     const regexpEmail = new RegExp(/[a-zA-Z0-9_\\.\\+-]+@[a-z]+[\\.][a-z]/);
 
@@ -210,8 +204,6 @@ async function forgotPass(req: any, res: any) {
             res.end(JSON.stringify(response));
         } else {
             const generatedPassword = passwordGenerator();
-            console.log(generatedPassword);
-
 
             const transporter = nodemailer.createTransport(
                 {
@@ -224,13 +216,12 @@ async function forgotPass(req: any, res: any) {
 
             );
 
-            const info = await transporter.sendMail({
+            await transporter.sendMail({
                 to: email,
                 subject: 'Online Toys forgot password service',
                 text: generatedPassword,
             }).catch(console.error);
 
-            console.log(info);
 
 
             res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
