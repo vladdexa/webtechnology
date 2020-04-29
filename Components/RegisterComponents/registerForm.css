@@ -1,7 +1,7 @@
 body {
     background-image: url("LoginImages/bck8.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 135%;
+    background-size: 100% 100%;
 }
 
 .register-side {
@@ -15,6 +15,7 @@ body {
     display: flex;
     flex-flow: column;
     width: 25%;
+    height:120%;
     border: 5px solid #6da1d826;
     border-radius: 6px;
     background-color: #4230154d;
@@ -70,3 +71,4 @@ input {
     margin-bottom: 9%;
     height: 35px;
 }
+
