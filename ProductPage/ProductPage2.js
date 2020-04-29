@@ -1,16 +1,17 @@
-var slideIndex = 1;
-showDivs(slideIndex);
+let slideIndex = 1;
 
-function plusDivs(n) {
-    showDivs(slideIndex += n);
+//buttonInput is left or right(-1 sau 1)
+
+function plusSlideIndex(buttonInput) {
+    displayImages(slideIndex += buttonInput);
 }
-function showDivs(n) {
-    var i;
-    var x = document.getElementsByClassName("get-img");
-    if (n > x.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = x.length}
-    for (i = 0; i < x.length; i++) {
-        x[i].style.display = "none";
+function displayImages(buttonInput) {
+
+    let Images = document.getElementsByClassName("get-img");
+    if (buttonInput > Images.length) {slideIndex = 1}
+    if (buttonInput < 1) {slideIndex = Images.length}
+    for (let index = 0; index < Images.length; index++) {
+        Images[index].style.display = "none";
     }
-    x[slideIndex-1].style.display = "block";
+    Images[slideIndex-1].style.display = "block";
 }
