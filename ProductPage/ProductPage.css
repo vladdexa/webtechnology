@@ -1,16 +1,20 @@
 /* Basic Styling */
-html, body {
+
+html,
+body {
     height: 100%;
     width: 100%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
 }
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 15px;
     display: flex;
 }
+
 
 /* Columns */
 
@@ -19,7 +23,9 @@ html, body {
     margin-top: 60px;
 }
 
+
 /* Left Column */
+
 .left-column img {
     width: 75%;
     position: absolute;
@@ -28,6 +34,7 @@ html, body {
     opacity: 0;
     transition: all 0.3s ease;
 }
+
 .left-column {
     width: 65%;
     position: relative;
@@ -37,27 +44,30 @@ html, body {
     opacity: 1;
 }
 
-/* Product Description */
-.product-description {
+.product-name {
     border-bottom: 1px solid #E1E8EE;
     margin-bottom: 20px;
-}
-
-.product-description h1 {
     font-weight: 300;
     font-size: 52px;
     color: #43484D;
     letter-spacing: -2px;
 }
-.product-description p {
-    font-size: 16px;
-    font-weight: 300;
-    color: #86939E;
-    line-height: 24px;
+
+
+/* Product Description */
+
+.product-description {
+    border-bottom: 1px solid #E1E8EE;
+    margin-bottom: 20px;
 }
+
+
 /* Buttons */
-.button,.button-right{
-    background-color: #4CAF50; /* Green */
+
+.button,
+.button-right {
+    background-color: #4CAF50;
+    /* Green */
     border: none;
     color: white;
     padding: 10px 10px;
@@ -66,13 +76,16 @@ html, body {
     display: inline-block;
     font-size: 16px;
 }
-.button{
-    margin-left:23%;
+
+.button {
+    margin-left: 23%;
 }
-.button-right{
-    margin-left:30%;
-    margin-top:0%;
+
+.button-right {
+    margin-left: 30%;
+    margin-top: 0%;
 }
+
 .button-right span {
     cursor: pointer;
     display: inline-block;
@@ -98,11 +111,13 @@ html, body {
     right: 0;
 }
 
+
 /* Product Price */
+
 .product-price {
     display: flex;
     align-items: center;
-    margin-top:50px;
+    margin-top: 50px;
 }
 
 .product-price span {
@@ -119,13 +134,15 @@ html, body {
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 12px 30px;
+    padding: 6px 23px;
     transition: all .5s;
 }
+
 .cart-btn:hover {
     background-color: #64af3d;
 }
-.Recomanded{
+
+.Recomanded {
     width: 100%;
     height: 300px;
     position: absolute;
@@ -133,74 +150,82 @@ html, body {
     left: 0;
     right: 0;
 }
-.Recomanded h1{
-    margin-bottom:10%;
-    font-size:20px;
-   
+
+.Recomanded h1 {
+    margin-bottom: 10%;
+    font-size: 20px;
+    margin-top: 5%;
 }
-.Recomanded img{
+
+.Recomanded img {
     width: 300px;
     position: absolute;
     left: 40%;
     top: 50px;
     opacity: 0;
     transition: all 0.3s ease;
+    margin-top: 10%;
 }
-.Recomanded img.get-img{
-    opacity:1;
+
+.Recomanded img.get-img {
+    opacity: 1;
+    cursor: pointer;
 }
-.footer-container{
+
+.footer-container {
     position: absolute;
-    top:125%;
+    top: 160%;
 }
+
+
 /* Responsive */
+
 @media (max-width: 940px) {
     .container {
         flex-direction: column;
         margin-top: 60px;
     }
-
     .left-column,
     .right-column {
         width: 100%;
     }
-
     .left-column img {
         width: 300px;
         right: 0;
         top: -65px;
         left: initial;
     }
-    .inner_footer{
-        margin-top:480px;
+    .inner_footer {
+        margin-top: 480px;
     }
-    .footer_third h1,h2,h3,h4{
+    .footer_third h1,
+    h2,
+    h3,
+    h4 {
         font-size: 17px;
     }
-    .footer_third a{
-
+    .footer_third a {
         font-size: 14px;
     }
-    .footer_third b{
-
+    .footer_third b {
         font-size: 14px;
     }
     .product-description h1 {
-        font-size:45px;
+        font-size: 45px;
     }
     .Recomanded {
-        top:78%;
+        top: 78%;
     }
-    .button{
-        margin-left:10%;
-        font-size:15px;
+    .button {
+        margin-left: 10%;
+        font-size: 15px;
     }
-    .button-right{
-        margin-left:35%;
-        font-size:15px;
+    .button-right {
+        margin-left: 35%;
+        font-size: 15px;
     }
-    .Recomanded img{
-        width:200px;
+    .Recomanded img {
+        width: 200px;
     }
 }
 
@@ -209,45 +234,46 @@ html, body {
         width: 220px;
         top: -85px;
     }
-    .footer_third h1,h2,h3,h4{
+    .footer_third h1,
+    h2,
+    h3,
+    h4 {
         font-size: 14px;
     }
-    .footer_third a{
-
+    .footer_third a {
         font-size: 10px;
     }
-    .footer_third b{
-
+    .footer_third b {
         font-size: 10px;
     }
     .product-description h1 {
-        font-size:45px;
+        font-size: 45px;
     }
-    .right-column{
+    .right-column {
         margin-top: 150px;
     }
-    .Recomanded{
-        top:90%;
+    .Recomanded {
+        top: 90%;
     }
-    .button{
-        margin-left:5%;
+    .button {
+        margin-left: 5%;
     }
-    .button-right{
-        margin-left:30%;
+    .button-right {
+        margin-left: 30%;
     }
-    .Recomanded img{
-        margin-left:-70px;
+    .Recomanded img {
+        margin-left: -70px;
     }
 }
-@media (max-width: 600px) {
 
-    .button{
-        margin-top:30%;
+@media (max-width: 600px) {
+    .button {
+        margin-top: 30%;
     }
-    .button-right{
-        margin-left:5%;
+    .button-right {
+        margin-left: 5%;
     }
-    .Recomanded h1{
-        font-size:19px;
+    .Recomanded h1 {
+        font-size: 19px;
     }
 }

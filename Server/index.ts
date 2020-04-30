@@ -24,7 +24,7 @@ createConnection().then(async () => {
             res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/css' });
             Render(req.url, res);
         }
-        else if (req.url.match("\.png$") || req.url.match("\.jpg$") || req.url.match("\.svg$")) {
+        else if (req.url.match("\.png$") || req.url.match("\.jpg$") ) {
 
             const type: string = path.basename(req.url).slice(1);
             res.writeHead(HttpStatus.OK, { 'Content-Type': `image/${type}` });
@@ -39,7 +39,17 @@ createConnection().then(async () => {
             res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
             Render(req.url, res);
 
+        } else if(req.url.match("\.otf$")) {
+            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/otf' });
+            Render(req.url, res);
+        } else if(req.url.match("\.json$")) {
+            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
+            Render(req.url, res);
+        } else if(req.url.match("\.svg$")) {
+            res.writeHead(HttpStatus.OK, { 'Content-Type': 'image/svg+xml' });
+            Render(req.url, res);
         }
+
 
     })
 
