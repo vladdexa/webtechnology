@@ -1,7 +1,7 @@
 body {
     background-image: url("LoginImages/bck8.jpg");
     background-repeat: no-repeat;
-    background-size: 100% 135%;
+    background-size: 100% 100%;
 }
 
 .register-side {
@@ -15,6 +15,7 @@ body {
     display: flex;
     flex-flow: column;
     width: 25%;
+    height:124%;
     border: 5px solid #6da1d826;
     border-radius: 6px;
     background-color: #4230154d;
@@ -69,4 +70,54 @@ input {
     font-size: 1em;
     margin-bottom: 9%;
     height: 35px;
+}
+
+@media screen and (max-width:1000px) {
+    .register-form {
+        margin-top: 6%;
+        width: 33%;
+        height: 125%;
+    }
+}
+
+@media screen and (max-width:760px){
+    .register-form {
+        margin-top: 10%;
+        width: 39%;
+        height: 117%;
+    }
+    label {
+        font-size: medium;
+    }
+    .regbutton{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:570px){
+    .register-form {
+        margin-top: 19%;
+        width: 52%;
+        height: 117%;
+    }
+    label {
+        font-size: medium;
+    }
+    .regbutton{
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width:450px){
+    .register-form {
+        margin-top: 24%;
+        width: 63%;
+        height: 117%;
+    }
+    label {
+        font-size: medium;
+    }
+    .regbutton{
+        font-size: 14px;
+    }
 }
