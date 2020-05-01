@@ -96,7 +96,7 @@ function getImageId() {
         if (e.target.nodeName === "IMG") {
             const productId = e.target.id;
 
-            if (checkNumber(productId)) {
+            if (productId && checkNumber(productId)) {
                 window.location.replace(`http://localhost:3000/product?productId=${productId}`);
             }
         }
