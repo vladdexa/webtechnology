@@ -1,5 +1,5 @@
 import  {login,register,forgotPass}  from './authController'
 import { getImagesForCarousels } from './homeController'
-import { getProduct,getProductsPicturesByCategory} from './productCotroller'
+import { getProduct,getProductsPicturesByCategory,addProductToShoppingCart} from './productCotroller'
 
-export  {login,register,forgotPass,getImagesForCarousels,getProduct,getProductsPicturesByCategory}
+export  {login,register,forgotPass,getImagesForCarousels,getProduct,getProductsPicturesByCategory,addProductToShoppingCart}

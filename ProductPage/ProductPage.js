@@ -37,6 +37,31 @@ function backToHome() {
     window.location.replace("http://localhost:3000/home");
 }
 
+async function addProductToShoppingCart() {
+    const userId = window.localStorage.getItem('user');
+
+    if (userId) {
+        const successResponse = 'The product has been added in the shopping cart with success';
+        const response = await fetch('http://localhost:3000/product/add-product-shoppingCart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `userId=${userId}&productId=${productId}`
+        });
+
+        const responseFromServer = await response.json();
+
+        if (!responseFromServer.message.localeCompare(successResponse)) {
+            alert(responseFromServer.message);
+        }
+    } else {
+        alert('You do not have authorization for this action');
+    }
+
+
+}
+
 async function renderProductPage() {
     const product = await getProduct();
     const images = await getImagesForCarousel();
@@ -67,6 +92,10 @@ async function renderProductPage() {
         img.className = 'get-img';
         imagesContainer.appendChild(img);
     });
+
+    const addToCartBtn = document.getElementById('#cart-btn');
+
+    addToCartBtn.addEventListener('click', addProductToShoppingCart);
 
 }
 

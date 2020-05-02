@@ -3,6 +3,8 @@ import { Product } from "../models/entities/Product";
 import HttpStatus from 'http-status-codes'
 import { ProductCategoryRepository } from "../repositories/ProductCategoryRepository";
 import { Productcategory } from "../models/entities/Productcategory";
+import { UserProductRepository } from "../repositories/UserProductRepository";
+import { Userproduct } from "../models/entities/Userproduct";
 
 async function getProduct(req: any, res: any) {
 
@@ -50,4 +52,25 @@ async function getProductsPicturesByCategory(req: any, res: any) {
 }
 
 
-export { getProduct, getProductsPicturesByCategory }
+async function addProductToShoppingCart(req:any,res:any) {
+    const productId:number = req.body.productId;
+    const userId:number = req.body.userId;
+
+    const userProductRepository = new UserProductRepository();
+    
+    const newUserProduct:Userproduct = new Userproduct();
+    newUserProduct.userId=userId;
+    newUserProduct.productId=productId;
+
+    await userProductRepository.create(newUserProduct);
+
+    res.writeHead(HttpStatus.OK, {'Content-Type':'application/json'});
+    const response = {
+        message:'The product has been added in the shopping cart with success'
+    }
+
+    res.end(JSON.stringify(response));
+
+}
+
+export { getProduct, getProductsPicturesByCategory, addProductToShoppingCart}

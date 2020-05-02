@@ -24,7 +24,8 @@ async function login(req: any, res: any) {
             if (role.localeCompare('user') === 0) {
                 res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
                 const response = {
-                    message: 'user'
+                    message: 'user',
+                    userId:user[0].id
                 }
                 res.end(JSON.stringify(response));
 
