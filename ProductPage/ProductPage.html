@@ -1,54 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="ProductPage.css" rel ="stylesheet">
+    <link href="ProductPage.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="../Components/Generics/Footer/footer.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="../Generics/Footer/footer.css">
+    <title>Online Toys</title>
     <script type="module" src="ProductPage.js">
     </script>
     <script src="ProductPage2.js"></script>
 
 </head>
+
 <body id="#body">
-<main class="container">
+    <main class="container">
 
-    <!-- Left Column / Headphones Image -->
-    <div class="left-column">
-        <img class="left-img" src="image1.jpg">
+        <!-- Left Column / Headphones Image -->
+        <div class="left-column">
+            <img id="#left-img" class="left-img" src="">
 
-    </div>
-    <!-- Right Column -->
-    <div class="right-column">
-
-        <!-- Product Description -->
-        <div class="product-description">
-            <span></span>
-            <h1>Masina lamborghini</h1>
-            <p>Masina dimensiuni mici, usi reglabile, material calitativ !</p>
-            <p>Livrare standard: 2-3 zile lucratoare</p>
-            <p>Livrat si vandut de Online Toy shop</p>
-            <p>Copyright © 2020 Web Technology project A7</p>
         </div>
-        <!-- Product Pricing -->
-        <div class="product-price">
-            <span>14$</span>
-            <a href="#" class="cart-btn">Add to cart</a>
-        </div>
-    </div>
-</main>
+        <!-- Right Column -->
+        <div class="right-column">
 
-<div class="Recomanded">
-    <h1>See our recommendations for you based on this product category:</h1>
-    <img class="get-img" src="image2.jpg" alt="">
-    <img class="get-img" src="image3.jpg" alt="">
-    <img class="get-img" src="image4.jpg" alt="">
-    <button class="button" onclick="plusSlideIndex(-1)"><span>Prev recommendation</span></button>
-    <button class="button-right" onclick="plusSlideIndex(1)"><span>See the next recommendation</span></button>
-</div>
-    <div class="footer-container" id="#footer-container"></div>
+            <div id="#product-name" class="product-name">
+
+            </div>
+            <!-- Product Description -->
+            <div id="#product-description" class="product-description">
+
+            </div>
+            <!-- Product Pricing -->
+            <div class="product-price">
+                <span id="#product-price"></span>
+                <button type="button" id="#cart-btn" class="cart-btn">Add to cart</a>
+                <button type="button" id="#back-btn" class="cart-btn" >Back to Home page</a>
+            </div>
+        </div>
+    </main>
+
+    <div class="Recomanded">
+        <h1>See our recommendations for you based on this product category:</h1>
+        <div id="images-container">
+
+        </div>
+        <button class="button" onclick="plusSlideIndex(-1)"><span>Prev recommendation</span></button>
+                <button class="button-right" onclick="plusSlideIndex(1)"><span>See the next recommendation</span></button>
+            </div>
+            <div class="footer-container" id="#footer-container"></div>
 </body>
+
 </html>

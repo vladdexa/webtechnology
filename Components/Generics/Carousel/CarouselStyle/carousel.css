@@ -9,7 +9,7 @@
     top: 90%;
 }
 
-.carouselHeader{
+.carouselHeader {
     padding: 2rem 2rem 0 2rem;
     margin-left: 3rem;
 }
@@ -20,7 +20,6 @@
     margin-left: 3rem;
 }
 
-
 button {
     height: 10%;
     cursor: pointer;
@@ -29,7 +28,6 @@ button {
     border: 0;
     outline: none;
 }
-
 
 .right-btn {
     position: absolute;
@@ -86,6 +84,7 @@ button {
 }
 
 .img:hover {
+    cursor: pointer;
     border-radius: 50%;
     border: black 2px;
     -webkit-transform: scale(1.2);
@@ -96,27 +95,24 @@ button {
     .container {
         height: 80%;
     }
-
     .carousel {
         margin-top: 6%;
     }
 }
 
 @media screen and (max-width:992px) {
-    .container{
-        height:71%;
-        margin-top:8%;
-        width:89%;
-        margin-left:4%;
+    .container {
+        height: 71%;
+        margin-top: 8%;
+        width: 89%;
+        margin-left: 4%;
     }
-    .left-arrow{
-        width:2rem;
-        margin-left:-9vh;
+    .left-arrow {
+        width: 2rem;
+        margin-left: -9vh;
     }
     .right-arrow {
         width: 2rem;
-        margin-right:-9vh;
+        margin-right: -9vh;
     }
-
 }
-
