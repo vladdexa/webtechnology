@@ -5,4 +5,14 @@ export class UserProductRepository extends ReadWriteRepository<Userproduct> {
     constructor() {
         super(Userproduct);
     }
+
+    async getByUserId(userId:number):Promise<Userproduct[]> {
+        return await this.connection.manager
+            .find(Userproduct, {where: {userId:userId}});
+    }
+
+    async getByProductId(productId:number):Promise<Userproduct[]> {
+        return await this.connection.manager
+            .find(Userproduct, {where: {productId:productId}});
+    }
 }

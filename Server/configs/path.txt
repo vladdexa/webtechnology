@@ -57,5 +57,9 @@
 ../ProductPage/ProductPage.css
 ../ProductPage/ProductPage.js
 ../ProductPage/ProductPage2.js
-../ProductPage/image4.jpg
-../ProductPage/image3.jpg
+
+../Pages/OrderPage/orderPage.css
+../Pages/OrderPage/orderPage.js
+../Components/Generics/BasketCard/basketCard.css
+../Components/Generics/BasketCard/basketCard.html
+../Components/Generics/BasketCard/check.png
