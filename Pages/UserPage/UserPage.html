@@ -6,55 +6,72 @@
     <title>User Profile</title>
     <link rel="stylesheet" type="text/css" href="UserPage.css">
     <link rel="stylesheet" href="../../Components/Generics/Footer/footer.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script type="module" src="UserPage.js">
     </script>
 </head>
 <body>
-        <button type="button">Back to homepage</button>
-        <div class="main-container">
-            <div class="left-part">
-                <section class="forgot-side">
-                    <form class="forgot-form">
-
-                        <div class="description-form">
-                            Do you want to change your password?
+        <div class="container">
+            <div class="profile-header">
+                <div class="profileImg">
+                <img src="profile.png" width="200" alt="">
+                </div>
+                <div class="profile-nav-info">
+                    <div class="user-info">Brinza Tiberiu-Iulian</div>
+                    <button class="mybutton" type="button">Back to homepage</button>
+                </div>
+            </div>
+            <div class="left-side">
+                <div class="profile-side">
+                        <div class="username"><i class="fa fa-address-card">Username : tiberiu1999</i>
                         </div>
-
-
-                        <div class="email-container">
-                            <div>
-                                <label for="email">E-mail Adress</label>
-                                <input id="email" name="email" type="text" placeholder="Enter e-mail adress">
-                            </div>
-
-                            <div id="resetButtonContainer">
-                                <button type="button" class="forgotbutton" onclick="sendEmail()">Send me the password</button>
-                            </div>
-
+                        <div class="email"><i class="fa fa-envelope">Email : tiberiuiulian99@yahoo.com</i>
                         </div>
+                </div>
+            </div>
+            <div class="right-side">
+                <div class="nav">
+                    <section class="forgot-side">
+                        <form class="forgot-form">
 
-                        <div class="change-container">
-                            <div>
-                                <label for="sentPassword">Received Password</label>
-                                <input id="sentPassword" name="sentPassword" type="password" placeholder="Enter received password">
-
-                                <label for="newPassword">New Password</label>
-                                <input id="newPassword" name="newPassword" type="password" placeholder="Enter new password">
+                            <div class="description-form">
+                                In order to change your password we will send you a security code by email
                             </div>
 
 
-                            <div id="changeButtonContainer">
-                                <button type="button" class="forgotbutton" onclick="sendNewPassword()">Change my password</button>
+                            <div class="email-container">
+                                <div>
+                                    <label for="email">E-mail Adress</label>
+                                    <input id="email" name="email" type="text" placeholder="Enter e-mail adress">
+                                </div>
+
+                                <div id="resetButtonContainer">
+                                    <button type="button" class="forgotbutton" onclick="sendEmail()">Send me the security code</button>
+                                </div>
+
                             </div>
-                        </div>
+
+                            <div class="change-container">
+                                <div>
+                                    <label for="sentPassword">Received security code</label>
+                                    <input id="sentPassword" name="sentPassword" type="password" placeholder="Enter received code">
+
+                                    <label for="newPassword">New Password</label>
+                                    <input id="newPassword" name="newPassword" type="password" placeholder="Enter new password">
+                                </div>
 
 
-                    </form>
-                </section>
+                                <div id="changeButtonContainer">
+                                    <button type="button" class="forgotbutton" onclick="sendNewPassword()">Change my password</button>
+                                </div>
+                            </div>
+                        </form>
+                    </section>
+                </div>
             </div>
 
-
         </div>
+
         <div class="footer-container" id="#footer-container"></div>
 </body>
 </html>
