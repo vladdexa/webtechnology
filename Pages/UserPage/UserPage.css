@@ -1,0 +1,116 @@
+.body{
+    margin: 0px;
+    padding: 0px;
+    background: #f1f1f1;
+}
+
+.main-container{
+    width:1200px;
+    height:530px;
+    background: #FFF;
+    border-radius:6px;
+    position:absolute;
+    top:20%;
+    left:10%;
+    box-shadow:0px 1px 10px 3px #000;
+}
+.left-part{
+    width:500px;
+    height:530px;
+}
+
+.forgot-form {
+    display: flex;
+    flex-flow: column;
+    width: 55%;
+    height:520px;
+    border: 5px solid #6da1d826;
+    border-radius: 6px;
+    background-color: #4230154d;
+    box-shadow: 0px 1px 12px 5px rgb(2, 9, 43);
+    margin-top:0%;
+}
+
+.description-form {
+    color: #0d1535;
+    font-size: 20px;
+    margin-top: 8%;
+    text-align: center;
+    font-family: arial;
+    margin-bottom: 5%;
+}
+
+.email-container {
+    display: flex;
+    padding: 0% 9%;
+    margin-top: 8%;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.email-container>div {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+.change-container {
+    display: flex;
+    padding: 0% 9%;
+    margin-top: 8%;
+    flex-direction: column;
+}
+
+.change-container>div {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+#resetButtonContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    align-items: center;
+    height: 30%;
+}
+
+#changeButtonContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    align-items: center;
+    height: 30%;
+}
+
+.forgotbutton {
+    width: 87%;
+    border: 1px solid #21354b;
+    border-radius: 7px;
+    background-color: #abc9ca;
+    color: #080d34;
+    font-size: 1em;
+    margin-bottom: 0%;
+    height: 30px;
+}
+
+label {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    font-family: serif;
+    color: #0d1535;
+    margin-bottom: 2%;
+}
+
+input {
+    padding: 2%;
+    background-color: #abc9ca;
+    font-size: 1em !important;
+    font-style: italic;
+    background-clip: padding-box;
+    border: 1px solid #abc9ca;
+    border-radius: 0.25rem;
+    margin-bottom: 2%;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
