@@ -35,6 +35,7 @@ const sendData = async() => {
                 }
             case user:
                 {
+                    window.localStorage.setItem('user', messageFromServer.userId)
                     window.location.replace("http://localhost:3000/home");
                     break;
                 }
