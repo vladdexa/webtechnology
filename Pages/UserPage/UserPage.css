@@ -15,14 +15,15 @@
     box-shadow:0px 1px 10px 3px #000;
 }
 .left-part{
-    width:500px;
+    width:300px;
     height:530px;
+    
 }
 
 .forgot-form {
     display: flex;
     flex-flow: column;
-    width: 55%;
+    width: 300px;
     height:520px;
     border: 5px solid #6da1d826;
     border-radius: 6px;
