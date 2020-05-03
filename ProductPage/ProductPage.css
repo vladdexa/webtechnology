@@ -137,6 +137,7 @@ body {
     padding: 6px 23px;
     transition: all .5s;
     margin-left: 3%;
+    cursor: pointer;
 }
 
 .back-btn {
@@ -149,9 +150,11 @@ body {
     padding: 6px 23px;
     transition: all .5s;
     margin-top: 20%;
+    cursor: pointer;
 }
 
-.cart-btn:hover {
+.cart-btn,
+.back-btn:hover {
     background-color: #64af3d;
 }
 

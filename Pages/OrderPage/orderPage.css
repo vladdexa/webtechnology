@@ -38,4 +38,5 @@ main {
     font-family: cursive;
     font-size: 15px;
     border: 2px solid #00000066;
+    cursor: pointer;
 }

@@ -15,11 +15,44 @@ const initilizeSearch = () => {
 
 };
 
-const initializeMenu = async (path, pathForStyle, elementToOverlay) => {
+async function getProductsForShoppingCart() {
+    const userId = window.localStorage.getItem('user');
+
+    const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `userId=${userId}`
+    });
+
+    const responseFromServer = await response.json();
+
+    return responseFromServer.products;
+}
+
+async function goToOrderPage() {
+    const userId = window.localStorage.getItem('user');
+    const products = await getProductsForShoppingCart();
+
+    if (userId && products.length) {
+        window.location.replace("http://localhost:3000/order");
+    } else if (!products.length) {
+        alert("You do not have any product in your shopping cart.");
+    } else {
+        alert('You do not have authorization for this action');
+    }
+
+
+}
+
+const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
 
     const menu = new Menu(path);
     await menu.buildMenu();
 
+    const shoopingCartBtn = document.getElementById('shoppingCartBtn');
+    shoopingCartBtn.addEventListener('click', goToOrderPage);
 
     const menuButton = document.getElementById('#menuButton');
 
