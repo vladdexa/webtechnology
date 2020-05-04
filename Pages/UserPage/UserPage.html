@@ -7,29 +7,26 @@
     <link rel="stylesheet" type="text/css" href="UserPage.css">
     <link rel="stylesheet" href="../../Components/Generics/Footer/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script type="module" src="UserPage.js">
+    <script src="userPage.js">
     </script>
 </head>
-<body>
+<body onload="onLoad()">
         <div class="container">
             <div class="profile-header">
                 <div class="profileImg">
                 <img src="profile.png" width="160" alt="">
                 </div>
                 <div class="profile-nav-info">
-                    <div class="user-info">Brinza Tiberiu-Iulian</div>
-                    <button class="mybutton" type="button">Back to homepage</button>
+                    <div id="#credentials" class="user-info"></div>
+                    <button class="mybutton" type="button">Back To Home</button>
                 </div>
             </div>
             <div class="left-side">
                 <div class="profile-side">
-                        <div class="username"><i class="fa fa-address-card">Username:
-
-                            tiberiu1999</i>
+                        <div id="#username" class="username"><i class="fa fa-address-card">d</i>
                         </div>
-                        <div class="email"><i class="fa fa-envelope">Email:
-
-                            tiberiuiulian99@yahoo.com</i>
+            
+                        <div id="#email" class="email"><i class="fa fa-envelope"></i>
                         </div>
                 </div>
             </div>

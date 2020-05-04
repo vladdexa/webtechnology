@@ -60,10 +60,12 @@ body {
 .email{
     margin-top:60%;
     white-space: pre-line;
+    font-style: italic;
 }
 .username{
     margin-top:20%;
     white-space: pre-line;
+    font-style: italic;
 }
 .mybutton {
     background-color:black;

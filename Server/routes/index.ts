@@ -3,6 +3,7 @@ import auth from "./auth";
 import home from "./home"
 import admin from "./admin"
 import product from "./product"
+import user from "./user"
 
 const Router  = require('router');
 
@@ -21,5 +22,6 @@ router.use('/auth',auth);
 router.use('/home',home);
 router.use('/admin',admin);
 router.use('/product',product);
+router.use('/user',user);
 
 export = router;

@@ -59,3 +59,7 @@
 ../ProductPage/ProductPage2.js
 ../ProductPage/image4.jpg
 ../ProductPage/image3.jpg
+
+../Pages/UserPage/profile.png
+../Pages/UserPage/UserPage.css
+../Pages/UserPage/userPage.js
