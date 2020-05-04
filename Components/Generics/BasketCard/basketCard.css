@@ -13,6 +13,7 @@
     font-weight: 700;
     color: #000;
     opacity: .5;
+    cursor: pointer;
 }
 
 .basket-container {
@@ -49,6 +50,7 @@
     margin: 5%;
     text-align: center;
     opacity: 0.9;
+    margin-top: 8%;
 }
 
 .delivery {
@@ -58,7 +60,7 @@
     height: 30%;
     margin-left: 2%;
     margin-left: 4%;
-    margin-top: 5%;
+    margin-top: 10%;
 }
 
 .delivery-icon {
@@ -78,7 +80,7 @@
     display: flex;
     font-style: italic;
     font-size: 20px;
-    margin-top: 7%;
+    margin-top: 12%;
     justify-content: center;
     font-family: Junior;
     opacity: 0.9;

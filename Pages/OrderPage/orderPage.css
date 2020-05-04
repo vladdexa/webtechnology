@@ -27,3 +27,16 @@ main {
     color: #34343a;
     margin-bottom: 2%;
 }
+
+.back-btn {
+    width: 10%;
+    height: 10%;
+    background-color: #e8e8e8;
+    color: #000000;
+    margin-top: -2%;
+    margin-left: 1%;
+    font-family: cursive;
+    font-size: 15px;
+    border: 2px solid #00000066;
+    cursor: pointer;
+}
