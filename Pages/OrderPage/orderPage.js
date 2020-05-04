@@ -1,18 +1,60 @@
-const loadBasketCards = async(numberOfCards) => {
+async function getProductsForShoppingCart() {
+    const userId = window.localStorage.getItem('user');
+
+    const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `userId=${userId}`
+    });
+
+    const responseFromServer = await response.json();
+
+    return responseFromServer.products;
+}
+
+async function deleteProductCard(productId) {
+    const response = await fetch('http://localhost:3000/order/delete-product-from-shoppingCart', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `productId=${productId}`
+    });
+
+    const responseFromServer = await response.json();
+
+    const deletedSuccess = 'The product has been deleted from shopping cart with successs.';
+
+    if (!responseFromServer.message.localeCompare(deletedSuccess)) {
+        alert(deletedSuccess);
+    }
+}
+
+
+
+const loadBasketCards = async() => {
+
+    const products = await getProductsForShoppingCart();
+
     const basketCardsContainer = document.getElementById('basket-cards-container');
     const basketCardPath = '../../Components/Generics/BasketCard/basketCard.html';
+
+
     try {
         await fetch(basketCardPath)
             .then(response => response.text())
             .then(html => {
-                for (let i = 1; i <= numberOfCards; i++) {
-                    let genericDiv = document.createElement('div');
+                for (let index = 0; index < products.length; index++) {
+                    const genericDiv = document.createElement('div');
                     genericDiv.innerHTML = html;
-                    genericDiv.getElementsByTagName('span')[0].setAttribute("id", `${i+1}`);
+                    genericDiv.getElementsByClassName('price')[0].innerText = products[index].price + " RON";
+                    genericDiv.getElementsByClassName('product-description')[0].innerText = products[index].name
+                    genericDiv.getElementsByClassName('product-img')[0].src = products[index].picture;
+                    genericDiv.getElementsByTagName('span')[0].setAttribute("id", `${products[index].id}`);
                     basketCardsContainer.appendChild(genericDiv);
                 }
-
-
             })
             .catch(error => {
                 console.log(error);
@@ -27,16 +69,36 @@ const loadBasketCards = async(numberOfCards) => {
 
 
 function deleteCard() {
-    document.body.addEventListener("mousedown", e => {
+    document.body.addEventListener("mousedown", async e => {
         if (e.target.nodeName === "SPAN") {
-            const elem = document.getElementById(e.target.id);
-            elem.parentNode.parentNode.parentNode.outerHTML = "";
+            const card = document.getElementById(e.target.id);
+            card.parentNode.parentNode.parentNode.outerHTML = "";
+            deleteProductCard(e.target.id);
+
+            const products = await getProductsForShoppingCart();
+
+            if (!products.length) {
+                window.location.replace("http://localhost:3000/order");
+            }
         }
     }, false);
 }
 
+function backToHome() {
+    const userId = window.localStorage.getItem('user');
+    if (userId) {
+        window.location.replace("http://localhost:3000/home");
+    } else {
+        alert('You do not have authorization for this action');
+    }
+}
+
+
 
 async function load() {
-    await loadBasketCards(5);
+    await loadBasketCards();
     deleteCard();
+
+    const backBtn = document.getElementById('#back-btn');
+    backBtn.addEventListener('click', backToHome);
 }

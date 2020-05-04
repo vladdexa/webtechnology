@@ -25,7 +25,7 @@ export class Userproduct {
     unsigned: true,
     default: () => "'0'",
   })
-  productId: number | null;
+  productId: number;
 
   @ManyToOne(() => Product, (product) => product.userproducts, {
     onDelete: "SET NULL",
