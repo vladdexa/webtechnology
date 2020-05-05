@@ -95,10 +95,11 @@ function backToHome() {
 
 
 
-async function load() {
+const initialize = async() => {
     await loadBasketCards();
     deleteCard();
 
     const backBtn = document.getElementById('#back-btn');
     backBtn.addEventListener('click', backToHome);
-}
+};
+document.getElementById('#body').addEventListener('load', initialize());
