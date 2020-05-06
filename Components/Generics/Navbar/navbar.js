@@ -46,6 +46,20 @@ async function goToOrderPage() {
 
 }
 
+
+async function goToUserPage() {
+    const userId = window.localStorage.getItem('user');
+
+    if (userId) {
+        window.location.replace("http://localhost:3000/user");
+    }  else {
+        alert('You do not have authorization for this action');
+    }
+
+}
+
+
+
 const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
 
     const menu = new Menu(path);
@@ -53,6 +67,9 @@ const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
 
     const shoopingCartBtn = document.getElementById('shoppingCartBtn');
     shoopingCartBtn.addEventListener('click', goToOrderPage);
+
+    const details = document.getElementById('#details');
+    details.addEventListener('click',goToUserPage);
 
     const menuButton = document.getElementById('#menuButton');
 
@@ -92,8 +109,8 @@ const initializeDropdown = () => {
     document.addEventListener('click', (event) => {
 
         (button.contains(event.target) || dropdown.contains(event.target)) ?
-        (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay') :
-        (dropdown.style.display = 'none');
+            (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay') :
+            (dropdown.style.display = 'none');
     });
 
     document.addEventListener('keyup', (event) => {
