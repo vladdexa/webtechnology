@@ -42,7 +42,21 @@ async function goToOrderPage() {
     } else {
         alert('You do not have authorization for this action');
     }
+}
 
+
+function getInputSearch() {
+    const inputSearchValue = document.getElementById('#searchInput').value;
+
+    const user = window.localStorage.getItem('user');
+
+    if (user && inputSearchValue) {
+        window.location.replace(`http://localhost:3000/search?value=${inputSearchValue}`);
+    } else if (!inputSearchValue) {
+        alert('You must type any input search.')
+    } else {
+        alert('You do not have authorization for this action.');
+    }
 
 }
 
@@ -109,8 +123,8 @@ const initializeDropdown = () => {
     document.addEventListener('click', (event) => {
 
         (button.contains(event.target) || dropdown.contains(event.target)) ?
-            (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay') :
-            (dropdown.style.display = 'none');
+        (dropdown.style.display = 'block', adImage.style.mixBlendMode = 'overlay') :
+        (dropdown.style.display = 'none');
     });
 
     document.addEventListener('keyup', (event) => {
@@ -123,6 +137,10 @@ const initializeDropdown = () => {
 }
 
 const initializeNavbar = async(pathForMenu, pathForStyle, elementToOverlay) => {
+
+    const inputSearchBtn = document.getElementById('#search-btn');
+    inputSearchBtn.addEventListener('click', getInputSearch);
+
     initilizeSearch();
     initializeDropdown();
     await initializeMenu(pathForMenu, pathForStyle, elementToOverlay);

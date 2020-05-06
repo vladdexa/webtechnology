@@ -98,6 +98,19 @@ async function addProductToShoppingCart() {
 
 }
 
+function goToSearchPage() {
+    const userId = window.localStorage.getItem('user');
+    const value = urlParams.get('value');
+
+    if (userId && value) {
+        window.location.replace(`http://localhost:3000/search?value=${value}`);
+    } else if (!value) {
+        alert('You do not have any search before.');
+    } else {
+        alert('You do not have authorization for this action');
+    }
+}
+
 async function renderProductPage() {
     const product = await getProduct();
     const images = await getImagesForCarousel();
@@ -135,6 +148,8 @@ async function renderProductPage() {
     const viewCart = document.getElementById('#view-cart');
     viewCart.addEventListener('click', goToOrderPage);
 
+    const backSearchBtn = document.getElementById('#backSearch-btn');
+    backSearchBtn.addEventListener('click', goToSearchPage);
 }
 
 

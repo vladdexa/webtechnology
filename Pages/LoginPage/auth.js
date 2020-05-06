@@ -7,7 +7,6 @@ const sendData = async() => {
     const user = 'user';
     const admin = 'admin';
 
-    console.log(username.toString(), password.toString());
 
     if (username && password) {
         const response = await fetch('http://localhost:3000/auth/login', {

@@ -43,7 +43,7 @@ async function getImagesForCarousel(categoryName: string): Promise<any[]> {
     //pentru fiecare din record urile gasite(produse) preluam produsul respectiv pentru a putea accesa campul picture si formam lista images 
     while (index < productCategories.length) {
         const product: Product = (await productRepository.getById(productCategories[index].productId))[0];
-        const productId:number = product.id;
+        const productId: number = product.id;
 
         if (bucket.length == 2) {
             bucket.push(`${product.picture} ${productId}`);
@@ -59,5 +59,7 @@ async function getImagesForCarousel(categoryName: string): Promise<any[]> {
     return images;
 
 }
+
+
 
 export { getImagesForCarousels }

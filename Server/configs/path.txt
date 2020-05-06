@@ -64,6 +64,11 @@
 ../Components/Generics/BasketCard/basketCard.html
 ../Components/Generics/BasketCard/check.png
 
+../Pages/SearchProductsPage/searchProducts.js
+../Pages/SearchProductsPage/searchProducts.css
+../Components/Generics/Card/card.html
+../Components/Generics/Card/card.css
+
 ../Pages/UserPage/profile.png
 ../Pages/UserPage/UserPage.css
 ../Pages/UserPage/userPage.js
