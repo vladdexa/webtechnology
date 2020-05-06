@@ -1,7 +1,9 @@
-
 async function getUser() {
 
-    const userId = window.localStorage.getItem('user');
+
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
     const response = await fetch('http://localhost:3000/user/get-user-byId', {
         method: 'POST',
@@ -27,15 +29,17 @@ async function renderUserPage() {
     username.innerText = "Username:" + user.username;
 
     const email = document.getElementById('#email');
-    email.innerText = "E-mail " +  user.email;
+    email.innerText = "E-mail " + user.email;
 }
 
 async function goToHomePage() {
-    const userId = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
     if (userId) {
-        window.location.replace("http://localhost:3000/home");
-    }  else {
+        window.location.assign("http://localhost:3000/home");
+    } else {
         alert('You do not have authorization for this action');
     }
 
@@ -45,7 +49,7 @@ async function goToHomePage() {
 async function onLoad() {
 
     const backToHomePageBtn = document.getElementById('back-btn');
-    backToHomePageBtn.addEventListener('click',goToHomePage);
+    backToHomePageBtn.addEventListener('click', goToHomePage);
     await renderUserPage();
 
 }
@@ -110,31 +114,31 @@ const sendNewPassword = async() => {
 
         switch (messageFromServer.message) {
             case invalidSentPassword:
-            {
-                alert(invalidSentPassword);
-                break;
-            }
+                {
+                    alert(invalidSentPassword);
+                    break;
+                }
             case newPasswordNotRightLength:
-            {
-                alert(newPasswordNotRightLength);
-                break;
-            }
+                {
+                    alert(newPasswordNotRightLength);
+                    break;
+                }
             case newPasswordNotUpperLetters:
-            {
-                alert(newPasswordNotUpperLetters);
-                break;
-            }
+                {
+                    alert(newPasswordNotUpperLetters);
+                    break;
+                }
             case newPasswordNotLowerLetters:
-            {
-                alert(newPasswordNotLowerLetters);
-                break;
-            }
+                {
+                    alert(newPasswordNotLowerLetters);
+                    break;
+                }
             case successfullyChangedPassword:
-            {
-                alert(successfullyChangedPassword);
-                window.location.replace("http://localhost:3000/user");
-                break;
-            }
+                {
+                    alert(successfullyChangedPassword);
+                    window.location.replace("http://localhost:3000/user");
+                    break;
+                }
         }
 
     } else {

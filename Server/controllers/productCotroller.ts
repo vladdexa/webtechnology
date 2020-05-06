@@ -54,7 +54,8 @@ async function getProductsPicturesByCategory(req: any, res: any) {
 
 async function addProductToShoppingCart(req:any,res:any) {
     const productId:number = req.body.productId;
-    const userId:number = req.body.userId;
+    const userIdString:string = req.body.userId;
+    const userId:number = parseInt(userIdString,10);
 
     const userProductRepository = new UserProductRepository();
     
