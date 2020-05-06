@@ -5,6 +5,7 @@ import admin from "./admin"
 import product from "./product"
 import order from './order'
 import search from './search'
+import user from "./user"
 
 const Router  = require('router');
 
@@ -25,5 +26,6 @@ router.use('/admin',admin);
 router.use('/product',product);
 router.use('/order',order);
 router.use('/search',search);
+router.use('/user',user);
 
 export = router;

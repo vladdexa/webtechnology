@@ -61,6 +61,19 @@ function getInputSearch() {
 }
 
 
+async function goToUserPage() {
+    const userId = window.localStorage.getItem('user');
+
+    if (userId) {
+        window.location.replace("http://localhost:3000/user");
+    }  else {
+        alert('You do not have authorization for this action');
+    }
+
+}
+
+
+
 const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
 
     const menu = new Menu(path);
@@ -69,7 +82,11 @@ const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
     const shoopingCartBtn = document.getElementById('shoppingCartBtn');
     shoopingCartBtn.addEventListener('click', goToOrderPage);
 
+    const details = document.getElementById('#details');
+    details.addEventListener('click',goToUserPage);
+
     const menuButton = document.getElementById('#menuButton');
+
 
     menuButton.src = pathForStyle + '/NavbarImages/menu.svg';
     document.getElementById('#appLogo').src = pathForStyle + '/NavbarImages/oto.png';
