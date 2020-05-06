@@ -1,0 +1,179 @@
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    background-color: #8ab7c7;
+    font-family: 'Poppins', sans-serif;
+    padding-top:0px;
+    margin:100px;
+}
+.profileImg{
+    float:left;
+    height:230px;
+    width:230px;
+}
+.profileImg img{
+    border-radius:50%;
+    border: 4px solid #fff;
+    position:absolute;
+    box-shadow: 0px 5px 10px rgba(0,0,0,2);
+    left: 20px;
+    top: 50px;
+}
+.profile-nav-info{
+    float:left;
+    flex-direction:column;
+    justify-content: center;
+    padding-top:100px;
+}
+.profile-header{
+    margin-top:-5%;
+    background: #fff;
+    width:600px;
+    display:flex;
+    height:250px;
+    position:relative;
+    box-shadow:0px 3px 4px;
+    margin-left:20%;
+
+}
+.profile-side{
+    width: 300px;
+    background: #fff;
+    box-shadow: 0px 3px 5px;
+    padding: 90px 30px 20px;
+    float:left;
+    height:450px;
+    margin-bottom: 50px;
+    font-size:20px;
+    font-family: Arial;
+    margin-left:20%;
+
+}
+
+.user-info{
+    font-family: "Arial Black";
+    font-size:18px;
+}
+.email{
+    margin-top:60%;
+    white-space: pre-line;
+    font-style: italic;
+}
+.username{
+    margin-top:20%;
+    white-space: pre-line;
+    font-style: italic;
+}
+.mybutton {
+    background-color:black;
+    border-radius:10%;
+    border:1px solid #84bbf3;
+    display:inline-block;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    font-weight:bold;
+    padding:6px 24px;
+    right: 50px;
+    position:absolute;
+    top:65%;
+}
+
+.forgot-form {
+    display: flex;
+    flex-flow: column;
+    width: 300px;
+    height:450px;
+    border: 5px solid #6da1d826;
+    border-radius: 6px;
+    background-color: white;
+    box-shadow: 0px 5px 15px 2px;
+}
+
+.description-form {
+    color: #0d1535;
+    font-size: 20px;
+
+    text-align: center;
+    font-family: arial;
+
+}
+
+.email-container {
+    display: flex;
+    padding: 0% 9%;
+    margin-top: 8%;
+    flex-direction: column;
+    margin-bottom: 5%;
+}
+
+.email-container>div {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+.change-container {
+    display: flex;
+    padding: 0% 9%;
+    margin-top: 8%;
+    flex-direction: column;
+}
+
+.change-container>div {
+    display: flex;
+    flex-direction: column;
+    margin: 2%;
+}
+
+#resetButtonContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    align-items: center;
+    height: 30%;
+}
+
+#changeButtonContainer {
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    align-items: center;
+    height: 30%;
+}
+
+.forgotbutton {
+    width: 87%;
+    border: 1px solid #21354b;
+    border-radius: 7px;
+    background-color: #2e3a48;
+    color: white;
+    font-size: 1em;
+    margin-bottom: 0%;
+    height: 30px;
+}
+
+label {
+    text-align: center;
+    font-weight: bold;
+    font-size: large;
+    font-family: serif;
+    color: #0d1535;
+    margin-bottom: 2%;
+}
+
+input {
+    padding: 2%;
+    background-color: #abc9ca;
+    font-size: 1em !important;
+    font-style: italic;
+    background-clip: padding-box;
+    border: 1px solid #abc9ca;
+    border-radius: 0.25rem;
+    margin-bottom: 2%;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}

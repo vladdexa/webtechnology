@@ -206,9 +206,9 @@ body {
         width: 100%;
     }
     .left-column img {
-        width: 300px;
+        width: 250px;
         right: 0;
-        top: -65px;
+        top: 130px;
         left: initial;
     }
     .inner_footer {
@@ -242,6 +242,9 @@ body {
     }
     .Recomanded img {
         width: 200px;
+    }
+    .product-name{
+        font-size:24px;
     }
 }
 
@@ -278,7 +281,11 @@ body {
         margin-left: 30%;
     }
     .Recomanded img {
-        margin-left: -70px;
+        margin-left: -24px;
+        width: 164px;
+    }
+    .Recomanded h1 {
+        margin-bottom: 29%;
     }
 }
 
