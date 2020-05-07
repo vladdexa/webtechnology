@@ -4,6 +4,7 @@ import { getProduct,getProductsPicturesByCategory,addProductToShoppingCart} from
 import {getProductsForShoppingCart,deleteProductFromShoppingCart} from './orderController'
 import {getProductsBySearchInput} from './searchProductsController'
 import { getUserById} from './userController'
+import {getProductByCategoryId, getProductByCategoryList} from './categoryController'
 
 export  {login,register,forgotPass,getImagesForCarousels,getProduct,getProductsPicturesByCategory,
-        addProductToShoppingCart, getProductsForShoppingCart,deleteProductFromShoppingCart,getProductsBySearchInput,getUserById}
+        addProductToShoppingCart, getProductsForShoppingCart,deleteProductFromShoppingCart,getProductsBySearchInput,getUserById, getProductByCategoryId, getProductByCategoryList}

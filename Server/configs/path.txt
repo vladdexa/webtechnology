@@ -72,3 +72,6 @@
 ../Pages/UserPage/profile.png
 ../Pages/UserPage/UserPage.css
 ../Pages/UserPage/userPage.js
+
+../Pages/CategoryPage/categoryPage.css
+../Pages/CategoryPage/categoryPage.js

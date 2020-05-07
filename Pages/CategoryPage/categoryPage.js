@@ -1,7 +1,26 @@
 import { loadFooter } from "../../Components/Generics/Footer/footer.js";
 import initializeNavbar from "../../Components/Generics/Navbar/navbar.js";
 
-const loadCards = async(numberOfCards) => {
+const urlParams = new URLSearchParams(window.location.search);
+const param = urlParams.get('categoryId');
+const categoryId = parseInt(param, 10);
+
+async function getProductByCategoryId() {
+
+    const response = await fetch('http://localhost:3000/Category/getProductByCategoryId', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: `categoryId=${categoryId}`
+    });
+
+    const responseFromServer = await response.json();
+
+    return responseFromServer.product;
+}
+const loadCards = async() => {
+    const products = await getProductByCategoryId();
     const cardsContainer = document.getElementById('#cards-container');
     const cardPath = '../../Components/Generics/Card/card.html';
 
@@ -9,9 +28,15 @@ const loadCards = async(numberOfCards) => {
         await fetch(cardPath)
             .then(response => response.text())
             .then(html => {
-                for (let i = 1; i <= numberOfCards; i++) {
+                for (let index = 0; index <= products.length; index++) {
                     const genericDiv = document.createElement('div');
                     genericDiv.innerHTML = html;
+
+                    console.log(genericDiv.getElementsByClassName('price')[0].innerText);
+                    genericDiv.getElementsByClassName('price')[0].innerText = products[index].price + " RON";
+                    genericDiv.getElementsByClassName('img')[0].src = products[index].picture;
+                    genericDiv.getElementsByClassName('img')[0].setAttribute("id", `${products[index].id}`);
+
                     cardsContainer.appendChild(genericDiv);
                 }
             })
@@ -23,6 +48,33 @@ const loadCards = async(numberOfCards) => {
         throw new Error(e);
     }
 };
+
+function checkNumber(someString) {
+    someString = someString.trim();
+    for (let index = 0; index < someString.length; index++)
+        if (!(someString[index] >= '0' && someString[index] <= '9')) return false;
+    return true;
+}
+
+function getImageId() {
+    document.body.addEventListener("mousedown", async(e) => {
+        if (e.target.nodeName === "IMG") {
+            const productId = e.target.id;
+
+            const userLocalStorage = window.localStorage.getItem('user');
+            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+            const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
+            if (productId && checkNumber(productId) && userId) {
+                window.location.assign(`http://localhost:3000/product?productId=${productId}`);
+            } else if (!userId) {
+                alert('You do not have authorization for this action.');
+            }
+        }
+    }, false);
+}
+
+
 
 const loadNavbar = async() => {
     const navbarDiv = document.getElementById('#navbar');
