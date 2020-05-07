@@ -142,23 +142,30 @@ const submitYourOrder = async () => {
         userCart: toSend,
     };
 
-    const response = await fetch('http://localhost:3000/order/place-your-order', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-    });
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
-    const messageFromServer = await response.json();
+    if(userId) {
+        const response = await fetch('http://localhost:3000/order/place-your-order', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(payload),
+        });
 
-    if (!messageFromServer.success) {
-        alert(messageFromServer.message);
+        const messageFromServer = await response.json();
+
+        if (!messageFromServer.success) {
+            alert(messageFromServer.message);
+        } else {
+            await alert(messageFromServer.message);
+            window.location.assign('http://localhost:3000/home');
+        }
     } else {
-        await alert(messageFromServer.message);
-        window.location.assign('http://localhost:3000/home');
+        alert('You do not have authorization for this action');
     }
-
 };
 
 let displayForm = true;
