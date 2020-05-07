@@ -1,7 +1,7 @@
-import { loadFooter } from "../../Components/Generics/Footer/footer.js";
+import {loadFooter} from "../../Components/Generics/Footer/footer.js";
 import initializeNavbar from "../../Components/Generics/Navbar/navbar.js";
 
-const loadCards = async(numberOfCards) => {
+const loadCards = async (numberOfCards) => {
     const cardsContainer = document.getElementById('#cards-container');
     const cardPath = '../../Components/Generics/Card/card.html';
 
@@ -24,7 +24,7 @@ const loadCards = async(numberOfCards) => {
     }
 };
 
-const loadNavbar = async() => {
+const loadNavbar = async () => {
     const navbarDiv = document.getElementById('#navbar');
     const htmlNavbarPath = '../../Components/Generics/Navbar/navbar.html';
     try {

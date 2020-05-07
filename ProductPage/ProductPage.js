@@ -1,4 +1,5 @@
 import { loadFooter } from "../Generics/Footer/footer.js";
+import {authorizer} from "../Components/Generics/authorizer.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const param = urlParams.get('productId');
@@ -34,11 +35,7 @@ async function getImagesForCarousel() {
 }
 
 function backToHome() {
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
-    if (userId) {
+    if (authorizer()) {
         window.location.assign("http://localhost:3000/home");
     } else {
         alert('You do not have authorization for this action');
@@ -46,9 +43,7 @@ function backToHome() {
 }
 
 async function getProductsForShoppingCart() {
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+   const userId = authorizer();
 
     const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
         method: 'POST',
@@ -66,12 +61,8 @@ async function getProductsForShoppingCart() {
 async function goToOrderPage() {
     const products = await getProductsForShoppingCart();
 
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
-
-    if (userId && products.length) {
+    if (authorizer() && products.length) {
         window.location.assign("http://localhost:3000/order");
     } else if (!products.length) {
         alert("You do not have any product in your shopping cart.");
@@ -83,10 +74,7 @@ async function goToOrderPage() {
 }
 
 async function addProductToShoppingCart() {
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
+    const userId = authorizer();
 
     if (userId) {
         const successResponse = 'The product has been added in the shopping cart with success';
@@ -113,11 +101,7 @@ async function addProductToShoppingCart() {
 function goToSearchPage() {
     const value = urlParams.get('value');
 
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
-    if (userId && value) {
+    if (authorizer()&& value) {
         window.location.assign(`http://localhost:3000/search?value=${value}`);
     } else if (!value) {
         alert('You do not have any search before.');
@@ -182,14 +166,9 @@ function getImageId() {
         if (e.target.nodeName === "IMG") {
             const productId = e.target.id;
 
-            const userLocalStorage = window.localStorage.getItem('user');
-            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-            const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
-
-            if (checkNumber(productId) && userId) {
+            if (checkNumber(productId) && authorizer()) {
                 window.location.assign(`http://localhost:3000/product?productId=${productId}`);
-            } else if (!userId) {
+            } else if (!authorizer()) {
                 alert('You do not have authorization for this action.');
             }
         }

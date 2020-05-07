@@ -1,4 +1,5 @@
 import Menu from "../Menu/Menu.js";
+import {authorizer} from "../authorizer.js";
 
 const initilizeSearch = () => {
     const inputSearch = document.getElementById('#searchInput');
@@ -16,9 +17,7 @@ const initilizeSearch = () => {
 };
 
 async function getProductsForShoppingCart() {
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+    const userId = authorizer();
 
     const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
         method: 'POST',
@@ -36,12 +35,9 @@ async function getProductsForShoppingCart() {
 async function goToOrderPage() {
     const products = await getProductsForShoppingCart();
 
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
 
-    if (userId && products.length) {
+    if (authorizer() && products.length) {
         window.location.assign("http://localhost:3000/order");
     } else if (!products.length) {
         alert("You do not have any product in your shopping cart.");
@@ -54,11 +50,7 @@ async function goToOrderPage() {
 function getInputSearch() {
     const inputSearchValue = document.getElementById('#searchInput').value;
 
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
-    if (userId && inputSearchValue) {
+    if (authorizer() && inputSearchValue) {
         window.location.assign(`http://localhost:3000/search?value=${inputSearchValue}`);
     } else if (!inputSearchValue) {
         alert('You must type any input search.')
@@ -70,11 +62,8 @@ function getInputSearch() {
 
 
 async function goToUserPage() {
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
-    if (userId) {
+    if (authorizer()) {
         window.location.assign("http://localhost:3000/user");
     } else {
         alert('You do not have authorization for this action');
