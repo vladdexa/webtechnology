@@ -141,19 +141,28 @@ body {
 }
 
 .back-btn {
-    display: inline-block;
+    display: flex;
     background-color: #7DC855;
     border-radius: 6px;
     font-size: 16px;
     color: #FFFFFF;
     text-decoration: none;
-    padding: 6px 23px;
+    padding: 7px 14px;
     transition: all .5s;
-    margin-top: 20%;
+    margin-top: 10%;
     cursor: pointer;
+    margin-left: 3%;
 }
 
-.cart-btn,
+.others-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.cart-btn:hover {
+    background-color: #64af3d;
+}
+
 .back-btn:hover {
     background-color: #64af3d;
 }
@@ -162,7 +171,7 @@ body {
     width: 100%;
     height: 300px;
     position: absolute;
-    top: 80%;
+    top: 92%;
     left: 0;
     right: 0;
 }
@@ -190,7 +199,7 @@ body {
 
 .footer-container {
     position: absolute;
-    top: 160%;
+    top: 165%;
 }
 
 
@@ -206,9 +215,9 @@ body {
         width: 100%;
     }
     .left-column img {
-        width: 300px;
+        width: 250px;
         right: 0;
-        top: -65px;
+        top: 130px;
         left: initial;
     }
     .inner_footer {
@@ -242,6 +251,9 @@ body {
     }
     .Recomanded img {
         width: 200px;
+    }
+    .product-name{
+        font-size:24px;
     }
 }
 
@@ -278,7 +290,11 @@ body {
         margin-left: 30%;
     }
     .Recomanded img {
-        margin-left: -70px;
+        margin-left: -24px;
+        width: 164px;
+    }
+    .Recomanded h1 {
+        margin-bottom: 29%;
     }
 }
 

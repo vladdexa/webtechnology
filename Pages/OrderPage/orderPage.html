@@ -6,10 +6,10 @@
     <title>Online Toy</title>
     <link rel="stylesheet" href="orderPage.css">
     <link rel="stylesheet" href="../../Components/Generics/BasketCard/basketCard.css">
-    <script src="orderPage.js"></script>
+    <script type="module" src="orderPage.js"></script>
 </head>
 
-<body onload="load()">
+<body id="#body">
     <main>
 
         <button id="#back-btn" class="back-btn" type="button">Back to Home page</button>
@@ -19,45 +19,44 @@
 
         <section class="order-form">
             <div class="order-form-container">
-                <button class="place_order_button" id="placeOrder" type="button">Place your order</button>
                 <div class="details-container" id="detailsContainer">
                     <form class="order-form-form">
                         <label for="firstName">First name</label>
-                        <input type="text" id="firstName">
+                        <input type="text" id="firstName" required>
 
                         <label for="lastName">Last name</label>
-                        <input type="text" id="lastName">
+                        <input type="text" id="lastName" required>
 
                         <label for="email">Email</label>
-                        <input type="email" id="email">
+                        <input type="email" id="email" required>
 
                         <label for="phoneNo">Phone number</label>
-                        <input type="tel" id="phoneNo">
+                        <input type="tel" id="phoneNo" required>
 
                         <label for="country">Country</label>
-                        <input type="text" id="country">
+                        <input type="text" id="country" required>
 
                         <label for="state">State</label>
-                        <input type="text" id="state">
+                        <input type="text" id="state" required>
 
                         <label for="address">Address</label>
-                        <textarea id="address"></textarea>
+                        <textarea id="address" required></textarea>
 
                         <label for="payment">Payment</label>
-                        <div id="payment" class="payment">
-                            <label for="payment1" class="cash">Cash</label>
-                        <input type="checkbox" id="payment1" class="payment-input">
-                            <label for="payment2" class="card">Card</label>
-                        <input type="checkbox" id="payment2" class="payment-input">
-                        </div>
+                        <select id="payment"  class="select-payment" required>
+                            <option>Card</option>
+                            <option>Cash at delivery</option>
+                        </select>
+
                         <div>
-                        <button class="place_order_button" type="reset">Discard changes</button>
-                            <button class="submit">Submit</button>
+                        <button class="discard" type="reset">Discard changes</button>
+                            <button class="submit" id="submitButton"  type ="button">Place your order</button>
                         </div>
                     </form>
                 </div>
             </div>
         </section>
+
     </main>
 </body>
 

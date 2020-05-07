@@ -33,8 +33,7 @@ async function deleteProductCard(productId) {
 }
 
 
-
-const loadBasketCards = async() => {
+const loadBasketCards = async () => {
 
     const products = await getProductsForShoppingCart();
 
@@ -48,6 +47,7 @@ const loadBasketCards = async() => {
             .then(html => {
                 for (let index = 0; index < products.length; index++) {
                     const genericDiv = document.createElement('div');
+                    genericDiv.setAttribute('class', 'card');
                     genericDiv.innerHTML = html;
                     genericDiv.getElementsByClassName('price')[0].innerText = products[index].price + " RON";
                     genericDiv.getElementsByClassName('product-description')[0].innerText = products[index].name
@@ -64,8 +64,6 @@ const loadBasketCards = async() => {
         throw new Error(e);
     }
 }
-
-
 
 
 function deleteCard() {
@@ -93,21 +91,89 @@ function backToHome() {
     }
 }
 
+
+const submitYourOrder = async () => {
+    const firstName = document.getElementById('firstName').value;
+    const lastName = document.getElementById('lastName').value;
+    const email = document.getElementById('email').value;
+    const phoneNo = document.getElementById('phoneNo').value;
+    const country = document.getElementById('country').value;
+    const state = document.getElementById('state').value;
+    const address = document.getElementById('address').value;
+    const payment = document.getElementById('payment').value;
+
+    const result = {
+        firstName,
+        lastName,
+        email,
+        phoneNo,
+        country,
+        state,
+        address,
+        payment
+    };
+
+    console.log(result);
+    const cart = document.getElementsByClassName('card');
+    const toSend = [];
+    for (let i = 0; i < cart.length; i++) {
+        toSend.push(cart.item(i).innerHTML);
+    }
+
+    console.log(toSend);
+
+
+    const payload = {
+        userDetails: result,
+        userCart: toSend,
+    };
+
+    const response = await fetch('http://localhost:3000/order/place-your-order', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+    });
+
+    const messageFromServer = await response.json();
+
+    if (!messageFromServer.success) {
+        alert(messageFromServer.message);
+    } else {
+        await alert(messageFromServer.message);
+        window.location.assign('http://localhost:3000/home');
+    }
+
+};
+
 let displayForm = true;
 
-async function load() {
+const initialize = async () => {
     await loadBasketCards();
     deleteCard();
+
+    const basketCardContainer = document.getElementById('basket-cards-container');
+    const placeOrderButton = document.createElement('button');
+
+    placeOrderButton.setAttribute('class', 'place_order_button');
+    placeOrderButton.setAttribute('id', 'placeOrder');
+    placeOrderButton.setAttribute('type', 'button');
+    placeOrderButton.innerHTML = 'Checkout';
+    placeOrderButton.addEventListener('click', () => {
+
+        const detailsContainer = document.getElementById('detailsContainer');
+        displayForm ? detailsContainer.style.display = 'block' : detailsContainer.style.display = 'none';
+        displayForm = !displayForm;
+    });
+
+    basketCardContainer.appendChild(placeOrderButton);
 
     const backBtn = document.getElementById('#back-btn');
     backBtn.addEventListener('click', backToHome);
 
-    const placeOrderButton = document.getElementById('placeOrder');
-    placeOrderButton.addEventListener('click',()=>{
 
-        const detailsContainer = document.getElementById('detailsContainer');
-        displayForm ? detailsContainer.style.display = 'block': detailsContainer.style.display='none';
-        displayForm = !displayForm;
-    })
+};
 
-}
+document.getElementById('#body').addEventListener('load', initialize());
+document.getElementById('submitButton').addEventListener('click', submitYourOrder);

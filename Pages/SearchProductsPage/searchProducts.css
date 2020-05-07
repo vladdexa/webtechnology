@@ -1,0 +1,99 @@
+.ContainerCards {
+    width: 90%;
+    position: absolute;
+    left: 6%;
+    margin-top: 2rem;
+    top: 15%;
+    z-index: 0;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    grid-row-gap: 2%;
+    margin-top: 5%;
+    margin-left: 10%;
+    width: 75%;
+    height: auto;
+}
+
+.bottom-side {
+    position: absolute;
+    top: 180%;
+}
+
+@media only screen and (min-width :320px) and (max-width: 450px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    .cards-container .card-container {
+        margin: 0% 5%;
+    }
+    .cards-container .product-description {
+        font-size: 15px;
+    }
+    .cards-container .price {
+        font-size: 17px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .cards-container .card-container:hover {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+@media only screen and (min-width :451px) and (max-width: 600px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(100%, 1fr));
+    }
+    .cards-container .card-container {
+        margin: 0% 5%;
+    }
+    .cards-container .product-description {
+        font-size: 17px;
+    }
+    .cards-container .price {
+        font-size: 19px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+    .cards-container .card-container:hover {
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
+    }
+}
+
+@media only screen and (min-width :601px) and (max-width: 1100px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    }
+    .cards-container .card-container {
+        margin: 6%;
+    }
+    .cards-container .product-description {
+        font-size: 17px;
+    }
+    .cards-container .price {
+        font-size: 18px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+}
+
+@media only screen and (min-width :1101px) {
+    .cards-container {
+        grid-template-columns: repeat(auto-fill, minmax(30%, 1fr));
+    }
+    .cards-container .card-container {
+        margin: 6%;
+    }
+    .cards-container .product-description {
+        font-size: 17px;
+    }
+    .cards-container .price {
+        font-size: 19px;
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+}
