@@ -18,7 +18,45 @@
         </section>
 
         <section class="order-form">
+            <div class="order-form-container">
+                <button class="place_order_button" id="placeOrder" type="button">Place your order</button>
+                <div class="details-container" id="detailsContainer">
+                    <form class="order-form-form">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName">
 
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName">
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email">
+
+                        <label for="phoneNo">Phone number</label>
+                        <input type="tel" id="phoneNo">
+
+                        <label for="country">Country</label>
+                        <input type="text" id="country">
+
+                        <label for="state">State</label>
+                        <input type="text" id="state">
+
+                        <label for="address">Address</label>
+                        <textarea id="address"></textarea>
+
+                        <label for="payment">Payment</label>
+                        <div id="payment" class="payment">
+                            <label for="payment1" class="cash">Cash</label>
+                        <input type="checkbox" id="payment1" class="payment-input">
+                            <label for="payment2" class="card">Card</label>
+                        <input type="checkbox" id="payment2" class="payment-input">
+                        </div>
+                        <div>
+                        <button class="place_order_button" type="reset">Discard changes</button>
+                            <button class="submit">Submit</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
     </main>
 </body>

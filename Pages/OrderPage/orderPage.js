@@ -93,7 +93,7 @@ function backToHome() {
     }
 }
 
-
+let displayForm = true;
 
 async function load() {
     await loadBasketCards();
@@ -101,4 +101,13 @@ async function load() {
 
     const backBtn = document.getElementById('#back-btn');
     backBtn.addEventListener('click', backToHome);
+
+    const placeOrderButton = document.getElementById('placeOrder');
+    placeOrderButton.addEventListener('click',()=>{
+
+        const detailsContainer = document.getElementById('detailsContainer');
+        displayForm ? detailsContainer.style.display = 'block': detailsContainer.style.display='none';
+        displayForm = !displayForm;
+    })
+
 }
