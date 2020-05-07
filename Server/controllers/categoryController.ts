@@ -10,7 +10,7 @@ async function getProductByCategoryId(req: any, res: any) {
     const categoryId: number = req.body.categoryId;
 
     const productCategoryRepository = new ProductCategoryRepository();
-    const category: Category = (await productCategoryRepository.getByCategoryId(categoryId))[0];
+    const category: Productcategory = (await productCategoryRepository.getByCategoryId(categoryId))[0];
     const response = {
         category: category
     }
