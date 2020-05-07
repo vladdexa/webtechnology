@@ -34,16 +34,21 @@ async function getImagesForCarousel() {
 }
 
 function backToHome() {
-    const userId = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
     if (userId) {
-        window.location.replace("http://localhost:3000/home");
+        window.location.assign("http://localhost:3000/home");
     } else {
         alert('You do not have authorization for this action');
     }
 }
 
 async function getProductsForShoppingCart() {
-    const userId = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
     const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
         method: 'POST',
@@ -59,11 +64,15 @@ async function getProductsForShoppingCart() {
 }
 
 async function goToOrderPage() {
-    const userId = window.localStorage.getItem('user');
     const products = await getProductsForShoppingCart();
 
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
+
     if (userId && products.length) {
-        window.location.replace("http://localhost:3000/order");
+        window.location.assign("http://localhost:3000/order");
     } else if (!products.length) {
         alert("You do not have any product in your shopping cart.");
     } else {
@@ -74,7 +83,10 @@ async function goToOrderPage() {
 }
 
 async function addProductToShoppingCart() {
-    const userId = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
 
     if (userId) {
         const successResponse = 'The product has been added in the shopping cart with success';
@@ -99,11 +111,14 @@ async function addProductToShoppingCart() {
 }
 
 function goToSearchPage() {
-    const userId = window.localStorage.getItem('user');
     const value = urlParams.get('value');
 
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
     if (userId && value) {
-        window.location.replace(`http://localhost:3000/search?value=${value}`);
+        window.location.assign(`http://localhost:3000/search?value=${value}`);
     } else if (!value) {
         alert('You do not have any search before.');
     } else {
@@ -167,8 +182,15 @@ function getImageId() {
         if (e.target.nodeName === "IMG") {
             const productId = e.target.id;
 
-            if (checkNumber(productId)) {
-                window.location.replace(`http://localhost:3000/product?productId=${productId}`);
+            const userLocalStorage = window.localStorage.getItem('user');
+            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+            const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
+
+            if (checkNumber(productId) && userId) {
+                window.location.assign(`http://localhost:3000/product?productId=${productId}`);
+            } else if (!userId) {
+                alert('You do not have authorization for this action.');
             }
         }
     }, false);

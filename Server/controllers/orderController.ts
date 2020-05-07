@@ -5,14 +5,15 @@ import {Product} from '../models/entities/Product';
 import {ProductRepository} from '../repositories/ProductRepository';
 import {MailPayload, MailService} from "../services/MailService";
 
-async function getProductsForShoppingCart(req: any, res: any) {
-    const userId: number = req.body.userId;
+async function getProductsForShoppingCart(req:any,res:any) {
+    const userIdString:string = req.body.userId;
+    const userId:number = parseInt(userIdString,10);
 
     const userProductRepository = new UserProductRepository();
-    const products: Userproduct[] = await userProductRepository.getByUserId(userId);
+    const products:Userproduct[] = await userProductRepository.getByUserId(userId);
 
-    let productsForShoppingCarts: Product[] = [];
-    let index: number = 0;
+    let productsForShoppingCarts:Product[] = [];
+    let index:number = 0;
 
     const productRepository = new ProductRepository();
 

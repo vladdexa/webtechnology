@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,72 +8,74 @@
     <link rel="stylesheet" type="text/css" href="UserPage.css">
     <link rel="stylesheet" href="../../Components/Generics/Footer/footer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="userPage.js">
-    </script>
+    <script src="userPage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 </head>
+
 <body onload="onLoad()">
-<div class="container">
-    <div class="profile-header">
-        <div class="profileImg">
-            <img src="profile.png" width="160" alt="">
-        </div>
-        <div class="profile-nav-info">
-            <div id="#credentials" class="user-info"></div>
-            <button id="back-btn" class="mybutton" type="button">Back To Home</button>
-        </div>
-    </div>
-    <div class="left-side">
-        <div class="profile-side">
-            <div id="#username" class="username"><i class="fa fa-address-card">d</i>
+    <div class="container">
+        <div class="profile-header">
+            <div class="profileImg">
+                <img src="profile.png" width="160" alt="">
             </div>
-
-            <div id="#email" class="email"><i class="fa fa-envelope"></i>
+            <div class="profile-nav-info">
+                <div id="#credentials" class="user-info"></div>
+                <button id="back-btn" class="mybutton" type="button">Back To Home</button>
             </div>
         </div>
-    </div>
-    <div class="right-side">
-        <div class="nav">
-            <section class="forgot-side">
-                <form class="forgot-form">
+        <div class="left-side">
+            <div class="profile-side">
+                <div id="#username" class="username"><i class="fa fa-address-card">d</i>
+                </div>
 
-                    <div class="description-form">
-                        In order to change your password we will send you a security code by email
-                    </div>
-
-
-                    <div class="email-container">
-                        <div>
-                            <label for="email">E-mail Adress</label>
-                            <input id="email" name="email" type="text" placeholder="Enter e-mail adress">
-                        </div>
-
-                        <div id="resetButtonContainer">
-                            <button type="button" class="forgotbutton" onclick="sendEmail()">Send me the security code</button>
-                        </div>
-
-                    </div>
-
-                    <div class="change-container">
-                        <div>
-                            <label for="sentPassword">Received security code</label>
-                            <input id="sentPassword" name="sentPassword" type="password" placeholder="Enter received code">
-
-                            <label for="newPassword">New Password</label>
-                            <input id="newPassword" name="newPassword" type="password" placeholder="Enter new password">
-                        </div>
-
-
-                        <div id="changeButtonContainer">
-                            <button type="button" class="forgotbutton" onclick="sendNewPassword()">Change my password</button>
-                        </div>
-                    </div>
-                </form>
-            </section>
+                <div id="#email" class="email"><i class="fa fa-envelope"></i>
+                </div>
+            </div>
         </div>
+        <div class="right-side">
+            <div class="nav">
+                <section class="forgot-side">
+                    <form class="forgot-form">
+
+                        <div class="description-form">
+                            In order to change your password we will send you a security code by email
+                        </div>
+
+
+                        <div class="email-container">
+                            <div>
+                                <label for="email">E-mail Adress</label>
+                                <input id="email" name="email" type="text" placeholder="Enter e-mail adress">
+                            </div>
+
+                            <div id="resetButtonContainer">
+                                <button type="button" class="forgotbutton" onclick="sendEmail()">Send me the security code</button>
+                            </div>
+
+                        </div>
+
+                        <div class="change-container">
+                            <div>
+                                <label for="sentPassword">Received security code</label>
+                                <input id="sentPassword" name="sentPassword" type="password" placeholder="Enter received code">
+
+                                <label for="newPassword">New Password</label>
+                                <input id="newPassword" name="newPassword" type="password" placeholder="Enter new password">
+                            </div>
+
+
+                            <div id="changeButtonContainer">
+                                <button type="button" class="forgotbutton" onclick="sendNewPassword()">Change my password</button>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+            </div>
+        </div>
+
     </div>
 
-</div>
-
-<div class="footer-container" id="#footer-container"></div>
+    <div class="footer-container" id="#footer-container"></div>
 </body>
+
 </html>

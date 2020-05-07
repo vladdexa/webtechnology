@@ -16,7 +16,9 @@ const initilizeSearch = () => {
 };
 
 async function getProductsForShoppingCart() {
-    const userId = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
     const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
         method: 'POST',
@@ -32,11 +34,15 @@ async function getProductsForShoppingCart() {
 }
 
 async function goToOrderPage() {
-    const userId = window.localStorage.getItem('user');
     const products = await getProductsForShoppingCart();
 
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
+
     if (userId && products.length) {
-        window.location.replace("http://localhost:3000/order");
+        window.location.assign("http://localhost:3000/order");
     } else if (!products.length) {
         alert("You do not have any product in your shopping cart.");
     } else {
@@ -48,10 +54,12 @@ async function goToOrderPage() {
 function getInputSearch() {
     const inputSearchValue = document.getElementById('#searchInput').value;
 
-    const user = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
-    if (user && inputSearchValue) {
-        window.location.replace(`http://localhost:3000/search?value=${inputSearchValue}`);
+    if (userId && inputSearchValue) {
+        window.location.assign(`http://localhost:3000/search?value=${inputSearchValue}`);
     } else if (!inputSearchValue) {
         alert('You must type any input search.')
     } else {
@@ -62,11 +70,13 @@ function getInputSearch() {
 
 
 async function goToUserPage() {
-    const userId = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
     if (userId) {
-        window.location.replace("http://localhost:3000/user");
-    }  else {
+        window.location.assign("http://localhost:3000/user");
+    } else {
         alert('You do not have authorization for this action');
     }
 
@@ -83,7 +93,7 @@ const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
     shoopingCartBtn.addEventListener('click', goToOrderPage);
 
     const details = document.getElementById('#details');
-    details.addEventListener('click',goToUserPage);
+    details.addEventListener('click', goToUserPage);
 
     const menuButton = document.getElementById('#menuButton');
 

@@ -3,7 +3,8 @@ import { User } from "../models/entities/User";
 import HttpStatus from 'http-status-codes'
 
 async function getUserById(req:any,res:any) {
-    const userId:number = req.body.userId;
+    const userIdString:string = req.body.userId;
+    const userId:number = parseInt(userIdString, 10);
 
     const userRepository = new UserRepository();
     const user:User = (await userRepository.getById(userId))[0];
