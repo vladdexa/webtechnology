@@ -1,9 +1,8 @@
-async function getProductsForShoppingCart() {
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+import {authorizer} from "../../Components/Generics/authorizer.js";
 
-    if (userId) {
+async function getProductsForShoppingCart() {
+
+    if (authorizer()) {
         const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
             method: 'POST',
             headers: {
@@ -79,11 +78,7 @@ function deleteCard() {
         if (e.target.nodeName === "SPAN") {
             const card = document.getElementById(e.target.id);
 
-            const userLocalStorage = window.localStorage.getItem('user');
-            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-            const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
-            if (userId) {
+            if (authorizer()) {
                 card.parentNode.parentNode.parentNode.outerHTML = "";
                 deleteProductCard(e.target.id);
 
@@ -91,18 +86,13 @@ function deleteCard() {
                 alert('You do not have authorization for this action.');
             }
 
-
-
         }
     }, false);
 }
 
 function backToHome() {
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
-    if (userId) {
+    if (authorizer()) {
         window.location.assign("http://localhost:3000/home");
     } else {
         alert('You do not have authorization for this action');
@@ -142,11 +132,7 @@ const submitYourOrder = async () => {
         userCart: toSend,
     };
 
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
-    if(userId) {
+    if(authorizer()) {
         const response = await fetch('http://localhost:3000/order/place-your-order', {
             method: 'POST',
             headers: {
@@ -188,7 +174,10 @@ const initialize = async () => {
         displayForm = !displayForm;
     });
 
-    basketCardContainer.appendChild(placeOrderButton);
+    const cart = document.getElementsByClassName('card');
+    if(cart.length!==0) {
+        basketCardContainer.appendChild(placeOrderButton);
+    }
 
     const backBtn = document.getElementById('#back-btn');
     backBtn.addEventListener('click', backToHome);

@@ -72,3 +72,4 @@
 ../Pages/UserPage/profile.png
 ../Pages/UserPage/UserPage.css
 ../Pages/UserPage/userPage.js
+../Components/Generics/authorizer.js
