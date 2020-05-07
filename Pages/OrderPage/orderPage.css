@@ -1,5 +1,5 @@
 body {
-    background-color: rgba(0, 0, 0, 0.4);
+    background-color: rgba(0, 0, 0, 0);
 }
 
 main {
@@ -29,14 +29,132 @@ main {
 }
 
 .back-btn {
-    width: 10%;
-    height: 10%;
-    background-color: #e8e8e8;
+    background-color: rgba(255, 255, 255, 0);;
+    max-width: 200px;
+    min-width: 100px;
+    color: #000000;;
+    font-family: Junior, serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-align: center;
+}
+
+label {
     color: #000000;
-    margin-top: -2%;
-    margin-left: 1%;
-    font-family: cursive;
-    font-size: 15px;
-    border: 2px solid #00000066;
-    cursor: pointer;
+    font-family: Junior, serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-align: left;
+    margin-top: 1rem;
+}
+
+input{
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #000000;
+    max-width: 350px;
+    width: 100%;
+    height: 2rem;
+    color: #000000;
+    font-family: Junior, serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-align: left;
+    padding: 0 0.5rem 0 0.5rem;
+}
+
+textarea{
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #000000;
+    max-width: 350px;
+    width: 100%;
+    height: auto;
+    color: #000000;
+    font-family: Junior, serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-align: left;
+    min-width: 250px;
+    min-height: 80px;
+    padding: 0 0.5rem 0 0.5rem;
+}
+.order-form-form {
+    display: inline-grid;
+}
+.place_order_button{
+    background-color: rgba(255, 255, 255, 0);;
+    max-width: 200px;
+    min-width: 100px;
+    color: #000000;;
+    font-family: Junior, serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-align: center;
+    position: relative;
+    left: 30%;
+    margin: 1rem 0 1rem 0;
+}
+.payment {
+    display: inline-flex;
+    margin-bottom: 1rem;
+}
+
+.submit{
+    background-color: #000000;
+    max-width: 200px;
+    min-width: 200px;
+    color: #FFFFFF;
+    font-family: Junior, serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-align: center;
+    margin-left: 1rem;
+}
+.details-container {
+    display: none;
+}
+
+.order-form {
+  position: relative;
+    left: 60%;
+}
+.discard {
+    background-color: rgba(255, 255, 255, 0);;
+    max-width: 200px;
+    min-width: 100px;
+    color: #000000;;
+    font-family: Junior, serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-align: center;
+}
+
+.select-payment {
+    margin-bottom: 2rem;
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #000000;
+    max-width: 350px;
+    width: 100%;
+    height: 2rem;
+    color: #000000;
+    font-family: Junior, serif;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    line-height: 24px;
+    text-align: left;
+    padding: 0 0.5rem 0 0.5rem;
 }
