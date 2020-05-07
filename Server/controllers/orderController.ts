@@ -5,15 +5,26 @@ import {Product} from '../models/entities/Product';
 import {ProductRepository} from '../repositories/ProductRepository';
 import {MailPayload, MailService} from "../services/MailService";
 
-async function getProductsForShoppingCart(req:any,res:any) {
-    const userIdString:string = req.body.userId;
-    const userId:number = parseInt(userIdString,10);
+interface UserDetailsPayload {
+    firstName: string;
+    lastName: string;
+    email: string;
+    phoneNo: string;
+    country: string;
+    state: string;
+    address: string;
+    payment: string;
+}
+
+async function getProductsForShoppingCart(req: any, res: any) {
+    const userIdString: string = req.body.userId;
+    const userId: number = parseInt(userIdString, 10);
 
     const userProductRepository = new UserProductRepository();
-    const products:Userproduct[] = await userProductRepository.getByUserId(userId);
+    const products: Userproduct[] = await userProductRepository.getByUserId(userId);
 
-    let productsForShoppingCarts:Product[] = [];
-    let index:number = 0;
+    let productsForShoppingCarts: Product[] = [];
+    let index: number = 0;
 
     const productRepository = new ProductRepository();
 
@@ -50,22 +61,47 @@ async function deleteProductFromShoppingCart(req: any, res: any) {
 }
 
 async function placeYourOrder(req: any, res: any) {
-    const userDetails = req.body.userDetails;
+    const userDetails: UserDetailsPayload = req.body.userDetails;
     const userCart = req.body.userCart;
 
-    Object.keys(userDetails).forEach((value) => {
-        if (!userDetails[value]) {
-            res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type': 'application/json'});
-            const response = {
-                message: `Invalid ${value}`,
-                success: false,
-            };
-            res.end(JSON.stringify(response));
-        }
-    });
+    if(
+        !userDetails.firstName
+        || !userDetails.lastName
+        || !userDetails.email
+        || !userDetails.phoneNo
+        || !userDetails.country
+        || !userDetails.state
+        || !userDetails.payment
+    ) {
+        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type': 'application/json'});
+        const response = {
+            message: 'Invalid request, some of your order details are missing',
+            success: false,
+        };
+        res.end(JSON.stringify(response));
+    }
+
+
+    if (userCart === []) {
+        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type': 'application/json'});
+        const response = {
+            message: 'Invalid request, your bag is empty',
+            success: false,
+        };
+        res.end(JSON.stringify(response));
+    }
 
     const userProductRepository = new UserProductRepository();
     const userProducts: Userproduct[] = (await userProductRepository.getAll());
+
+    if (userProducts.length === 0) {
+        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type': 'application/json'});
+        const response = {
+            message: `Invalid request, your bag is empty`,
+            success: false,
+        };
+        res.end(JSON.stringify(response));
+    }
 
     for (const product of userProducts) {
         await userProductRepository.delete(product.id);
@@ -98,7 +134,7 @@ async function placeYourOrder(req: any, res: any) {
             };
             res.end(JSON.stringify(response));
         }
-    } catch(error) {
+    } catch (error) {
         console.log(error);
         res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, {'Content-Type': 'application/json'});
         const response = {
