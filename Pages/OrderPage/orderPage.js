@@ -1,17 +1,25 @@
 async function getProductsForShoppingCart() {
-    const userId = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
-    const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `userId=${userId}`
-    });
+    if (userId) {
+        const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `userId=${userId}`
+        });
 
-    const responseFromServer = await response.json();
+        const responseFromServer = await response.json();
 
-    return responseFromServer.products;
+        return responseFromServer.products;
+    } else {
+        alert('You do not have authorization for this action.');
+    }
+
+
 }
 
 async function deleteProductCard(productId) {
@@ -72,22 +80,32 @@ function deleteCard() {
     document.body.addEventListener("mousedown", async e => {
         if (e.target.nodeName === "SPAN") {
             const card = document.getElementById(e.target.id);
-            card.parentNode.parentNode.parentNode.outerHTML = "";
-            deleteProductCard(e.target.id);
 
-            const products = await getProductsForShoppingCart();
+            const userLocalStorage = window.localStorage.getItem('user');
+            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+            const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
-            if (!products.length) {
-                window.location.replace("http://localhost:3000/order");
+            if (userId) {
+                card.parentNode.parentNode.parentNode.outerHTML = "";
+                deleteProductCard(e.target.id);
+
+            } else {
+                alert('You do not have authorization for this action.');
             }
+
+
+
         }
     }, false);
 }
 
 function backToHome() {
-    const userId = window.localStorage.getItem('user');
+    const userLocalStorage = window.localStorage.getItem('user');
+    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
     if (userId) {
-        window.location.replace("http://localhost:3000/home");
+        window.location.assign("http://localhost:3000/home");
     } else {
         alert('You do not have authorization for this action');
     }

@@ -5,8 +5,9 @@ import { Product } from '../models/entities/Product';
 import { ProductRepository } from '../repositories/ProductRepository';
 
 async function getProductsForShoppingCart(req:any,res:any) {
-    const userId:number = req.body.userId;
-
+    const userIdString:string = req.body.userId;
+    const userId:number = parseInt(userIdString,10);
+    
     const userProductRepository = new UserProductRepository();
     const products:Userproduct[] = await userProductRepository.getByUserId(userId);
 

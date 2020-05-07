@@ -69,8 +69,14 @@ function getImageId() {
         if (e.target.nodeName === "IMG") {
             const productId = e.target.id;
 
-            if (productId && checkNumber(productId)) {
-                window.location.replace(`http://localhost:3000/product?productId=${productId}&value=${valueInputSearch}`);
+            const userLocalStorage = window.localStorage.getItem('user');
+            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
+            const userId = decrypted.toString(CryptoJS.enc.Utf8);
+
+            if (productId && checkNumber(productId) && userId) {
+                window.location.assign(`http://localhost:3000/product?productId=${productId}&value=${valueInputSearch}`);
+            } else if (!userId) {
+                alert('You do not have authorization for this action.');
             }
         }
     }, false);
