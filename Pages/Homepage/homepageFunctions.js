@@ -4,6 +4,7 @@ right un eventListener care va apela metodele din clasa Carousel pentru fiecare 
 import { loadFooter } from "../../Components/Generics/Footer/footer.js";
 import initializeNavbar from "../../Components/Generics/Navbar/navbar.js";
 import Carousel from "../../Components/Generics/Carousel/carousel.js";
+import {authorizer} from "../../Components/Generics/authorizer.js";
 
 const createCarousels = async() => {
     /*cu acesti paramestri vom stoca id-urile necesare fiecarui carusel in parte*/
@@ -96,13 +97,9 @@ function getImageId() {
         if (e.target.nodeName === "IMG") {
             const productId = e.target.id;
 
-            const userLocalStorage = window.localStorage.getItem('user');
-            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-            const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
-            if (productId && checkNumber(productId) && userId) {
+            if (productId && checkNumber(productId) && authorizer()) {
                 window.location.assign(`http://localhost:3000/product?productId=${productId}`);
-            } else if (!userId) {
+            } else if (!authorizer()) {
                 alert('You do not have authorization for this action.')
             }
         }

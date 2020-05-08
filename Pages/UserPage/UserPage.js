@@ -1,3 +1,5 @@
+import {authorizer} from "../../Components/Generics/authorizer.js";
+
 async function getUser() {
 
 
@@ -13,9 +15,7 @@ async function getUser() {
         body: `userId=${userId}`
     });
 
-    const responseFromServer = await response.json();
-
-    return responseFromServer;
+    return await response.json();
 }
 
 async function renderUserPage() {
@@ -33,11 +33,8 @@ async function renderUserPage() {
 }
 
 async function goToHomePage() {
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
 
-    if (userId) {
+    if (authorizer()) {
         window.location.assign("http://localhost:3000/home");
     } else {
         alert('You do not have authorization for this action');

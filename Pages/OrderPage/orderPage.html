@@ -19,7 +19,43 @@
         </section>
 
         <section class="order-form">
+            <div class="order-form-container">
+                <div class="details-container" id="detailsContainer">
+                    <form class="order-form-form">
+                        <label for="firstName">First name</label>
+                        <input type="text" id="firstName" required>
 
+                        <label for="lastName">Last name</label>
+                        <input type="text" id="lastName" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+
+                        <label for="phoneNo">Phone number</label>
+                        <input type="tel" id="phoneNo" required>
+
+                        <label for="country">Country</label>
+                        <input type="text" id="country" required>
+
+                        <label for="state">State</label>
+                        <input type="text" id="state" required>
+
+                        <label for="address">Address</label>
+                        <textarea id="address" required></textarea>
+
+                        <label for="payment">Payment</label>
+                        <select id="payment"  class="select-payment" required>
+                            <option>Card</option>
+                            <option>Cash at delivery</option>
+                        </select>
+
+                        <div>
+                        <button class="discard" type="reset">Discard changes</button>
+                            <button class="submit" id="submitButton"  type ="button">Place your order</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </section>
 
     </main>

@@ -4,6 +4,7 @@ import { ProductRepository } from "../repositories/ProductRepository";
 import { Productcategory } from "../models/entities/Productcategory";
 import { Product } from "../models/entities/Product";
 import HttpStatus from 'http-status-codes'
+import {Category} from "../models/entities/Category";
 
 
 async function getImagesForCarousels(req: any, res: any) {
@@ -40,7 +41,7 @@ async function getImagesForCarousel(categoryName: string): Promise<any[]> {
 
     let index: number = 0;
 
-    //pentru fiecare din record urile gasite(produse) preluam produsul respectiv pentru a putea accesa campul picture si formam lista images 
+    //pentru fiecare din record urile gasite(produse) preluam produsul respectiv pentru a putea accesa campul picture si formam lista images
     while (index < productCategories.length) {
         const product: Product = (await productRepository.getById(productCategories[index].productId))[0];
         const productId: number = product.id;
@@ -60,6 +61,13 @@ async function getImagesForCarousel(categoryName: string): Promise<any[]> {
 
 }
 
+async function getCategories(req:any, res:any) {
+    const categoryRepository = new CategoryRepository();
 
+    const categories: Category[] = await categoryRepository.getAll();
+    res.writeHead(HttpStatus.OK, {'Content-Type': 'application/json'});
+    res.end(JSON.stringify(categories));
+    
+}
 
-export { getImagesForCarousels }
+export { getImagesForCarousels, getCategories }

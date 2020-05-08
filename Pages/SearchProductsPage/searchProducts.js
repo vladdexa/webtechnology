@@ -1,3 +1,5 @@
+import {authorizer} from "../../Components/Generics/authorizer.js";
+
 const urlParams = new URLSearchParams(window.location.search);
 const param = urlParams.get('value');
 const valueInputSearch = param.toString();
@@ -38,7 +40,6 @@ const loadCards = async() => {
                     const genericDiv = document.createElement('div');
                     genericDiv.innerHTML = html;
 
-                    console.log(genericDiv.getElementsByClassName('price')[0].innerText);
                     genericDiv.getElementsByClassName('price')[0].innerText = products[index].price + " RON";
                     genericDiv.getElementsByClassName('product-description')[0].innerText = products[index].name
                     genericDiv.getElementsByClassName('img')[0].src = products[index].picture;
@@ -69,13 +70,9 @@ function getImageId() {
         if (e.target.nodeName === "IMG") {
             const productId = e.target.id;
 
-            const userLocalStorage = window.localStorage.getItem('user');
-            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-            const userId = decrypted.toString(CryptoJS.enc.Utf8);
-
-            if (productId && checkNumber(productId) && userId) {
+            if (productId && checkNumber(productId) && authorizer()) {
                 window.location.assign(`http://localhost:3000/product?productId=${productId}&value=${valueInputSearch}`);
-            } else if (!userId) {
+            } else if (!authorizer()) {
                 alert('You do not have authorization for this action.');
             }
         }

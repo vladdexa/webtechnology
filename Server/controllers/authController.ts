@@ -3,8 +3,7 @@ import HttpStatus from 'http-status-codes'
 import passwordHash from 'password-hash'
 import { User } from '../models/entities/User';
 import passwordGenerator from 'password-generator'
-
-const nodemailer = require('nodemailer');
+import {MailPayload, MailService} from "../services/MailService";
 
 async function login(req: any, res: any) {
 
@@ -206,31 +205,22 @@ async function forgotPass(req: any, res: any) {
         } else {
             const generatedPassword = passwordGenerator();
 
-            const transporter = nodemailer.createTransport(
-                {
-                    service: 'gmail',
-                    auth: {
-                        user: 'twonlinetoys@gmail.com',
-                        pass: 'Asdfg.123',
-                    }
-                }
-
-            );
-
-            await transporter.sendMail({
+            const mailService = new MailService();
+            const payload: MailPayload = {
                 to: email,
-                subject: 'Online Toys forgot password service',
+                subject: 'Online toys forgot password service',
                 text: generatedPassword,
-            }).catch(console.error);
+            };
+            const mailServiceResponse = await mailService.sendEmail(payload);
 
-
-
-            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
-            const response = {
-                message: "We sent a new password on e-mail",
-                gPass: generatedPassword
+            if (mailServiceResponse.accepted.length > 0) {
+                res.writeHead(HttpStatus.OK, {'Content-Type': 'application/json'});
+                const response = {
+                    message: "We sent a new password on e-mail",
+                    gPass: generatedPassword
+                }
+                res.end(JSON.stringify(response));
             }
-            res.end(JSON.stringify(response));
         }
 
     }

@@ -1,5 +1,6 @@
 import { loadFooter } from "../../Components/Generics/Footer/footer.js";
 import initializeNavbar from "../../Components/Generics/Navbar/navbar.js";
+import {authorizer} from "../Components/Generics/authorizer.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const param = urlParams.get('categoryId');
@@ -28,7 +29,7 @@ const loadCards = async() => {
         await fetch(cardPath)
             .then(response => response.text())
             .then(html => {
-                for (let index = 0; index <= products.length; index++) {
+                for (let index = 0; index < products.length; index++) {
                     const genericDiv = document.createElement('div');
                     genericDiv.innerHTML = html;
 
@@ -59,10 +60,7 @@ function getImageId() {
     document.body.addEventListener("mousedown", async(e) => {
         if (e.target.nodeName === "IMG") {
             const productId = e.target.id;
-
-            const userLocalStorage = window.localStorage.getItem('user');
-            const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-            const userId = decrypted.toString(CryptoJS.enc.Utf8);
+            const userId = authorizer();
 
             if (productId && checkNumber(productId) && userId) {
                 window.location.assign(`http://localhost:3000/product?productId=${productId}`);

@@ -16,7 +16,7 @@ class Carousel {
     }
     moveRight = () => {
         this.cleanContainer();
-        this.index = (this.index == this.ownPictures.length - 1) ? 0 : ++this.index;
+        this.index = (this.index === this.ownPictures.length - 1) ? 0 : ++this.index;
         this.loadImages(this.index);
     }
 
