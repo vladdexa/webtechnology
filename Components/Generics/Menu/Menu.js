@@ -29,7 +29,6 @@ class Menu {
         categories.forEach((category) => {
             const li = document.createElement('li');
             const a = document.createElement('a');
-            li.setAttribute('id', category.id);
             a.setAttribute('href', `http://localhost:3000/category?categoryId=${category.id}`);
             a.addEventListener('click', ()=>{
                 if(!authorizer()) {
@@ -52,7 +51,8 @@ class Menu {
                 subcategories.forEach((subcategory) => {
                     const lii = document.createElement('li');
                     const aa = document.createElement('a');
-                    aa.setAttribute('href', `http://localhost:3000/category?categoryId=${category.id}`);
+                    lii.setAttribute('id', subcategory.id);
+                    aa.setAttribute('href', `http://localhost:3000/category?categoryId=${subcategory.id}`);
                     aa.innerHTML = aa.innerHTML + subcategory.name;
                     a.addEventListener('click', ()=>{
                         if(!authorizer()) {
