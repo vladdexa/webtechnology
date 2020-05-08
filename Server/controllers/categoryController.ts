@@ -5,47 +5,33 @@ import {Productcategory} from "../models/entities/Productcategory";
 import {ProductRepository} from "../repositories/ProductRepository";
 import {Product} from "../models/entities/Product";
 
-async function getProductByCategoryId(req: any, res: any) {
+async function getProductsByCategoryId(req: any, res: any) {
 
     const categoryId: number = req.body.categoryId;
 
     const productCategoryRepository = new ProductCategoryRepository();
-    const category: Productcategory = (await productCategoryRepository.getByCategoryId(categoryId))[0];
-    const response = {
-        category: category
-    }
+    const products: Productcategory[] = await productCategoryRepository.getByCategoryId(categoryId);
 
-    res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(response));
 
-}
-
-async function getProductByCategoryList(req: any, res: any) {
-
-    const prodId: number = req.body.productId;
-
-    const productCategoryRepository = new ProductCategoryRepository();
-    const productCategory: Productcategory = (await productCategoryRepository.getByProductId(prodId))[0];
-
-    const products = await productCategoryRepository.getByCategoryId(productCategory.categoryId);
+    let index: number = 0;
+    let productsByCategoryResponse: Product[] = [];
 
     const productRepository = new ProductRepository();
 
-    let index: number = 0;
-    let productsByCategory: Product[] = [];
 
     while (index < products.length) {
         const product: Product = (await productRepository.getById(products[index].productId))[0];
-        productsByCategory.push(product);
+        productsByCategoryResponse.push(product);
         index++;
     }
 
     const response = {
-        Product: productsByCategory
+        products: productsByCategoryResponse
     }
 
     res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify(response));
+
 }
 
-export {getProductByCategoryId, getProductByCategoryList}
+export {getProductsByCategoryId}

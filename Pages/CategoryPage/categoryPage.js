@@ -7,7 +7,7 @@ const categoryId = parseInt(param, 10);
 
 async function getProductByCategoryId() {
 
-    const response = await fetch('http://localhost:3000/category/getProductByCategoryId', {
+    const response = await fetch('http://localhost:3000/category/getProductsByCategoryId', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -17,7 +17,7 @@ async function getProductByCategoryId() {
 
     const responseFromServer = await response.json();
 
-    return responseFromServer.product;
+    return responseFromServer.products;
 }
 const loadCards = async() => {
     const products = await getProductByCategoryId();
@@ -32,7 +32,6 @@ const loadCards = async() => {
                     const genericDiv = document.createElement('div');
                     genericDiv.innerHTML = html;
 
-                    console.log(genericDiv.getElementsByClassName('price')[0].innerText);
                     genericDiv.getElementsByClassName('price')[0].innerText = products[index].price + " RON";
                     genericDiv.getElementsByClassName('img')[0].src = products[index].picture;
                     genericDiv.getElementsByClassName('img')[0].setAttribute("id", `${products[index].id}`);
@@ -105,6 +104,8 @@ async function load() {
     await initializeNavbar(pathForMenu, pathForStyles, '#ContainerCards');
     await loadCards(9);
     await loadFooter(idFooterContainer, htmlFooterPath);
+
+    getImageId();
 }
 
 document.getElementById('body').addEventListener('load', load());

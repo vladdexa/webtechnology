@@ -1,6 +1,6 @@
 import HttpStatus from 'http-status-codes'
 import {render} from '../Utils'
-import {getProductByCategoryId} from "../controllers";
+import {getProductsByCategoryId} from "../controllers";
 import bodyParser from "body-parser"
 
 const Router = require('router');
@@ -15,6 +15,6 @@ router.get('/', (req: any, res: any) => {
     render(res,homePageHtmlPath);
 })
 
-router.post('/getProductByCategoryId',urlencodedParser,getProductByCategoryId);
+router.post('/getProductsByCategoryId',urlencodedParser,getProductsByCategoryId);
 
 export = router
