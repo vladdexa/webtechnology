@@ -1,8 +1,8 @@
 import {authorizer} from "../../Components/Generics/authorizer.js";
 
 async function getProductsForShoppingCart() {
-
-    if (authorizer()) {
+    const userId = authorizer();
+    if (userId) {
         const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
             method: 'POST',
             headers: {

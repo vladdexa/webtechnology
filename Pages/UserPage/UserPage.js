@@ -1,24 +1,22 @@
 import {authorizer} from "../../Components/Generics/authorizer.js";
 
-async function getUser() {
+const getUser = async() => {
 
+    const userId = authorizer();
+    if(userId) {
+        const response = await fetch('http://localhost:3000/user/get-user-byId', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `userId=${userId}`
+        });
 
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+        return await response.json();
+    }
+};
 
-    const response = await fetch('http://localhost:3000/user/get-user-byId', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `userId=${userId}`
-    });
-
-    return await response.json();
-}
-
-async function renderUserPage() {
+const renderUserPage = async () => {
 
     const user = await getUser();
 
@@ -32,7 +30,7 @@ async function renderUserPage() {
     email.innerText = "E-mail " + user.email;
 }
 
-async function goToHomePage() {
+const goToHomePage = async ()=> {
 
     if (authorizer()) {
         window.location.assign("http://localhost:3000/home");
@@ -43,7 +41,7 @@ async function goToHomePage() {
 }
 
 
-async function onLoad() {
+const onLoad = async()=> {
 
     const backToHomePageBtn = document.getElementById('back-btn');
     backToHomePageBtn.addEventListener('click', goToHomePage);
@@ -51,6 +49,7 @@ async function onLoad() {
 
 }
 
+document.getElementById('#body').addEventListener('load', onLoad());
 
 let email;
 let generatedPassword;
