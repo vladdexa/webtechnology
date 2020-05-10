@@ -1,9 +1,9 @@
-import { authorizer } from "../../Components/Generics/authorizer.js";
+import {authorizer} from "../../Components/Generics/authorizer.js";
 
-async function getUser() {
+const getUser = async() => {
 
     const userId = authorizer();
-    if (userId) {
+    if(userId) {
         const response = await fetch('http://localhost:3000/user/get-user-byId', {
             method: 'POST',
             headers: {
@@ -19,7 +19,7 @@ async function getUser() {
 
 }
 
-async function renderUserPage() {
+const renderUserPage = async () => {
 
     const user = await getUser();
 
@@ -33,7 +33,7 @@ async function renderUserPage() {
     email.innerText = "E-mail " + user.email;
 }
 
-async function goToHomePage() {
+const goToHomePage = async ()=> {
 
     if (authorizer()) {
         window.location.assign("http://localhost:3000/home");
@@ -44,7 +44,7 @@ async function goToHomePage() {
 }
 
 
-async function onLoad() {
+const onLoad = async()=> {
 
     const backToHomePageBtn = document.getElementById('back-btn');
     backToHomePageBtn.addEventListener('click', goToHomePage);
@@ -52,6 +52,7 @@ async function onLoad() {
 
 }
 
+document.getElementById('#body').addEventListener('load', onLoad());
 
 let email;
 let generatedPassword;
