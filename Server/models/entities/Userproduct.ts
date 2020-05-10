@@ -9,8 +9,8 @@ import {
 import { Product } from "./Product";
 import { User } from "./User";
 
-@Index("fk_userIdUserProduct", ["userId"], {})
 @Index("fk_productIdUserProduct", ["productId"], {})
+@Index("fk_userIdUserProduct", ["userId"], {})
 @Entity("userproduct", { schema: "toysdb" })
 export class Userproduct {
   @PrimaryGeneratedColumn({ type: "int", name: "id", unsigned: true })

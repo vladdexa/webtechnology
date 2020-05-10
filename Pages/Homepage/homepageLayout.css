@@ -8,6 +8,11 @@
 }
 
 .footer-container {
-    position:absolute;
+    position: absolute;
     top: 275%;
+}
+
+.statistics {
+    position: absolute;
+    top: 500%;
 }

@@ -1,5 +1,5 @@
 import Menu from "../Menu/Menu.js";
-import {authorizer} from "../authorizer.js";
+import { authorizer } from "../authorizer.js";
 
 const initilizeSearch = () => {
     const inputSearch = document.getElementById('#searchInput');
@@ -71,6 +71,144 @@ async function goToUserPage() {
 
 }
 
+const dv = document.getElementById('pdf');
+dv.innerHTML = "";
+
+function createTable(statisticObj) {
+    const table = document.createElement("TABLE");
+
+    //Add the header row.
+    let row = table.insertRow(-1);
+
+    let headerCell = document.createElement("TH");
+    headerCell.innerHTML = statisticObj[0].title;
+    row.appendChild(headerCell);
+
+
+    //Add the data rows.
+    for (var i = 1; i < statisticObj.length; i++) {
+        row = table.insertRow(-1);
+
+        let cell = row.insertCell(-1);
+        cell.innerHTML = statisticObj[i].name;
+
+        cell = row.insertCell(-1);
+        cell.innerHTML = statisticObj[i].accessCounter;
+    }
+
+    dv.appendChild(table);
+    const br = document.createElement('br');
+    dv.appendChild(br);
+
+}
+
+function convertToCSV(objArray) {
+    const array = typeof objArray != 'object' ? JSON.parse(objArray) : objArray;
+    let stringResult = '';
+
+    for (let index = 0; index < array.length; index++) {
+        let line = '';
+        for (const indexx in array[index]) {
+            if (line != '') {
+                line += ','
+            }
+            line += array[index][indexx];
+        }
+
+        stringResult += line + '\r\n';
+    }
+
+    return stringResult;
+
+}
+
+async function getStatisticsPDF() {
+    const response = await fetch("http://localhost:3000/home/getStatistics");
+    const responseFromServer = await response.json();
+
+    const categories = responseFromServer.categories;
+    const products = responseFromServer.products;
+    const searchKeys = responseFromServer.searchKeys
+    const productsPercents = responseFromServer.productsPercents
+    const soldProducts = responseFromServer.soldProducts
+
+    console.log(productsPercents);
+
+    createTable(categories);
+    createTable(products);
+    createTable(searchKeys);
+
+    //productsPercents create table
+    const table = document.createElement("TABLE");
+
+    //Add the header row.
+    let row = table.insertRow(-1);
+
+    let headerCell = document.createElement("TH");
+    headerCell.innerHTML = productsPercents[0].title;
+    row.appendChild(headerCell);
+
+
+    //Add the data rows.
+    for (var i = 1; i < productsPercents.length; i++) {
+        row = table.insertRow(-1);
+
+        let cell = row.insertCell(-1);
+        cell.innerHTML = productsPercents[i].numbers;
+
+        cell = row.insertCell(-1);
+        cell.innerHTML = productsPercents[i].percents;
+    }
+
+    dv.appendChild(table);
+    const br = document.createElement('br');
+    dv.appendChild(br);
+
+
+    createTable(soldProducts);
+
+
+
+    html2canvas(document.getElementById('pdf')).then(canvas => {
+        const data = canvas.toDataURL("image/jpeg", 0.9);
+        const docDefinition = {
+            content: [{
+                image: data,
+                width: 500
+            }]
+        }
+        pdfMake.createPdf(docDefinition).download("statistics.pdf");
+
+        dv.innerHTML = "";
+    })
+
+}
+
+async function getStatisticsCSV() {
+
+    const response = await fetch("http://localhost:3000/home/getStatistics");
+    const responseFromServer = await response.json();
+
+    const categoriesResult = convertToCSV(responseFromServer.categories);
+    const productsResult = convertToCSV(responseFromServer.products);
+    const searchKeys = convertToCSV(responseFromServer.searchKeys);
+    const productsPercents = convertToCSV(responseFromServer.productsPercents);
+    const soldProducts = convertToCSV(responseFromServer.soldProducts);
+    const csvString = categoriesResult + "\n" + productsResult + "\n" + searchKeys + "\n" + productsPercents + "\n" + soldProducts;
+
+    const exportedFilenmae = "statistics" + '.csv';
+
+    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+
+    const link = document.getElementById('#statisticsCSV');
+    const url = URL.createObjectURL(blob);
+
+    link.setAttribute("href", url);
+    if (link.download !== undefined) {
+        link.setAttribute("download", exportedFilenmae);
+    }
+
+}
 
 
 const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
@@ -84,8 +222,13 @@ const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
     const details = document.getElementById('#details');
     details.addEventListener('click', goToUserPage);
 
-    const menuButton = document.getElementById('#menuButton');
+    const statisticsPDF = document.getElementById('#statisticsPDF');
+    statisticsPDF.addEventListener('click', getStatisticsPDF);
 
+    const statisticsCSV = document.getElementById('#statisticsCSV');
+    statisticsCSV.addEventListener('click', getStatisticsCSV);
+
+    const menuButton = document.getElementById('#menuButton');
 
     menuButton.src = pathForStyle + '/NavbarImages/menu.svg';
     document.getElementById('#appLogo').src = pathForStyle + '/NavbarImages/oto.png';

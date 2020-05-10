@@ -1,21 +1,22 @@
-import {authorizer} from "../../Components/Generics/authorizer.js";
+import { authorizer } from "../../Components/Generics/authorizer.js";
 
 async function getUser() {
 
+    const userId = authorizer();
+    if (userId) {
+        const response = await fetch('http://localhost:3000/user/get-user-byId', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `userId=${userId}`
+        });
 
-    const userLocalStorage = window.localStorage.getItem('user');
-    const decrypted = CryptoJS.AES.decrypt(userLocalStorage, "Secret Passphrase");
-    const userId = decrypted.toString(CryptoJS.enc.Utf8);
+        return await response.json();
+    } else {
+        alert('You do not have authorization for this action.');
+    }
 
-    const response = await fetch('http://localhost:3000/user/get-user-byId', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `userId=${userId}`
-    });
-
-    return await response.json();
 }
 
 async function renderUserPage() {
