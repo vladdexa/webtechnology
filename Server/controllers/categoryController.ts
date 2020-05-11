@@ -1,9 +1,10 @@
 import { ProductCategoryRepository } from "../repositories/ProductCategoryRepository";
-import {Category} from "../models/entities/Category";
+import { Category } from "../models/entities/Category";
 import HttpStatus from "http-status-codes";
-import {Productcategory} from "../models/entities/Productcategory";
-import {ProductRepository} from "../repositories/ProductRepository";
-import {Product} from "../models/entities/Product";
+import { Productcategory } from "../models/entities/Productcategory";
+import { ProductRepository } from "../repositories/ProductRepository";
+import { Product } from "../models/entities/Product";
+import { CategoryRepository } from "../repositories/CategoryRepository";
 
 async function getProductsByCategoryId(req: any, res: any) {
 
@@ -12,6 +13,8 @@ async function getProductsByCategoryId(req: any, res: any) {
     const productCategoryRepository = new ProductCategoryRepository();
     const products: Productcategory[] = await productCategoryRepository.getByCategoryId(categoryId);
 
+    const categoryRepository = new CategoryRepository();
+    await categoryRepository.updateAccessCounter(categoryId);    
 
     let index: number = 0;
     let productsByCategoryResponse: Product[] = [];
@@ -34,4 +37,4 @@ async function getProductsByCategoryId(req: any, res: any) {
 
 }
 
-export {getProductsByCategoryId}
+export { getProductsByCategoryId }

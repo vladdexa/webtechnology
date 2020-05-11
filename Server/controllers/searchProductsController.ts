@@ -1,21 +1,55 @@
 import { Product } from "../models/entities/Product";
 import { ProductRepository } from "../repositories/ProductRepository";
 import HttpStatus from 'http-status-codes'
+import { ProductCategoryRepository } from "../repositories/ProductCategoryRepository";
+import { CategoryRepository } from "../repositories/CategoryRepository";
+import { SearchKeyRepository } from "../repositories/SearchKeyRepository";
+import { Searchkey } from "../models/entities/Searchkey";
 
 async function getProductsBySearchInput(req: any, res: any) {
     const searchKey: string = req.body.valueInputSearch.toString().toLocaleLowerCase();
 
+
+    const searchKeyRepository = new SearchKeyRepository();
+    const searchKeyRecord:Searchkey = (await searchKeyRepository.getByKey(searchKey))[0];
+
+    if(searchKeyRecord) {
+        await searchKeyRepository.updateSearchCounter(searchKeyRecord.id);
+    } else {
+        const  newSearchKey:Searchkey = new Searchkey();
+        newSearchKey.key = searchKey;
+        newSearchKey.searchCounter=1;
+        await searchKeyRepository.create(newSearchKey);
+    }
     const productRepository = new ProductRepository();
     const products: Product[] = await productRepository.getAll();
 
     let index: number = 0;
     let productsResult: Product[] = [];
 
+    const productCategoryRepository = new ProductCategoryRepository();
+    const categoryRepository = new CategoryRepository();
+
+    let categoriesFoundByProducts: number[] =[];
+
     while (index < products.length) {
         const nameDescriptionConcat: string = products[index].name.toLocaleLowerCase() + " " + products[index].description.toLocaleLowerCase();
         if (nameDescriptionConcat.indexOf(searchKey) !== (-1)) {
             productsResult.push(products[index]);
+            
+            const categoryId:number = (await productCategoryRepository.getByProductId(products[index].id))[0].categoryId;
+            const found:number|undefined = categoriesFoundByProducts.find(element => element === categoryId);
+
+            if(!found) {
+                categoriesFoundByProducts.push(categoryId);
+            }
         }
+        index++;
+    }
+
+    index = 0;
+    while(index<categoriesFoundByProducts.length) {
+        await categoryRepository.updateAccessCounter(categoriesFoundByProducts[index]);
         index++;
     }
 

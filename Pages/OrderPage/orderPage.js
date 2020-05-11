@@ -1,4 +1,4 @@
-import {authorizer} from "../../Components/Generics/authorizer.js";
+import { authorizer } from "../../Components/Generics/authorizer.js";
 
 async function getProductsForShoppingCart() {
     const userId = authorizer();
@@ -40,7 +40,7 @@ async function deleteProductCard(productId) {
 }
 
 
-const loadBasketCards = async () => {
+const loadBasketCards = async() => {
 
     const products = await getProductsForShoppingCart();
 
@@ -91,8 +91,8 @@ function deleteCard() {
 }
 
 function backToHome() {
-
-    if (authorizer()) {
+    const userId = authorizer();
+    if (userId) {
         window.location.assign("http://localhost:3000/home");
     } else {
         alert('You do not have authorization for this action');
@@ -100,7 +100,7 @@ function backToHome() {
 }
 
 
-const submitYourOrder = async () => {
+const submitYourOrder = async() => {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
@@ -110,7 +110,10 @@ const submitYourOrder = async () => {
     const address = document.getElementById('address').value;
     const payment = document.getElementById('payment').value;
 
+    const userId = authorizer();
+
     const result = {
+        userId,
         firstName,
         lastName,
         email,
@@ -132,7 +135,8 @@ const submitYourOrder = async () => {
         userCart: toSend,
     };
 
-    if(authorizer()) {
+
+    if (userId) {
         const response = await fetch('http://localhost:3000/order/place-your-order', {
             method: 'POST',
             headers: {
@@ -156,7 +160,7 @@ const submitYourOrder = async () => {
 
 let displayForm = true;
 
-const initialize = async () => {
+const initialize = async() => {
     await loadBasketCards();
     deleteCard();
 
@@ -175,7 +179,7 @@ const initialize = async () => {
     });
 
     const cart = document.getElementsByClassName('card');
-    if(cart.length!==0) {
+    if (cart.length !== 0) {
         basketCardContainer.appendChild(placeOrderButton);
     }
 

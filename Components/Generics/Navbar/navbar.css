@@ -97,10 +97,11 @@
     text-align: center;
     padding: 5px 16px;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 185%;
     font-family: Waltograph, serif;
-    margin-top: 0.8rem;
     margin-right: 2rem;
+    margin-left: -1.3rem;
+    cursor: pointer;
 }
 
 .SearchBarDiv {
@@ -179,7 +180,7 @@
     font-size: 1.5rem;
     color: black;
     outline: none;
-    top: 1.2rem;
+    top: 1.8rem;
 }
 
 .MyAccountButton {
@@ -340,7 +341,7 @@
         right: 25%;
     }
     .MenuItems a {
-        font-size: 2.5rem;
+        font-size: 185%;
     }
     .AppLogo {
         width: 100%;
