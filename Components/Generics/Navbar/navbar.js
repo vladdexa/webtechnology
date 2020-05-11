@@ -74,7 +74,7 @@ async function goToUserPage() {
 async function LogOutFunction() {
 
     localStorage.removeItem("user");
-    window.location.assign("http://localhost:3000/auth/login");
+    window.location.replace("http://localhost:3000/auth/login");
     
 }
 
