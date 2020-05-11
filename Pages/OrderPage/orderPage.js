@@ -1,4 +1,4 @@
-import { authorizer } from "../../Components/Generics/authorizer";
+import { authorizer } from "../../Components/Generics/authorizer.js";
 
 async function getProductsForShoppingCart() {
     const userId = authorizer();

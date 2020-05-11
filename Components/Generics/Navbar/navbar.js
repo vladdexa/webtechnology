@@ -19,17 +19,22 @@ const initilizeSearch = () => {
 async function getProductsForShoppingCart() {
     const userId = authorizer();
 
-    const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `userId=${userId}`
-    });
+    if (userId) {
+        const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `userId=${userId}`
+        });
 
-    const responseFromServer = await response.json();
+        const responseFromServer = await response.json();
 
-    return responseFromServer.products;
+        return responseFromServer.products;
+    } else {
+        alert('You do not have authorization for this action.');
+    }
+
 }
 
 async function goToOrderPage() {
@@ -209,7 +214,18 @@ async function getStatisticsCSV() {
     }
 
 }
+async function LogOutFunction() {
 
+    const userId = authorizer();
+    if (userId) {
+        localStorage.removeItem("user");
+        window.location.replace("http://localhost:3000/auth/login");
+    } else {
+        alert('You do not have authorization for this action.');
+    }
+
+
+}
 
 const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
 
@@ -228,8 +244,10 @@ const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
     const statisticsCSV = document.getElementById('#statisticsCSV');
     statisticsCSV.addEventListener('click', getStatisticsCSV);
 
-    const menuButton = document.getElementById('#menuButton');
+    const logout = document.getElementById('#logout');
+    logout.addEventListener('click', LogOutFunction);
 
+    const menuButton = document.getElementById('#menuButton');
     menuButton.src = pathForStyle + '/NavbarImages/menu.svg';
     document.getElementById('#appLogo').src = pathForStyle + '/NavbarImages/oto.png';
     document.getElementById('#searchIcon').src = pathForStyle + '/NavbarImages/search.svg';
