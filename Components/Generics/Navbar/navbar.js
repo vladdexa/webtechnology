@@ -71,7 +71,12 @@ async function goToUserPage() {
 
 }
 
+async function LogOutFunction() {
 
+    localStorage.removeItem("user");
+    window.location.replace("http://localhost:3000/auth/login");
+    
+}
 
 const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
 
@@ -84,15 +89,16 @@ const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
     const details = document.getElementById('#details');
     details.addEventListener('click', goToUserPage);
 
-    const menuButton = document.getElementById('#menuButton');
+    const logout = document.getElementById('#logout');
+    logout.addEventListener('click', LogOutFunction);
 
+    const menuButton = document.getElementById('#menuButton')
 
     menuButton.src = pathForStyle + '/NavbarImages/menu.svg';
     document.getElementById('#appLogo').src = pathForStyle + '/NavbarImages/oto.png';
     document.getElementById('#searchIcon').src = pathForStyle + '/NavbarImages/search.svg';
     document.getElementById('#userIcon').src = pathForStyle + '/NavbarImages/user.png';
     document.getElementById('#shoppingBag').src = pathForStyle + '/NavbarImages/shopping-bag.svg';
-
 
     const menuContainer = document.getElementById('#menuContainer');
     const elementOverlayd = document.getElementById(elementToOverlay);
@@ -109,7 +115,6 @@ const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
         elementOverlayd.style.width = '80%';
         elementOverlayd.style.left = '10%';
     };
-
 
 };
 
