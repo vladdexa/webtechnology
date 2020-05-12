@@ -128,90 +128,99 @@ function convertToCSV(objArray) {
 }
 
 async function getStatisticsPDF() {
-    const response = await fetch("http://localhost:3000/home/getStatistics");
-    const responseFromServer = await response.json();
 
-    const categories = responseFromServer.categories;
-    const products = responseFromServer.products;
-    const searchKeys = responseFromServer.searchKeys
-    const productsPercents = responseFromServer.productsPercents
-    const soldProducts = responseFromServer.soldProducts
+    const userId = authorizer();
 
-    console.log(productsPercents);
+    if (userId) {
+        const response = await fetch("http://localhost:3000/home/getStatistics");
+        const responseFromServer = await response.json();
 
-    createTable(categories);
-    createTable(products);
-    createTable(searchKeys);
+        const categories = responseFromServer.categories;
+        const products = responseFromServer.products;
+        const searchKeys = responseFromServer.searchKeys
+        const productsPercents = responseFromServer.productsPercents
+        const soldProducts = responseFromServer.soldProducts
 
-    //productsPercents create table
-    const table = document.createElement("TABLE");
+        createTable(categories);
+        createTable(products);
+        createTable(searchKeys);
 
-    //Add the header row.
-    let row = table.insertRow(-1);
+        //productsPercents create table
+        const table = document.createElement("TABLE");
 
-    let headerCell = document.createElement("TH");
-    headerCell.innerHTML = productsPercents[0].title;
-    row.appendChild(headerCell);
+        //Add the header row.
+        let row = table.insertRow(-1);
+
+        let headerCell = document.createElement("TH");
+        headerCell.innerHTML = productsPercents[0].title;
+        row.appendChild(headerCell);
 
 
-    //Add the data rows.
-    for (var i = 1; i < productsPercents.length; i++) {
-        row = table.insertRow(-1);
+        //Add the data rows.
+        for (var i = 1; i < productsPercents.length; i++) {
+            row = table.insertRow(-1);
 
-        let cell = row.insertCell(-1);
-        cell.innerHTML = productsPercents[i].numbers;
+            let cell = row.insertCell(-1);
+            cell.innerHTML = productsPercents[i].numbers;
 
-        cell = row.insertCell(-1);
-        cell.innerHTML = productsPercents[i].percents;
+            cell = row.insertCell(-1);
+            cell.innerHTML = productsPercents[i].percents;
+        }
+
+        dv.appendChild(table);
+        const br = document.createElement('br');
+        dv.appendChild(br);
+
+        createTable(soldProducts);
+
+        html2canvas(document.getElementById('pdf')).then(canvas => {
+            const data = canvas.toDataURL("image/jpeg", 0.9);
+            const docDefinition = {
+                content: [{
+                    image: data,
+                    width: 500
+                }]
+            }
+            pdfMake.createPdf(docDefinition).download("statistics.pdf");
+
+            dv.innerHTML = "";
+        })
+    } else {
+        alert('You do not have authorization for this action');
     }
 
-    dv.appendChild(table);
-    const br = document.createElement('br');
-    dv.appendChild(br);
-
-
-    createTable(soldProducts);
-
-
-
-    html2canvas(document.getElementById('pdf')).then(canvas => {
-        const data = canvas.toDataURL("image/jpeg", 0.9);
-        const docDefinition = {
-            content: [{
-                image: data,
-                width: 500
-            }]
-        }
-        pdfMake.createPdf(docDefinition).download("statistics.pdf");
-
-        dv.innerHTML = "";
-    })
 
 }
 
 async function getStatisticsCSV() {
+    const userId = authorizer();
 
-    const response = await fetch("http://localhost:3000/home/getStatistics");
-    const responseFromServer = await response.json();
+    if (userId) {
+        const response = await fetch("http://localhost:3000/home/getStatistics");
+        const responseFromServer = await response.json();
 
-    const categoriesResult = convertToCSV(responseFromServer.categories);
-    const productsResult = convertToCSV(responseFromServer.products);
-    const searchKeys = convertToCSV(responseFromServer.searchKeys);
-    const productsPercents = convertToCSV(responseFromServer.productsPercents);
-    const soldProducts = convertToCSV(responseFromServer.soldProducts);
-    const csvString = categoriesResult + "\n" + productsResult + "\n" + searchKeys + "\n" + productsPercents + "\n" + soldProducts;
+        const categoriesResult = convertToCSV(responseFromServer.categories);
+        const productsResult = convertToCSV(responseFromServer.products);
+        const searchKeys = convertToCSV(responseFromServer.searchKeys);
+        const productsPercents = convertToCSV(responseFromServer.productsPercents);
+        const soldProducts = convertToCSV(responseFromServer.soldProducts);
+        const csvString = categoriesResult + "\n" + productsResult + "\n" + searchKeys + "\n" + productsPercents + "\n" + soldProducts;
 
-    const exportedFilenmae = "statistics" + '.csv';
+        const exportedFilenmae = "statistics" + '.csv';
 
-    const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
+        const blob = new Blob([csvString], { type: 'text/csv;charset=utf-8;' });
 
-    const link = document.getElementById('#statisticsCSV');
-    const url = URL.createObjectURL(blob);
+        const link = document.getElementById('#statisticsCSV');
+        const url = URL.createObjectURL(blob);
 
-    link.setAttribute("href", url);
-    if (link.download !== undefined) {
-        link.setAttribute("download", exportedFilenmae);
+        link.setAttribute("href", url);
+        if (link.download !== undefined) {
+            link.setAttribute("download", exportedFilenmae);
+        }
+    } else {
+        alert('You do not have authorization for this action.');
     }
+
 
 }
 async function LogOutFunction() {
@@ -224,6 +233,17 @@ async function LogOutFunction() {
         alert('You do not have authorization for this action.');
     }
 
+
+}
+
+const homePageRedirect = () => {
+    const userId = authorizer();
+
+    if (userId) {
+        window.location.assign("http://localhost:3000/home");
+    } else {
+        alert('You do not have authorization for this action');
+    }
 
 }
 
@@ -249,7 +269,11 @@ const initializeMenu = async(path, pathForStyle, elementToOverlay) => {
 
     const menuButton = document.getElementById('#menuButton');
     menuButton.src = pathForStyle + '/NavbarImages/menu.svg';
-    document.getElementById('#appLogo').src = pathForStyle + '/NavbarImages/oto.png';
+
+    const applicationLogo = document.getElementById('#appLogo');
+    applicationLogo.addEventListener('click', homePageRedirect);
+    applicationLogo.src = pathForStyle + '/NavbarImages/oto.png';
+    applicationLogo.style.cursor = "pointer";
     document.getElementById('#searchIcon').src = pathForStyle + '/NavbarImages/search.svg';
     document.getElementById('#userIcon').src = pathForStyle + '/NavbarImages/user.png';
     document.getElementById('#shoppingBag').src = pathForStyle + '/NavbarImages/shopping-bag.svg';

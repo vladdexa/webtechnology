@@ -1,4 +1,4 @@
-import {authorizer} from "../authorizer.js";
+import { authorizer } from "../authorizer.js";
 
 class Menu {
     constructor(path) {
@@ -29,13 +29,6 @@ class Menu {
         categories.forEach((category) => {
             const li = document.createElement('li');
             const a = document.createElement('a');
-            a.setAttribute('href', `http://localhost:3000/category?categoryId=${category.id}`);
-            a.addEventListener('click', ()=>{
-                if(!authorizer()) {
-                    alert('You do not have authorization for this action.')
-                }
-                window.location.assign(`http://localhost:3000/category?categoryId=${category.id}`);
-            });
             a.innerHTML = a.innerHTML + category.name;
             li.appendChild(a);
             ul.appendChild(li);
@@ -52,13 +45,16 @@ class Menu {
                     const lii = document.createElement('li');
                     const aa = document.createElement('a');
                     lii.setAttribute('id', subcategory.id);
-                    aa.setAttribute('href', `http://localhost:3000/category?categoryId=${subcategory.id}`);
                     aa.innerHTML = aa.innerHTML + subcategory.name;
-                    a.addEventListener('click', ()=>{
-                        if(!authorizer()) {
+
+                    aa.addEventListener('click', () => {
+                        const userId = authorizer();
+                        if (userId) {
+                            window.location.assign(`http://localhost:3000/category?categoryId=${subcategory.id}`);
+                        } else {
                             alert('You do not have authorization for this action.')
                         }
-                        window.location.assign(`http://localhost:3000/category?categoryId=${subcategory.id}`);
+
                     });
                     lii.appendChild(aa);
                     ull.appendChild(lii);
