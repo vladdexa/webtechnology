@@ -5,7 +5,7 @@
     "port": 3306,
     "username": "dev1",
     "password": "dev1pass",
-    "database": "toysdb",
+    "database": "toysdb1",
     "synchronize": true,
     "logging": false,
     "entities": [

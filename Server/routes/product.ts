@@ -1,7 +1,7 @@
 import HttpStatus from 'http-status-codes'
 import {render} from '../Utils'
 import bodyParser from 'body-parser';
-import {getProduct,getProductsPicturesByCategory,addProductToShoppingCart} from '../controllers'
+import {getProduct,getProductsPicturesByCategory,addProductToShoppingCart, createProduct} from '../controllers'
 const Router = require('router');
 
 const router = Router();
@@ -18,5 +18,6 @@ router.get('/',(req:any,res:any) => {
 router.post('/', urlencodedParser,getProduct);
 router.post('/products-byCategory',urlencodedParser,getProductsPicturesByCategory);
 router.post('/add-product-shoppingCart',urlencodedParser,addProductToShoppingCart);
+router.post('/create', bodyParser.json(), createProduct);
 
 export = router

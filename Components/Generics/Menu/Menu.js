@@ -24,7 +24,6 @@ class Menu {
         div.appendChild(ul);
 
         const categories = this.items.filter(category => category.parentName === null);
-        console.log('categories', categories);
 
         categories.forEach((category) => {
             const li = document.createElement('li');
@@ -42,7 +41,6 @@ class Menu {
 
 
             const subcategories = this.items.filter((subcategory) => subcategory.parentName === category.name);
-            console.log('subcategories', subcategories);
 
             if (subcategories.length > 0) {
                 const ull = document.createElement('ul');

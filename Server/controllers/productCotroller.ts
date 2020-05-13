@@ -5,6 +5,9 @@ import { ProductCategoryRepository } from "../repositories/ProductCategoryReposi
 import { Productcategory } from "../models/entities/Productcategory";
 import { UserProductRepository } from "../repositories/UserProductRepository";
 import { Userproduct } from "../models/entities/Userproduct";
+import { ImageUploader } from "../services/GoogleCloudServices/ImageUploader";
+import {CategoryRepository} from "../repositories/CategoryRepository";
+import {UserRepository} from "../repositories/UserRepository";
 
 async function getProduct(req: any, res: any) {
 
@@ -58,7 +61,7 @@ async function addProductToShoppingCart(req:any,res:any) {
     const userId:number = parseInt(userIdString,10);
 
     const userProductRepository = new UserProductRepository();
-    
+
     const newUserProduct:Userproduct = new Userproduct();
     newUserProduct.userId=userId;
     newUserProduct.productId=productId;
@@ -74,4 +77,63 @@ async function addProductToShoppingCart(req:any,res:any) {
 
 }
 
-export { getProduct, getProductsPicturesByCategory, addProductToShoppingCart}
+async function createProduct(req: any, res: any) {
+    console.log(req.body);
+    const name = req.body.name;
+    const description = req.body.description;
+    const price = req.body.price;
+    const category = req.body.category;
+    const picture = req.body.picture;
+
+    if(!name || name.length <=0 ) {
+        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
+        const response = {
+            success: false,
+            message: 'Product name is required',
+        };
+
+        res.end(JSON.stringify(response));
+    }
+
+    if(!ImageUploader.isImageValid(picture)) {
+        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
+        const response = {
+            success: false,
+            message: 'Picture is invalid',
+        };
+
+        res.end(JSON.stringify(response));
+    }
+
+    const categoryRepository: CategoryRepository = new CategoryRepository();
+    const productRepository: ProductRepository = new ProductRepository();
+    const productCategoryRepository : ProductCategoryRepository = new ProductCategoryRepository();
+
+    const product: Product = new Product();
+    product.name = name;
+    product.description = description;
+    product.price = price;
+    try{
+       await productRepository.create(product);
+       const productByName = await productRepository.getAll();
+        const imageUploader = ImageUploader.create();
+       await  imageUploader.uploadImage(picture);
+
+       console.log("Image uploaded");
+
+        res.writeHead(HttpStatus.OK, {'Content-Type':'application/json'});
+        const response = {
+            success: true,
+            message: 'Image uploaded',
+        };
+
+        res.end(JSON.stringify(response));
+    }
+     catch(error) {
+        console.log(error);
+    }
+}
+
+
+
+export { getProduct, getProductsPicturesByCategory, addProductToShoppingCart, createProduct}
