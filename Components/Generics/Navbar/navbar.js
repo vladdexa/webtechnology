@@ -8,7 +8,6 @@ const initilizeSearch = () => {
         if (event.code === "Enter") {
             event.preventDefault();
             if (inputSearch.value !== '' && inputSearch.value !== inputSearch.defaultValue) {
-                console.log(inputSearch.value);
                 inputSearch.value = inputSearch.defaultValue;
             }
         }

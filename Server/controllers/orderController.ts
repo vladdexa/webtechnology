@@ -67,8 +67,6 @@ async function placeYourOrder(req: any, res: any) {
     const userDetails: UserDetailsPayload = req.body.userDetails;
     const userCart = req.body.userCart;
 
-    console.log(userCart);
-
     const userProductRepository = new UserProductRepository();
     const userProducts: Userproduct[] = await userProductRepository.getByUserId(userDetails.userId);
     if (
@@ -126,7 +124,7 @@ async function placeYourOrder(req: any, res: any) {
         userCart.forEach((cart:any) => {
             userCartResponse = userCartResponse + "PRODUCT : "+ cart.description + "<br>" + "PRICE : " + cart.price + "<br>" + "<br>";
         })
-        
+
         const html = MailService.template(userDetails, userCartResponse);
         const mailService = new MailService();
         const payload: MailPayload = {
