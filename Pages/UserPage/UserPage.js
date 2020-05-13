@@ -45,8 +45,6 @@ const goToHomePage = async() => {
 
 
 
-
-
 const onLoad = async() => {
 
     const backToHomePageBtn = document.getElementById('back-btn');

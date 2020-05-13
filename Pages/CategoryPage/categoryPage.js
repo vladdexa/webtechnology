@@ -1,6 +1,5 @@
-import { loadFooter } from "../../Components/Generics/Footer/footer.js";
 import initializeNavbar from "../../Components/Generics/Navbar/navbar.js";
-import {authorizer} from "../Components/Generics/authorizer.js";
+import { authorizer } from "../Components/Generics/authorizer.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const param = urlParams.get('categoryId');
@@ -92,16 +91,13 @@ const loadNavbar = async() => {
 }
 
 async function load() {
-    const htmlFooterPath = '../../Components/Generics/Footer/footer.html';
     const pathForMenu = '../../Components/Generics/Menu/menuItems.json';
     const pathForStyles = '../../Components/Generics/Navbar';
-    const idFooterContainer = '#footer-container';
 
 
     await loadNavbar();
     await initializeNavbar(pathForMenu, pathForStyles, '#ContainerCards');
     await loadCards(9);
-    await loadFooter(idFooterContainer, htmlFooterPath);
 
     getImageId();
 }

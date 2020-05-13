@@ -67,7 +67,9 @@ async function placeYourOrder(req: any, res: any) {
     const userDetails: UserDetailsPayload = req.body.userDetails;
     const userCart = req.body.userCart;
 
-    if ( 
+    const userProductRepository = new UserProductRepository();
+    const userProducts: Userproduct[] = await userProductRepository.getByUserId(userDetails.userId);
+    if (
         !userDetails.userId
         || !userDetails.firstName
         || !userDetails.lastName
@@ -83,68 +85,74 @@ async function placeYourOrder(req: any, res: any) {
             success: false,
         };
         res.end(JSON.stringify(response));
-    }
-
-
-    if (userCart === []) {
+    } else if (userCart === []) {
         res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
         const response = {
             message: 'Invalid request, your bag is empty',
             success: false,
         };
         res.end(JSON.stringify(response));
-    }
-
-    const userProductRepository = new UserProductRepository();
-    const userProducts: Userproduct[] = await userProductRepository.getByUserId(userDetails.userId);
-
-    if (userProducts.length === 0) {
+    } else if (userProducts.length === 0) {
         res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
         const response = {
             message: `Invalid request, your bag is empty`,
             success: false,
         };
         res.end(JSON.stringify(response));
-    }
+    } else {
 
-    const soldProductsRepository = new SoldProductsRepository();
+        const soldProductsRepository = new SoldProductsRepository();
 
-    for (const product of userProducts) {
-        const productId:number = (await userProductRepository.getById(product.id))[0].productId;
-        await userProductRepository.delete(product.id);
+        for (const product of userProducts) {
+            const productId: number = (await userProductRepository.getById(product.id))[0].productId;
+            await userProductRepository.delete(product.id);
 
-        const soldProduct:Soldproducts = (await soldProductsRepository.getByProductId(productId))[0];
-        
-        if(soldProduct) {
-            await soldProductsRepository.updateSoldCounter(productId);
-        }else {
-            const newSoldProduct:Soldproducts = new Soldproducts();
-            newSoldProduct.productId = productId;
-            newSoldProduct.soldCounter = 1;
-            await soldProductsRepository.create(newSoldProduct);
+            const soldProduct: Soldproducts = (await soldProductsRepository.getByProductId(productId))[0];
+
+            if (soldProduct) {
+                await soldProductsRepository.updateSoldCounter(productId);
+            } else {
+                const newSoldProduct: Soldproducts = new Soldproducts();
+                newSoldProduct.productId = productId;
+                newSoldProduct.soldCounter = 1;
+                await soldProductsRepository.create(newSoldProduct);
+            }
         }
-    }
 
+        let userCartResponse:string = "";
+        
+        userCart.forEach((cart:any) => {
+            userCartResponse = userCartResponse + "PRODUCT : "+ cart.description + "<br>" + "PRICE : " + cart.price + "<br>" + "<br>";
+        })
 
-    const html = MailService.template(userDetails, userCart);
-    const mailService = new MailService();
-    const payload: MailPayload = {
-        to: userDetails.email,
-        subject: 'Online toys order',
-        text: 'Your order:',
-        html,
-    };
-    try {
-        const mailServiceResponse = await mailService.sendEmail(payload);
+        const html = MailService.template(userDetails, userCartResponse);
+        const mailService = new MailService();
+        const payload: MailPayload = {
+            to: userDetails.email,
+            subject: 'Online toys order',
+            text: 'Your order:',
+            html,
+        };
+        try {
+            const mailServiceResponse = await mailService.sendEmail(payload);
 
-        if (mailServiceResponse.accepted.length > 0) {
-            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
-            const response = {
-                message: "Your order confirmation has been sent to your email",
-                success: true,
-            };
-            res.end(JSON.stringify(response));
-        } else {
+            if (mailServiceResponse.accepted.length > 0) {
+                res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
+                const response = {
+                    message: "Your order confirmation has been sent to your email",
+                    success: true,
+                };
+                res.end(JSON.stringify(response));
+            } else {
+                res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
+                const response = {
+                    message: "Your order has been received, but failed send confirmation to your email",
+                    success: false,
+                };
+                res.end(JSON.stringify(response));
+            }
+        } catch (error) {
+            console.log(error);
             res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
             const response = {
                 message: "Your order has been received, but failed send confirmation to your email",
@@ -152,14 +160,6 @@ async function placeYourOrder(req: any, res: any) {
             };
             res.end(JSON.stringify(response));
         }
-    } catch (error) {
-        console.log(error);
-        res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, { 'Content-Type': 'application/json' });
-        const response = {
-            message: "Your order has been received, but failed send confirmation to your email",
-            success: false,
-        };
-        res.end(JSON.stringify(response));
     }
 
 }

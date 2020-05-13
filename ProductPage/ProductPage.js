@@ -1,5 +1,9 @@
-import { loadFooter } from "../Generics/Footer/footer.js";
-import {authorizer} from "../Components/Generics/authorizer.js";
+import {
+    loadFooter
+} from "../Generics/Footer/footer.js";
+import {
+    authorizer
+} from "../Components/Generics/authorizer.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const param = urlParams.get('productId');
@@ -35,7 +39,8 @@ async function getImagesForCarousel() {
 }
 
 function backToHome() {
-    if (authorizer()) {
+    const userId = authorizer();
+    if (userId) {
         window.location.assign("http://localhost:3000/home");
     } else {
         alert('You do not have authorization for this action');
@@ -43,8 +48,7 @@ function backToHome() {
 }
 
 async function getProductsForShoppingCart() {
-   const userId = authorizer();
-
+    const userId = authorizer();
     const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
         method: 'POST',
         headers: {
@@ -56,21 +60,22 @@ async function getProductsForShoppingCart() {
     const responseFromServer = await response.json();
 
     return responseFromServer.products;
+
 }
 
 async function goToOrderPage() {
-    const products = await getProductsForShoppingCart();
+    const userId = authorizer();
 
-
-    if (authorizer() && products.length) {
-        window.location.assign("http://localhost:3000/order");
-    } else if (!products.length) {
-        alert("You do not have any product in your shopping cart.");
-    } else {
+    if (!userId) {
         alert('You do not have authorization for this action');
+    } else {
+        const products = await getProductsForShoppingCart();
+        if (!products.length) {
+            alert("You do not have any product in your shopping cart.");
+        } else {
+            window.location.assign("http://localhost:3000/order");
+        }
     }
-
-
 }
 
 async function addProductToShoppingCart() {
@@ -101,7 +106,7 @@ async function addProductToShoppingCart() {
 function goToSearchPage() {
     const value = urlParams.get('value');
 
-    if (authorizer()&& value) {
+    if (authorizer() && value) {
         window.location.assign(`http://localhost:3000/search?value=${value}`);
     } else if (!value) {
         alert('You do not have any search before.');
@@ -146,9 +151,6 @@ async function renderProductPage() {
 
     const viewCart = document.getElementById('#view-cart');
     viewCart.addEventListener('click', goToOrderPage);
-
-    const backSearchBtn = document.getElementById('#backSearch-btn');
-    backSearchBtn.addEventListener('click', goToSearchPage);
 }
 
 

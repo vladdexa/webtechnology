@@ -29,16 +29,17 @@ main {
 }
 
 .back-btn {
-    background-color: rgba(255, 255, 255, 0);;
+    background-color: rgba(255, 255, 255, 0);
     max-width: 200px;
     min-width: 100px;
-    color: #000000;;
+    color: #000000;
     font-family: Junior, serif;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 1px;
     line-height: 24px;
     text-align: center;
+    border-radius: 10%;
 }
 
 label {
@@ -52,7 +53,7 @@ label {
     margin-top: 1rem;
 }
 
-input{
+input {
     background-color: rgba(255, 255, 255, 0);
     border: 1px solid #000000;
     max-width: 350px;
@@ -68,7 +69,7 @@ input{
     padding: 0 0.5rem 0 0.5rem;
 }
 
-textarea{
+textarea {
     background-color: rgba(255, 255, 255, 0);
     border: 1px solid #000000;
     max-width: 350px;
@@ -85,14 +86,18 @@ textarea{
     min-height: 80px;
     padding: 0 0.5rem 0 0.5rem;
 }
+
 .order-form-form {
     display: inline-grid;
 }
-.place_order_button{
-    background-color: rgba(255, 255, 255, 0);;
+
+.place_order_button {
+    background-color: rgba(255, 255, 255, 0);
+    ;
     max-width: 200px;
     min-width: 100px;
-    color: #000000;;
+    color: #000000;
+    ;
     font-family: Junior, serif;
     font-size: 16px;
     font-weight: 400;
@@ -103,12 +108,13 @@ textarea{
     left: 30%;
     margin: 1rem 0 1rem 0;
 }
+
 .payment {
     display: inline-flex;
     margin-bottom: 1rem;
 }
 
-.submit{
+.submit {
     background-color: #000000;
     max-width: 200px;
     min-width: 200px;
@@ -120,26 +126,32 @@ textarea{
     line-height: 24px;
     text-align: center;
     margin-left: 1rem;
+    cursor: pointer;
 }
+
 .details-container {
     display: none;
 }
 
 .order-form {
-  position: relative;
+    position: relative;
     left: 60%;
 }
+
 .discard {
-    background-color: rgba(255, 255, 255, 0);;
+    background-color: rgba(255, 255, 255, 0);
+    ;
     max-width: 200px;
     min-width: 100px;
-    color: #000000;;
+    color: #000000;
+    ;
     font-family: Junior, serif;
     font-size: 16px;
     font-weight: 400;
     letter-spacing: 1px;
     line-height: 24px;
     text-align: center;
+    cursor: pointer;
 }
 
 .select-payment {

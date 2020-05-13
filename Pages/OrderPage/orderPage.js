@@ -55,6 +55,7 @@ const loadBasketCards = async() => {
                 for (let index = 0; index < products.length; index++) {
                     const genericDiv = document.createElement('div');
                     genericDiv.setAttribute('class', 'card');
+                    genericDiv.setAttribute("id", `${index}`);
                     genericDiv.innerHTML = html;
                     genericDiv.getElementsByClassName('price')[0].innerText = products[index].price + " RON";
                     genericDiv.getElementsByClassName('product-description')[0].innerText = products[index].name
@@ -125,9 +126,15 @@ const submitYourOrder = async() => {
     };
 
     const cart = document.getElementsByClassName('card');
+
     const toSend = [];
     for (let i = 0; i < cart.length; i++) {
-        toSend.push(cart.item(i).innerHTML);
+        const cartItem = {
+            description: document.getElementById(`${i}`).getElementsByClassName('product-description')[0].innerText,
+            price: document.getElementById(`${i}`).getElementsByClassName('price')[0].innerText
+        }
+
+        toSend.push(cartItem);
     }
 
     const payload = {
@@ -174,6 +181,7 @@ const initialize = async() => {
     placeOrderButton.addEventListener('click', () => {
 
         const detailsContainer = document.getElementById('detailsContainer');
+
         displayForm ? detailsContainer.style.display = 'block' : detailsContainer.style.display = 'none';
         displayForm = !displayForm;
     });
