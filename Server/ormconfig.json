@@ -5,7 +5,7 @@
     "port": 3306,
     "username": "root",
     "password": "koLthJiI9P0n6zNH",
-    "database": "toysdb1",
+    "database": "toysdb",
     "synchronize": true,
     "logging": false,
     "entities": [
