@@ -173,13 +173,14 @@ const initialize = async() => {
 
     const basketCardContainer = document.getElementById('basket-cards-container');
     const placeOrderButton = document.createElement('button');
+    const form = document.getElementById('#order-form');
 
     placeOrderButton.setAttribute('class', 'place_order_button');
     placeOrderButton.setAttribute('id', 'placeOrder');
     placeOrderButton.setAttribute('type', 'button');
     placeOrderButton.innerHTML = 'Checkout';
     placeOrderButton.addEventListener('click', () => {
-
+        basketCardContainer.appendChild(form);
         const detailsContainer = document.getElementById('detailsContainer');
 
         displayForm ? detailsContainer.style.display = 'block' : detailsContainer.style.display = 'none';
@@ -190,6 +191,7 @@ const initialize = async() => {
     if (cart.length !== 0) {
         basketCardContainer.appendChild(placeOrderButton);
     }
+
 
     const backBtn = document.getElementById('#back-btn');
     backBtn.addEventListener('click', backToHome);
