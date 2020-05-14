@@ -12,11 +12,13 @@
     "license": "ISC",
     "dependencies": {
         "@types/finalhandler": "^1.1.0",
+        "@types/jsdom": "^16.2.1",
         "alert-node": "^3.0.11",
         "body-parser": "^1.19.0",
         "finalhandler": "^1.1.2",
         "http-server": "^0.12.3",
         "http-status-codes": "^1.4.0",
+        "jsdom": "^16.2.2",
         "json2csv": "^5.0.1",
         "line-reader": "^0.4.0",
         "mysql": "^2.14.1",

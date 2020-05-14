@@ -77,3 +77,4 @@
 ../Pages/CategoryPage/categoryPage.css
 ../Pages/CategoryPage/categoryPage.js
 ../Components/Generics/authorizer.js
+../Pages/RssFeed/rssfeed.xml

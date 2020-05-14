@@ -48,6 +48,9 @@ createConnection().then(async () => {
         } else if(req.url.match("\.svg$")) {
             res.writeHead(HttpStatus.OK, { 'Content-Type': 'image/svg+xml' });
             Render(req.url, res);
+        } else if(req.url.match('\.xml$')) {
+            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/xml' });
+            Render(req.url, res);
         }
 
 

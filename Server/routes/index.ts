@@ -7,6 +7,7 @@ import order from './order'
 import search from './search'
 import user from "./user"
 import category from "./category"
+import rss from './rss';
 
 const Router  = require('router');
 
@@ -17,7 +18,7 @@ router.get('/', (req:any,res:any) => {
     const responseObj = {
        status:'active'
     }
-    
+
     res.end(JSON.stringify(responseObj));
 })
 
@@ -29,5 +30,6 @@ router.use('/order',order);
 router.use('/search',search);
 router.use('/user',user);
 router.use('/category',category);
+router.use('/rss', rss);
 
 export = router;

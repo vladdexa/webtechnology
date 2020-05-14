@@ -70,6 +70,7 @@ const loadNavbar = async() => {
 
 };
 
+
 const initialize = async() => {
     const htmlFooterPath = '../../Components/Generics/Footer/footer.html';
     const idFooterContainer = '#footer-container';
@@ -81,8 +82,18 @@ const initialize = async() => {
     await loadCarousels();
     await loadFooter(idFooterContainer, htmlFooterPath);
 
+
     getImageId();
+
+
+    const rssButton = document.getElementById('rss');
+    if(authorizer()) {
+        rssButton.addEventListener('click', () => {
+            window.location.assign('/rss');
+                })
+    }
 };
+
 document.getElementById('#body').addEventListener('load', initialize());
 
 function checkNumber(someString) {
