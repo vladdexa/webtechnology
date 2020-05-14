@@ -5,7 +5,8 @@ import {getProductsForShoppingCart,deleteProductFromShoppingCart, placeYourOrder
 import {getProductsBySearchInput} from './searchProductsController'
 import { getUserById} from './userController'
 import {getProductsByCategoryId} from './categoryController'
+import {generateRssFeed} from "./rssController";
 
 export  {login,register,forgotPass,getImagesForCarousels,getProduct,getProductsPicturesByCategory,
         addProductToShoppingCart, getProductsForShoppingCart,deleteProductFromShoppingCart,
-        getProductsBySearchInput,getUserById, getProductsByCategoryId,placeYourOrder, getCategories,createStatistics}
+        getProductsBySearchInput,getUserById, getProductsByCategoryId,placeYourOrder, getCategories,createStatistics, generateRssFeed}
