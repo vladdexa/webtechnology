@@ -1,6 +1,6 @@
 import HttpStatus from 'http-status-codes'
 import {render} from '../Utils'
-import { getImagesForCarousels, getCategories} from '../controllers';
+import { getImagesForCarousels, getCategories,createStatistics} from '../controllers';
 
 const Router = require('router');
 
@@ -15,5 +15,5 @@ router.get('/', (req: any, res: any) => {
 
 router.get('/carousel-images',getImagesForCarousels);
 router.get('/categories', getCategories);
-
+router.get('/getStatistics', createStatistics);
 export = router

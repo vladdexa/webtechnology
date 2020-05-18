@@ -1,7 +1,3 @@
-function loadForgotPasswordPage() {
-    window.location.assign("http://localhost:3000/auth/forgot-password");
-}
-
 let email;
 let generatedPassword;
 
@@ -83,7 +79,7 @@ const sendNewPassword = async() => {
             case successfullyChangedPassword:
                 {
                     alert(successfullyChangedPassword);
-                    window.location.replace("http://localhost:3000/auth/login");
+                    window.location.replace("http://localhost:3000/user");
                     break;
                 }
         }

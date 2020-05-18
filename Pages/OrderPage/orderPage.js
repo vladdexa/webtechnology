@@ -1,4 +1,4 @@
-import {authorizer} from "../../Components/Generics/authorizer.js";
+import { authorizer } from "../../Components/Generics/authorizer.js";
 
 async function getProductsForShoppingCart() {
     const userId = authorizer();
@@ -40,7 +40,7 @@ async function deleteProductCard(productId) {
 }
 
 
-const loadBasketCards = async () => {
+const loadBasketCards = async() => {
 
     const products = await getProductsForShoppingCart();
 
@@ -55,6 +55,7 @@ const loadBasketCards = async () => {
                 for (let index = 0; index < products.length; index++) {
                     const genericDiv = document.createElement('div');
                     genericDiv.setAttribute('class', 'card');
+                    genericDiv.setAttribute("id", `${index}`);
                     genericDiv.innerHTML = html;
                     genericDiv.getElementsByClassName('price')[0].innerText = products[index].price + " RON";
                     genericDiv.getElementsByClassName('product-description')[0].innerText = products[index].name
@@ -91,8 +92,8 @@ function deleteCard() {
 }
 
 function backToHome() {
-
-    if (authorizer()) {
+    const userId = authorizer();
+    if (userId) {
         window.location.assign("http://localhost:3000/home");
     } else {
         alert('You do not have authorization for this action');
@@ -100,7 +101,7 @@ function backToHome() {
 }
 
 
-const submitYourOrder = async () => {
+const submitYourOrder = async() => {
     const firstName = document.getElementById('firstName').value;
     const lastName = document.getElementById('lastName').value;
     const email = document.getElementById('email').value;
@@ -110,7 +111,10 @@ const submitYourOrder = async () => {
     const address = document.getElementById('address').value;
     const payment = document.getElementById('payment').value;
 
+    const userId = authorizer();
+
     const result = {
+        userId,
         firstName,
         lastName,
         email,
@@ -122,9 +126,15 @@ const submitYourOrder = async () => {
     };
 
     const cart = document.getElementsByClassName('card');
+
     const toSend = [];
     for (let i = 0; i < cart.length; i++) {
-        toSend.push(cart.item(i).innerHTML);
+        const cartItem = {
+            description: document.getElementById(`${i}`).getElementsByClassName('product-description')[0].innerText,
+            price: document.getElementById(`${i}`).getElementsByClassName('price')[0].innerText
+        }
+
+        toSend.push(cartItem);
     }
 
     const payload = {
@@ -132,7 +142,8 @@ const submitYourOrder = async () => {
         userCart: toSend,
     };
 
-    if(authorizer()) {
+
+    if (userId) {
         const response = await fetch('http://localhost:3000/order/place-your-order', {
             method: 'POST',
             headers: {
@@ -156,28 +167,31 @@ const submitYourOrder = async () => {
 
 let displayForm = true;
 
-const initialize = async () => {
+const initialize = async() => {
     await loadBasketCards();
     deleteCard();
 
     const basketCardContainer = document.getElementById('basket-cards-container');
     const placeOrderButton = document.createElement('button');
+    const form = document.getElementById('#order-form');
 
     placeOrderButton.setAttribute('class', 'place_order_button');
     placeOrderButton.setAttribute('id', 'placeOrder');
     placeOrderButton.setAttribute('type', 'button');
     placeOrderButton.innerHTML = 'Checkout';
     placeOrderButton.addEventListener('click', () => {
-
+        basketCardContainer.appendChild(form);
         const detailsContainer = document.getElementById('detailsContainer');
+
         displayForm ? detailsContainer.style.display = 'block' : detailsContainer.style.display = 'none';
         displayForm = !displayForm;
     });
 
     const cart = document.getElementsByClassName('card');
-    if(cart.length!==0) {
+    if (cart.length !== 0) {
         basketCardContainer.appendChild(placeOrderButton);
     }
+
 
     const backBtn = document.getElementById('#back-btn');
     backBtn.addEventListener('click', backToHome);

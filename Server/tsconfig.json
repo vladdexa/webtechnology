@@ -2,7 +2,8 @@
    "compilerOptions": {
      "lib": [
        "es5",
-       "es6"
+       "es6",
+       "dom"
      ],
      "allowJs": true,
      "target": "es5",
@@ -21,4 +22,3 @@
      "strictPropertyInitialization": false
    }
  }
- 

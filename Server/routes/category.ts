@@ -14,7 +14,7 @@ router.get('/', (req: any, res: any) => {
     res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
     const homePageHtmlPath= '../Pages/CategoryPage/categoryPage.html';
     render(res,homePageHtmlPath);
-})
+});
 
 router.post('/getProductsByCategoryId',urlencodedParser,getProductsByCategoryId);
 router.post('/create', bodyParser.json(), createCategory);

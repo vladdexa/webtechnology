@@ -2,12 +2,17 @@
     width: 80%;
     position: absolute;
     left: 10%;
-    margin-top: 2rem;
+    margin-top: 5rem;
     top: 15%;
     z-index: 0;
 }
 
 .footer-container {
-    position:absolute;
+    position: absolute;
     top: 275%;
+}
+
+.statistics {
+    position: absolute;
+    top: 500%;
 }

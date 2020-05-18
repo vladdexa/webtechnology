@@ -6,6 +6,11 @@
     <title>Online Toys</title>
     <script src="navbar.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.62/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.62/vfs_fonts.js"></script>
+    <script src="filesaver.js"></script>
+    <script type="text/javascript" src="https://html2canvas.hertzen.com/dist/html2canvas.js">
+    </script>
 </head>
 
 <body>
@@ -20,9 +25,8 @@
                 </button>
                 <img class="AppLogo" src="" alt="Online Toys" id="#appLogo">
                 <div class="MenuItems">
-                    <a href="#home">Home</a>
-                    <a href="#news">News</a>
-                    <a href="#sale">Sale</a>
+                    <a id="#statisticsPDF">StatisticsPDF</a>
+                    <a id="#statisticsCSV">StatisticsCSV</a>
                 </div>
                 <div class="SearchBarDiv" id="#SearchBar">
                     <div class="SearchDivIcon">
@@ -44,7 +48,7 @@
 
                     <div id="myDropdown" class="DropdownContent">
                         <a id="#details" href="#">Details</a>
-                        <a id="#logOut" href="#">Log out</a>
+                        <a id="#logout" href="#">Log out</a>
                     </div>
                     <button id="shoppingCartBtn" class="UserActionsButton2" tabindex="0" type="button">
                         <span>

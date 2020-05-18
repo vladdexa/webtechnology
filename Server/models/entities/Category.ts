@@ -9,13 +9,15 @@ export class Category {
   @Column("varchar", { name: "name", length: 100, default: () => "'0'" })
   name: string;
 
-  @Column("varchar", {
-    name: "parentName",
-    nullable: true,
-    length: 100,
-    default: () => null,
-  })
+  @Column("varchar", { name: "parentName", nullable: true, length: 100 })
   parentName: string | null;
+
+  @Column("int", {
+    name: "accessCounter",
+    unsigned: true,
+    default: () => "'0'",
+  })
+  accessCounter: number;
 
   @OneToMany(
     () => Productcategory,

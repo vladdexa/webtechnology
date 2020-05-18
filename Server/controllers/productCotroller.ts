@@ -16,6 +16,8 @@ async function getProduct(req: any, res: any) {
     const productRepository = new ProductRepository();
     const product: Product = (await productRepository.getById(productId))[0];
 
+    await productRepository.updateAccessCounter(productId);
+
     const response = {
         product: product
     }

@@ -72,6 +72,7 @@
 ../Pages/UserPage/profile.png
 ../Pages/UserPage/UserPage.css
 ../Pages/UserPage/UserPage.js
+../Pages/UserPage/userPageChangePassword.js
 
 ../Pages/CategoryPage/categoryPage.css
 ../Pages/CategoryPage/categoryPage.js
