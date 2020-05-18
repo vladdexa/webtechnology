@@ -1,5 +1,5 @@
 function loadForgotPasswordPage() {
-    window.location.replace("http://localhost:3000/auth/forgot-password");
+    window.location.assign("http://localhost:3000/auth/forgot-password");
 }
 
 let email;

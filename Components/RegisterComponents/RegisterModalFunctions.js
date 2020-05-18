@@ -1,5 +1,5 @@
 function loadRegisterPage() {
-    window.location.replace("http://localhost:3000/auth/register");
+    window.location.assign("http://localhost:3000/auth/register");
 }
 
 

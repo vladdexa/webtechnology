@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Online Toy</title>
+    <title>Online Toys</title>
     <link rel="stylesheet" href="orderPage.css">
     <link rel="stylesheet" href="../../Components/Generics/BasketCard/basketCard.css">
     <script type="module" src="orderPage.js"></script>
@@ -11,54 +11,53 @@
 </head>
 
 <body id="#body">
-    <main>
+    <button id="#back-btn" class="back-btn" type="button">Back to Home page</button>
 
-        <button id="#back-btn" class="back-btn" type="button">Back to Home page</button>
+    <main>
         <section class="basket-cards-container" id="basket-cards-container">
             <div class="basket">Your Cart</div>
         </section>
-
-        <section class="order-form">
-            <div class="order-form-container">
-                <div class="details-container" id="detailsContainer">
-                    <form class="order-form-form">
-                        <label for="firstName">First name</label>
-                        <input type="text" id="firstName" required>
-
-                        <label for="lastName">Last name</label>
-                        <input type="text" id="lastName" required>
-
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required>
-
-                        <label for="phoneNo">Phone number</label>
-                        <input type="tel" id="phoneNo" required>
-
-                        <label for="country">Country</label>
-                        <input type="text" id="country" required>
-
-                        <label for="state">State</label>
-                        <input type="text" id="state" required>
-
-                        <label for="address">Address</label>
-                        <textarea id="address" required></textarea>
-
-                        <label for="payment">Payment</label>
-                        <select id="payment"  class="select-payment" required>
-                            <option>Card</option>
-                            <option>Cash at delivery</option>
-                        </select>
-
-                        <div>
-                        <button class="discard" type="reset">Discard changes</button>
-                            <button class="submit" id="submitButton"  type ="button">Place your order</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </section>
-
     </main>
+
+    <section class="order-form" id="#order-form">
+        <div class="order-form-container">
+            <div class="details-container" id="detailsContainer">
+                <form class="order-form-form">
+                    <label for="firstName">First name</label>
+                    <input type="text" id="firstName" required>
+
+                    <label for="lastName">Last name</label>
+                    <input type="text" id="lastName" required>
+
+                    <label for="email">Email</label>
+                    <input type="email" id="email" required>
+
+                    <label for="phoneNo">Phone number</label>
+                    <input type="tel" id="phoneNo" required>
+
+                    <label for="country">Country</label>
+                    <input type="text" id="country" required>
+
+                    <label for="state">State</label>
+                    <input type="text" id="state" required>
+
+                    <label for="address">Address</label>
+                    <textarea id="address" required></textarea>
+
+                    <label for="payment">Payment</label>
+                    <select id="payment" class="select-payment" required>
+                        <option>Card</option>
+                        <option>Cash at delivery</option>
+                    </select>
+
+                    <div class="others-button">
+                        <button class="discard" type="reset">Discard changes</button>
+                        <button class="submit" id="submitButton" type="button">Place your order</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
 </body>
 
 </html>

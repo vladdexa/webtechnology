@@ -11,12 +11,12 @@ main {
 
 .basket-cards-container {
     display: flex;
-    flex-direction: column;
+    flex-flow: column wrap;
     position: absolute;
     top: 0%;
-    left: 5%;
-    width: 45%;
-    height: 100%;
+    width: 65%;
+    height: auto;
+    left: 23%;
 }
 
 .basket {
@@ -26,6 +26,7 @@ main {
     font-family: sans-serif;
     color: #34343a;
     margin-bottom: 2%;
+    margin-right: 20%
 }
 
 .back-btn {
@@ -34,12 +35,15 @@ main {
     min-width: 100px;
     color: #000000;
     font-family: Junior, serif;
-    font-size: 16px;
+    font-size: 19px;
     font-weight: 400;
     letter-spacing: 1px;
-    line-height: 24px;
+    line-height: 29px;
     text-align: center;
     border-radius: 10%;
+    margin-left: 4%;
+    margin-top: 3%;
+    cursor: pointer;
 }
 
 label {
@@ -93,11 +97,9 @@ textarea {
 
 .place_order_button {
     background-color: rgba(255, 255, 255, 0);
-    ;
     max-width: 200px;
     min-width: 100px;
     color: #000000;
-    ;
     font-family: Junior, serif;
     font-size: 16px;
     font-weight: 400;
@@ -107,6 +109,7 @@ textarea {
     position: relative;
     left: 30%;
     margin: 1rem 0 1rem 0;
+    cursor: pointer;
 }
 
 .payment {
@@ -134,17 +137,14 @@ textarea {
 }
 
 .order-form {
-    position: relative;
-    left: 60%;
+    margin-left: 22%;
 }
 
 .discard {
     background-color: rgba(255, 255, 255, 0);
-    ;
     max-width: 200px;
     min-width: 100px;
     color: #000000;
-    ;
     font-family: Junior, serif;
     font-size: 16px;
     font-weight: 400;
@@ -169,4 +169,378 @@ textarea {
     line-height: 24px;
     text-align: left;
     padding: 0 0.5rem 0 0.5rem;
+}
+
+@media only screen and (min-width:330px) and (max-width:500px) {
+    .basket-cards-container {
+        width: 75%;
+        height: auto;
+        left: 3%;
+    }
+    .basket {
+        font-size: x-large;
+        font-family: sans-serif;
+        color: #34343a;
+        margin-bottom: 6%;
+        margin-left: 38%;
+    }
+    .back-btn {
+        min-width: 130px;
+        height: 24px;
+        font-size: 12px;
+        line-height: 9px;
+        border-radius: 10%;
+        margin-left: 1%;
+        position: absolute;
+        top: 2%;
+    }
+    .place_order_button {
+        max-width: 155px;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        line-height: 20px;
+        text-align: center;
+        position: relative;
+        left: 28%;
+        margin: 1rem 0 1rem 0;
+    }
+    .discard {
+        display: flex;
+        min-width: 77px;
+        height: 39px;
+        font-size: 13px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 14px;
+        text-align: center;
+    }
+    .submit {
+        display: flex;
+        max-width: 200px;
+        min-width: 129px;
+        font-size: 14px;
+        height: 37px;
+    }
+    .others-button {
+        display: flex;
+        flex-direction: row;
+        width: 0px;
+        margin-left: 6%;
+    }
+    .order-form {
+        margin-left: 20%;
+    }
+    textarea {
+        max-width: 344px;
+        min-width: 215px;
+    }
+    .others-button {
+        display: flex;
+        flex-direction: row;
+        width: 0px;
+        margin-left: -8%;
+    }
+}
+
+@media only screen and (min-width:501px) and (max-width:600px) {
+    .basket-cards-container {
+        width: 65%;
+        height: auto;
+        left: 3%;
+    }
+    .basket {
+        font-size: x-large;
+        font-family: sans-serif;
+        color: #34343a;
+        margin-bottom: 6%;
+        margin-left: 39%;
+    }
+    .back-btn {
+        min-width: 160px;
+        height: 28px;
+        font-size: 15px;
+        line-height: 9px;
+        border-radius: 10%;
+        margin-left: 1%;
+        position: absolute;
+        top: 2%;
+    }
+    .place_order_button {
+        max-width: 200px;
+        min-width: 100px;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        line-height: 20px;
+        text-align: center;
+        position: relative;
+        left: 35%;
+        margin: 1rem 0 1rem 0;
+    }
+    .discard {
+        display: flex;
+        min-width: 85px;
+        height: 47px;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 20px;
+        text-align: center;
+    }
+    .submit {
+        display: flex;
+        max-width: 200px;
+        min-width: 147px;
+        font-size: 16px;
+        height: 47px;
+    }
+    textarea {
+        min-width: 274px;
+    }
+    .others-button {
+        display: flex;
+        flex-direction: row;
+        width: 0px;
+        margin-left: 5%;
+    }
+    .order-form {
+        margin-left: 22%;
+    }
+}
+
+@media only screen and (min-width:601px) and (max-width:800px) {
+    .basket-cards-container {
+        width: 73%;
+        height: auto;
+        left: 10%;
+    }
+    .basket {
+        font-size: x-large;
+        font-family: sans-serif;
+        color: #34343a;
+        margin-bottom: 6%;
+        margin-left: 38%;
+    }
+    .back-btn {
+        min-width: 170px;
+        height: 25px;
+        font-size: 18px;
+        line-height: 9px;
+        border-radius: 10%;
+        margin-left: 1%;
+        position: absolute;
+        top: 3%;
+    }
+    .place_order_button {
+        max-width: 200px;
+        min-width: 100px;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        line-height: 20px;
+        text-align: center;
+        position: relative;
+        left: 36%;
+        margin: 1rem 0 1rem 0;
+    }
+    .discard {
+        display: flex;
+        min-width: 130px;
+        height: 40px;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 20px;
+        text-align: center;
+    }
+    .submit {
+        display: flex;
+        max-width: 200px;
+        min-width: 143px;
+        font-size: 16px;
+        height: 40px;
+    }
+    .order-form {
+        margin-left: 22%;
+    }
+    textarea {
+        max-width: 344px;
+        min-width: 360px;
+    }
+    .others-button {
+        display: flex;
+        flex-direction: row;
+        width: 0px;
+        margin-left: 5%;
+    }
+}
+
+@media only screen and (min-width:801px) and (max-width:1100px) {
+    .order-form {
+        margin-left: 22%
+    }
+    .basket-cards-container {
+        width: 70%;
+        height: auto;
+        left: 15%;
+    }
+    .basket {
+        font-size: x-large;
+        font-family: sans-serif;
+        color: #34343a;
+        margin-bottom: 6%;
+        margin-left: 25%;
+    }
+    .back-btn {
+        min-width: 170px;
+        height: 35px;
+        font-size: 18px;
+        line-height: 9px;
+        border-radius: 10%;
+        margin-left: 5%;
+        position: absolute;
+        top: 5%;
+    }
+    .place_order_button {
+        max-width: 200px;
+        min-width: 100px;
+        font-size: 16px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        line-height: 20px;
+        text-align: center;
+        position: relative;
+        left: 37%;
+        margin: 1rem 0 1rem 0;
+    }
+    .discard {
+        display: flex;
+        min-width: 130px;
+        height: 50px;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 20px;
+        text-align: center;
+    }
+    .submit {
+        display: flex;
+        max-width: 200px;
+        min-width: 143px;
+        font-size: 16px;
+        height: 51px;
+    }
+    textarea {
+        width: 150%;
+    }
+    input {
+        width: 150%;
+    }
+    .select-payment {
+        width: 150%;
+    }
+    .others-button {
+        display: flex;
+        flex-direction: row;
+        width: 0px;
+        margin-left: 13%;
+    }
+}
+
+@media only screen and (min-width:1101px) and (max-width:1400px) {
+    .basket-cards-container {
+        width: 65%;
+        height: auto;
+        left: 17%;
+    }
+    .basket {
+        font-size: xx-large;
+        font-family: sans-serif;
+        color: #34343a;
+        margin-bottom: 6%;
+        margin-left: 25%;
+    }
+    .back-btn {
+        min-width: 170px;
+        height: 40px;
+        font-size: 20px;
+        line-height: 9px;
+        border-radius: 10%;
+        margin-left: 5%;
+        position: absolute;
+        top: 5%;
+    }
+    .place_order_button {
+        max-width: 209px;
+        min-width: 100px;
+        font-size: 17px;
+        font-weight: 400;
+        letter-spacing: 2px;
+        line-height: 27px;
+        text-align: center;
+        position: relative;
+        left: 32%;
+        margin: 1rem 0 1rem 0;
+    }
+    .discard {
+        display: flex;
+        min-width: 130px;
+        height: 50px;
+        font-size: 15px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 20px;
+        text-align: center;
+    }
+    .submit {
+        display: flex;
+        max-width: 200px;
+        min-width: 143px;
+        font-size: 16px;
+        height: 51px;
+    }
+    input {
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid #000000;
+        max-width: 350px;
+        width: 225%;
+        height: 2rem;
+        color: #000000;
+        font-family: Junior, serif;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 24px;
+        text-align: left;
+        padding: 0 0.5rem 0 0.5rem;
+    }
+    textarea {
+        min-width: 228%;
+    }
+    .order-form {
+        margin-left: 25%;
+    }
+    .select-payment {
+        margin-bottom: 2rem;
+        background-color: rgba(255, 255, 255, 0);
+        border: 1px solid #000000;
+        max-width: 350px;
+        width: 230%;
+        height: 2rem;
+        color: #000000;
+        font-family: Junior, serif;
+        font-size: 14px;
+        font-weight: 400;
+        letter-spacing: 1px;
+        line-height: 24px;
+        text-align: left;
+        padding: 0 0.5rem 0 0.5rem;
+    }
+    .others-button {
+        display: flex;
+        flex-direction: row;
+        width: 0px;
+        margin-left: 13%;
+    }
 }
