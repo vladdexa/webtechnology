@@ -26,7 +26,9 @@ createConnection().then(async () => {
         }
         else if (req.url.match("\.png$") || req.url.match("\.jpg$") ) {
 
-            const type: string = path.basename(req.url).slice(1);
+            const basename:string = path.basename(req.url);
+            const type: string = basename.slice(basename.indexOf(".")+1);
+          
             res.writeHead(HttpStatus.OK, { 'Content-Type': `image/${type}` });
             Render(req.url, res);
 

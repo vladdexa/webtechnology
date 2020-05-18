@@ -101,11 +101,9 @@ input {
     background-clip: padding-box;
     border: 1px solid #abc9ca;
     border-radius: 0.25rem;
-    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-
 }
 
-.login-container > div {
+.login-container>div {
     display: flex;
     flex-direction: column;
     margin: 2%;
@@ -179,127 +177,131 @@ input {
     border-radius: 11px;
 }
 
-/*LowestRez 320*/
-@media only screen and (min-width : 320px) {
-    .top-text{
-        margin-top:14%;
-        margin-left:15%;
-        font-size:90%;
-    }
-    .logo-top-bar{
-        width:23%;
-        height:60%;
-        margin-left:2%;
-        margin-top:10%;
-    }
-    .logo-top-bar{
-        margin-top:10%;
-    }
-    .login-form{
-        width:75%;
-        height:125%;
-        margin-top:5%;
-    }
-    .other-actions {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        margin-top: 6%;
-        font-size:14;
-    }
-    .login-svg {
-        height:70%;
-        padding-left: 8%;
-    }
-    .login-container {
-        display: flex;
-        flex-direction: column;
-        padding: 0% 5%;
-    }
-}
-@media only screen and (min-width : 500px) {
-    .top-text{
-        margin-top:14%;
-        margin-left:15%;
-        font-size:90%;
-    }
-    .logo-top-bar{
-        width:23%;
-        height:60%;
-        margin-left:2%;
-        margin-top:10%;
-    }
-    .logo-top-bar{
-        margin-top:10%;
-    }
-    .login-form{
-        width:63%;
-        height:126%;
-        margin-top:5%;
-    }
-    .other-actions {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        margin-top: 6%;
-        font-size:14;
-    }
-    .login-svg {
-        height:70%;
-        padding-left: 8%;
-    }
-    .login-container {
-        display: flex;
-        flex-direction: column;
-        padding: 0% 5%;
-    }
-}
-@media only screen and (min-width:643px){
-    .login-form{
-        width: 45%;
-        height:124%;
-        margin-top:5%;
-    }
-    .login-button{
-        width:32%;
-    }
-    .top-text{
-        font-size:130%;
-        margin-top:8%;
-        margin-left:20%;
-    }
-    .logo-top-bar{
-        margin-top:4%;
-        height:66%;
-        width:15%;
-    }
-    .other-actions {
-        display: flex;
-        flex-flow: row wrap;
-        justify-content: space-around;
-        margin-top: 6%;
-        font-size:14;
-    }
-    .login-svg {
-        height:70%;
-        padding-left: 8%;
-    }
-    .login-container {
-        display: flex;
-        flex-direction: column;
-        padding: 0% 5%;
-    }
 
-}
-@media only screen and (min-width:768px) {
-    .login-form{
-        height:126%;
-        width:45%;
-        margin-top:5%;
+/*LowestRez 320*/
+
+@media only screen and (min-width: 320px) {
+    .top-text {
+        margin-top: 14%;
+        margin-left: 15%;
+        font-size: 90%;
     }
-    .top-text{
-        font-size:184%;
-        margin-top:4%;
+    .logo-top-bar {
+        width: 23%;
+        height: 60%;
+        margin-left: 2%;
+        margin-top: 10%;
+    }
+    .logo-top-bar {
+        margin-top: 10%;
+    }
+    .login-form {
+        width: 75%;
+        height: 125%;
+        margin-top: 5%;
+    }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size: 14;
+    }
+    .login-svg {
+        height: 70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
+    }
+}
+
+@media only screen and (min-width: 500px) {
+    .top-text {
+        margin-top: 14%;
+        margin-left: 15%;
+        font-size: 90%;
+    }
+    .logo-top-bar {
+        width: 23%;
+        height: 60%;
+        margin-left: 2%;
+        margin-top: 10%;
+    }
+    .logo-top-bar {
+        margin-top: 10%;
+    }
+    .login-form {
+        width: 63%;
+        height: 126%;
+        margin-top: 5%;
+    }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size: 14;
+    }
+    .login-svg {
+        height: 70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
+    }
+}
+
+@media only screen and (min-width:643px) {
+    .login-form {
+        width: 45%;
+        height: 124%;
+        margin-top: 5%;
+    }
+    .login-button {
+        width: 32%;
+    }
+    .top-text {
+        font-size: 130%;
+        margin-top: 8%;
+        margin-left: 20%;
+    }
+    .logo-top-bar {
+        margin-top: 4%;
+        height: 66%;
+        width: 15%;
+    }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size: 14;
+    }
+    .login-svg {
+        height: 70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
+    }
+}
+
+@media only screen and (min-width:768px) {
+    .login-form {
+        height: 126%;
+        width: 45%;
+        margin-top: 5%;
+    }
+    .top-text {
+        font-size: 184%;
+        margin-top: 4%;
     }
     .logo-top-bar {
         margin-top: 2%;
@@ -310,10 +312,10 @@ input {
         flex-flow: row wrap;
         justify-content: space-around;
         margin-top: 6%;
-        font-size:14;
+        font-size: 14;
     }
     .login-svg {
-        height:70%;
+        height: 70%;
         padding-left: 8%;
     }
     .login-container {
@@ -322,30 +324,31 @@ input {
         padding: 0% 5%;
     }
 }
+
 @media only screen and (min-width:900px) {
-    .top-text{
+    .top-text {
         font-size: 180%;
-        margin-top:4%;
+        margin-top: 4%;
     }
-    .login-form{
-        height:125%;
-        width:34%;
-        margin-top:5%;
+    .login-form {
+        height: 125%;
+        width: 34%;
+        margin-top: 5%;
     }
-    .logo-top-bar{
-        margin-top:2%;
-        height:75%;
-        width:13%;
+    .logo-top-bar {
+        margin-top: 2%;
+        height: 75%;
+        width: 13%;
     }
     .other-actions {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
         margin-top: 6%;
-        font-size:14;
+        font-size: 14;
     }
     .login-svg {
-        height:70%;
+        height: 70%;
         padding-left: 8%;
     }
     .login-container {
@@ -354,58 +357,30 @@ input {
         padding: 0% 5%;
     }
 }
+
 @media only screen and (min-width: 1100px) {
     .login-form {
         width: 31%;
         height: 126%;
-        margin-top:1%;
+        margin-top: 1%;
     }
-    .top-text{
-        margin-top:2%;
+    .top-text {
+        margin-top: 2%;
     }
-    .logo-top-bar{
-        height:80%;
-        margin-top:0%;
-        width:13%;
-    }
-    .other-actions {
-         display: flex;
-         flex-flow: row wrap;
-         justify-content: space-around;
-         margin-top: 6%;
-        font-size:14;
-     }
-    .login-svg {
-        height:70%;
-        padding-left: 8%;
-    }
-    .login-container {
-        display: flex;
-        flex-direction: column;
-        padding: 0% 5%;
-    }
-}
-@media only screen and (min-width: 1350px) {
-    .login-form{
-        width:22%;
-        height:122%;
-        margin-top:1%;
-    }
-    .top-text{
-        margin-left:35%;
-    }
-    .logo-top-bar{
-        width:11%;
+    .logo-top-bar {
+        height: 80%;
+        margin-top: 0%;
+        width: 13%;
     }
     .other-actions {
         display: flex;
         flex-flow: row wrap;
         justify-content: space-around;
         margin-top: 6%;
-        font-size:14;
+        font-size: 14;
     }
     .login-svg {
-        height:70%;
+        height: 70%;
         padding-left: 8%;
     }
     .login-container {
@@ -415,59 +390,97 @@ input {
     }
 }
 
+@media only screen and (min-width: 1350px) {
+    .login-form {
+        width: 22%;
+        height: 122%;
+        margin-top: 1%;
+    }
+    .top-text {
+        margin-left: 35%;
+    }
+    .logo-top-bar {
+        width: 11%;
+    }
+    .other-actions {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: space-around;
+        margin-top: 6%;
+        font-size: 14;
+    }
+    .login-svg {
+        height: 70%;
+        padding-left: 8%;
+    }
+    .login-container {
+        display: flex;
+        flex-direction: column;
+        padding: 0% 5%;
+    }
+}
 
-@media only screen and (height : 812px) {
-    .top-text{
-        margin-top:14%;
-        margin-left:15%;
-        font-size:90%;
+@media only screen and (height: 812px) {
+    .top-text {
+        margin-top: 14%;
+        margin-left: 15%;
+        font-size: 90%;
     }
-    .logo-top-bar{
-        width:23%;
-        height:60%;
-        margin-left:2%;
-        margin-top:10%;
+    .logo-top-bar {
+        width: 23%;
+        height: 60%;
+        margin-left: 2%;
+        margin-top: 10%;
     }
-    .logo-top-bar{
-        margin-top:8%;
+    .logo-top-bar {
+        margin-top: 8%;
     }
+    .login-form {
+        width: 85%;
+        height: 124%;
+    }
+    .login-svg {
+        width: 117%;
+        padding-left: 0%;
+    }
+}
 
-    .login-form{
-        width:85%;
-        height:124%;
-    }
-    .login-svg{
-        width:117%;
-        padding-left:0%;
-    }
 
-} /*Mobile M */
+/*Mobile M */
+
 @media only screen and (height:1024px) {
-    .login-form{
-        height:107%;
-        width:59%;
+    .login-form {
+        height: 107%;
+        width: 59%;
     }
-    .top-text{
-        font-size:184%;
-        margin-top:4%;
+    .top-text {
+        font-size: 184%;
+        margin-top: 4%;
     }
-    .logo-top-bar{
-        margin-top:2%;
-        width:15%;
+    .logo-top-bar {
+        margin-top: 2%;
+        width: 15%;
     }
-} /*Tableta 1 */
+}
+
+
+/*Tableta 1 */
+
 @media only screen and (height:1366px) {
-    .login-form{
-        height:87%;
-        width:47%;
-        margin-top:6%;
+    .login-form {
+        height: 87%;
+        width: 47%;
+        margin-top: 6%;
     }
-    .top-text{
-        font-size:184%;
-        margin-top:4%;
+    .top-text {
+        font-size: 184%;
+        margin-top: 4%;
     }
-    .logo-top-bar{
-        margin-top:0%;
-        width:15%;
+    .logo-top-bar {
+        margin-top: 0%;
+        width: 15%;
     }
-} /*Tableta 2 */
+}
+
+
+/*Tableta 2 */
