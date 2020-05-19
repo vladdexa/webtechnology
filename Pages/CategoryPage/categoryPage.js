@@ -7,13 +7,7 @@ const categoryId = parseInt(param, 10);
 
 async function getProductByCategoryId() {
 
-    const response = await fetch('http://localhost:3000/category/getProductsByCategoryId', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `categoryId=${categoryId}`
-    });
+    const response = await fetch(`http://localhost:3000/category/getProductsByCategoryId?cid=${categoryId}`);
 
     const responseFromServer = await response.json();
 

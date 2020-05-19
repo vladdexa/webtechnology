@@ -15,8 +15,8 @@ router.get('/',(req:any,res:any) => {
     render(res,productPageHtmlPath);
 })
 
-router.post('/', urlencodedParser,getProduct);
-router.post('/products-byCategory',urlencodedParser,getProductsPicturesByCategory);
+router.get('/get-product',getProduct);
+router.get('/products-byCategory',getProductsPicturesByCategory);
 router.post('/add-product-shoppingCart',urlencodedParser,addProductToShoppingCart);
 
 export = router

@@ -1,4 +1,4 @@
-import {authorizer} from "../../Components/Generics/authorizer.js";
+import { authorizer } from "../../Components/Generics/authorizer.js";
 
 const urlParams = new URLSearchParams(window.location.search);
 const param = urlParams.get('value');
@@ -8,13 +8,7 @@ async function getProductsBySearchInput() {
 
     const productNotFoundMessage = 'Product not found.';
 
-    const response = await fetch('http://localhost:3000/search/menu-search', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `valueInputSearch=${valueInputSearch}`
-    })
+    const response = await fetch(`http://localhost:3000/search/menu-search?value=${valueInputSearch}`);
 
     const messageFromServer = await response.json();
 

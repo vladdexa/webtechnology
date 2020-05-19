@@ -4,13 +4,7 @@ const getUser = async() => {
 
     const userId = authorizer();
     if (userId) {
-        const response = await fetch('http://localhost:3000/user/get-user-byId', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `userId=${userId}`
-        });
+        const response = await fetch(`http://localhost:3000/user/get-user-byId?uid=${userId}`);
 
         return await response.json();
     } else {

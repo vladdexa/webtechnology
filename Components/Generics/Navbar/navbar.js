@@ -19,13 +19,7 @@ async function getProductsForShoppingCart() {
     const userId = authorizer();
 
     if (userId) {
-        const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `userId=${userId}`
-        });
+        const response = await fetch(`http://localhost:3000/order/get-products-shopping-cart?uid=${userId}`);
 
         const responseFromServer = await response.json();
 

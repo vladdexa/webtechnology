@@ -7,7 +7,6 @@ const Router = require('router');
 
 const router = Router();
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 router.get('/', (req: any, res: any) => {
     res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html' });
@@ -15,6 +14,6 @@ router.get('/', (req: any, res: any) => {
     render(res,homePageHtmlPath);
 });
 
-router.post('/getProductsByCategoryId',urlencodedParser,getProductsByCategoryId);
+router.get('/getProductsByCategoryId',getProductsByCategoryId);
 
 export = router

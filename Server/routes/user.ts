@@ -1,12 +1,10 @@
 import HttpStatus from 'http-status-codes'
 import { render } from '../Utils';
-import bodyParser from 'body-parser'
 import { getUserById } from '../controllers'
 const Router = require('router');
 
 const router = Router();
 
-const urlencodedParser = bodyParser.urlencoded({ extended: false })
 
 
 router.get('/',(req:any,res:any) => {
@@ -15,6 +13,6 @@ router.get('/',(req:any,res:any) => {
     render(res, userPageHtmlPath);
 })
 
-router.post('/get-user-byId',urlencodedParser,getUserById);
+router.get('/get-user-byId',getUserById);
 
 export = router
