@@ -309,3 +309,27 @@ body {
         font-size: 19px;
     }
 }
+
+@media (max-width: 445px){
+    .Recomanded h1{
+        margin-top:22%;
+    }
+    .Recomanded img{
+        top:45%;
+    }
+}
+
+@media screen and (max-width:390px){
+    .Recomanded h1{
+        margin-top:32%;
+    }
+}
+
+@media (max-width: 355px){
+    .Recomanded h1{
+        margin-top:43%;
+    }
+    .Recomanded img{
+        top:57%;
+    }
+}
