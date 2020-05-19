@@ -77,8 +77,8 @@ const createCategory = async ()=> {
 const createProduct = async()=> {
     const name = document.getElementById('nameP').value;
     const description = document.getElementById('description').value;
+    const category = document.getElementById('categories').value;
     const price = document.getElementById('price').value;
-    const picture = document.getElementById('picture');
     const selectedFile = document.querySelector('#picture').files[0];
 
     console.log(selectedFile);
@@ -88,20 +88,22 @@ const createProduct = async()=> {
         return;
     }
 
-    const payload =  {
-        name,
-        selectedFile,
-        description,
-        price,
-    };
-
     const imageServiceUploader = new ImageUploaderService();
     window.addEventListener('load', imageServiceUploader.authorization);
     await imageServiceUploader.getFile(selectedFile);
     await imageServiceUploader.uploadImage();
 
+    const picture = `https://storage.cloud.google.com/toys-1/${imageServiceUploader.file.metadata.name}`;
+    const payload =  {
+        name,
+        picture,
+        category,
+        description,
+        price,
+    };
 
-  /* const response  = await fetch('http://localhost:3000/product/create', {
+
+   const response  = await fetch('http://localhost:3000/product/create', {
        method: 'POST',
        headers: {
            'Content-Type': 'application/json',
@@ -111,7 +113,7 @@ const createProduct = async()=> {
 
     const messageFromServer = await response.json();
     console.log(messageFromServer);
-*/
+
 };
 
 let categoryForm  = false;

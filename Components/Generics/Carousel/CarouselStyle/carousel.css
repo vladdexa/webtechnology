@@ -1,12 +1,7 @@
 @font-face {
     font-family: Junior;
     src: url("../../../../Fonts/Junior-Bold.otf");
-}
-
-.carouselContainer {
-    position: absolute;
-    margin-top: 3rem;
-    top: 90%;
+    font-display: swap;
 }
 
 .carouselHeader {

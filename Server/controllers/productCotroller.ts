@@ -5,9 +5,8 @@ import { ProductCategoryRepository } from "../repositories/ProductCategoryReposi
 import { Productcategory } from "../models/entities/Productcategory";
 import { UserProductRepository } from "../repositories/UserProductRepository";
 import { Userproduct } from "../models/entities/Userproduct";
-import { ImageUploader } from "../services/GoogleCloudServices/ImageUploader";
 import {CategoryRepository} from "../repositories/CategoryRepository";
-import {UserRepository} from "../repositories/UserRepository";
+import {Category} from "../models/entities/Category";
 
 async function getProduct(req: any, res: any) {
 
@@ -80,7 +79,6 @@ async function addProductToShoppingCart(req:any,res:any) {
 }
 
 async function createProduct(req: any, res: any) {
-    console.log(req.body);
     const name = req.body.name;
     const description = req.body.description;
     const price = req.body.price;
@@ -97,15 +95,6 @@ async function createProduct(req: any, res: any) {
         res.end(JSON.stringify(response));
     }
 
-    if(!ImageUploader.isImageValid(picture)) {
-        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
-        const response = {
-            success: false,
-            message: 'Picture is invalid',
-        };
-
-        res.end(JSON.stringify(response));
-    }
 
     const categoryRepository: CategoryRepository = new CategoryRepository();
     const productRepository: ProductRepository = new ProductRepository();
@@ -114,26 +103,64 @@ async function createProduct(req: any, res: any) {
     const product: Product = new Product();
     product.name = name;
     product.description = description;
+    product.picture = picture;
     product.price = price;
+
     try{
        await productRepository.create(product);
-       const productByName = await productRepository.getAll();
-        const imageUploader = ImageUploader.create();
-       await  imageUploader.uploadImage(picture);
 
-       console.log("Image uploaded");
+
+       const productByName: Product | undefined = (await productRepository.getAll()).find(item => item.name === product.name);
+
+       if(!productByName) {
+           res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, {'Content-Type':'application/json'});
+           const response = {
+               success: false,
+               message: 'There was an error creating the product',
+           };
+
+           res.end(JSON.stringify(response));
+           return;
+       }
+
+       const categoryByName: Category | undefined = (await categoryRepository.getByName(category.name))[0];
+       if(!categoryByName) {
+           res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
+           const response = {
+               success: false,
+               message: 'Nonexistent category',
+           };
+
+           res.end(JSON.stringify(response));
+           return;
+       }
+
+
+       const productcategory: Productcategory = new Productcategory();
+       productcategory.productId = productByName.id;
+       productcategory.categoryId = categoryByName.id;
+
+       await productCategoryRepository.create(productcategory);
 
         res.writeHead(HttpStatus.OK, {'Content-Type':'application/json'});
         const response = {
             success: true,
-            message: 'Image uploaded',
+            message: 'Product created',
         };
 
         res.end(JSON.stringify(response));
     }
      catch(error) {
-        console.log(error);
-    }
+         res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, {'Content-Type':'application/json'});
+         const response = {
+             success: false,
+             message: 'There was an error creating the product',
+         };
+
+         res.end(JSON.stringify(response));
+         throw (error);
+     }
+
 }
 
 

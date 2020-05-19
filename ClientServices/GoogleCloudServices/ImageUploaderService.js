@@ -1,4 +1,9 @@
-import {API_VERSION, apiKey, bucket, clientId } from "./GoogleCloudConfig.js";
+import {
+    API_VERSION,
+    apiKey,
+    bucket,
+    clientId,
+} from "./GoogleCloudConfig.js";
 
 export class ImageUploaderService {
     constructor() {
@@ -62,11 +67,13 @@ export class ImageUploaderService {
             metadata,
             fileToBase64: result,
         };
+
     };
 
-    createRequest(locationUrl) {
 
-        const request =
+   async uploadImage() {
+
+        const data =
             this.delimiters.delimiter
             +
             'Content-Type: application/json\r\n\r\n'
@@ -87,41 +94,23 @@ export class ImageUploaderService {
             +
             this.delimiters.closeDelimiter
         ;
-        const requestPost = gapi.client.request({
-            'path': locationUrl,
-            'method': 'PUT',
-            'headers' : {
-                'X-Upload-Content-Length' : this.file.size,
-                'Content-Type': 'multipart/related; boundary="' + this.delimiters.boundary + '"'
-            },
-            'body' : request
-        });
-
-        requestPost.execute((response)=>{
-            console.log(response);
-        })
-    }
-
-    uploadImage() {
 
         const request = gapi.client.request({
-            'path': '/upload/storage/v1/b/' + this.bucket + '/o',
+            'path': `/upload/storage/${this.apiVersion}/b/${this.bucket}/o`,
             'method': 'POST',
-            'params': {'uploadType': 'resumable'},
+            'params': {'uploadType': 'multipart', 'predefinedAcl': 'publicread'},
             'headers': {
-                'X-Upload-Content-Type' : this.file.contentType,
-                'Content-Type': 'application/json; charset=UTF-8'
+                'Content-Type': 'multipart/mixed; boundary="' + this.delimiters.boundary + '"'
             },
-            'body' : this.file.metadata,
+            'body' : data,
         });
 
         try {
-            request.execute((resp, raw_resp)=> {
-                    console.log(resp);
-                    const locationUrl =  '/upload/storage/v1/b/' + this.bucket + '/o';
-                    console.log(locationUrl);
-                    this.createRequest(locationUrl);
-            })
+            request.execute((resp) => {
+              if(resp) {
+                  alert('Image uploaded successfully');
+              }
+            });
         } catch(error) {
             alert(error);
         }

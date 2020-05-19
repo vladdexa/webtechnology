@@ -1,10 +1,14 @@
 .AdImage {
     width: 80%;
-    position: absolute;
+    position: relative;
     left: 10%;
-    margin-top: 5rem;
-    top: 15%;
+    margin-top: calc(15vw);
     z-index: 0;
+}
+
+.carouselContainer {
+    position: absolute;
+    margin-top: 3rem;
 }
 
 .footer-container {
@@ -15,4 +19,34 @@
 .statistics {
     position: absolute;
     top: 500%;
+}
+
+@media(min-width: 320px) {
+    .AdImage {
+        margin: 2rem;
+    }
+
+    .carouselContainer {
+        top: calc(70vw);
+        left: calc(3vh);
+    }
+
+    .footer-container{
+        top: 50rem;
+        width: 107%;
+
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .AdImage {
+        top: 20%;
+    }
+    .carouselContainer {
+        top: calc(50vw);
+    }
+
+    .footer-container {
+        top: 140rem;
+    }
 }

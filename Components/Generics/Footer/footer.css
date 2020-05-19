@@ -36,3 +36,23 @@
     width:100%;
     display:block;
 }
+
+.footer-container {
+    position: absolute;
+}
+
+@media(min-width: 320px) {
+
+    .footer-container{
+        top: 60rem;
+        width: 107%;
+
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .footer-container {
+        top: 140rem;
+        width:108%;
+    }
+}
