@@ -15,8 +15,9 @@ router.get('/',(req:any,res:any) => {
     render(res, orderPageHtmlPath);
 })
 
-router.post('/get-products-shopping-cart',urlencodedParser, getProductsForShoppingCart);
-router.post('/delete-product-from-shoppingCart',urlencodedParser,deleteProductFromShoppingCart);
+
+router.get('/get-products-shopping-cart',getProductsForShoppingCart);
+router.delete('/delete-product-from-shoppingCart',urlencodedParser,deleteProductFromShoppingCart);
 router.post('/place-your-order',bodyParser.json(), placeYourOrder);
 
 export = router

@@ -3,13 +3,7 @@ import { authorizer } from "../../Components/Generics/authorizer.js";
 async function getProductsForShoppingCart() {
     const userId = authorizer();
     if (userId) {
-        const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded',
-            },
-            body: `userId=${userId}`
-        });
+        const response = await fetch(`http://localhost:3000/order/get-products-shopping-cart?uid=${userId}`);
 
         const responseFromServer = await response.json();
 
@@ -22,8 +16,8 @@ async function getProductsForShoppingCart() {
 }
 
 async function deleteProductCard(productId) {
-    const response = await fetch('http://localhost:3000/order/delete-product-from-shoppingCart', {
-        method: 'POST',
+    const response = await fetch(`http://localhost:3000/order/delete-product-from-shoppingCart`, {
+        method: 'DELETE',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
         },

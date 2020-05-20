@@ -8,51 +8,57 @@ import { Userproduct } from "../models/entities/Userproduct";
 import {CategoryRepository} from "../repositories/CategoryRepository";
 import {Category} from "../models/entities/Category";
 
+import URLparse from 'url-parse'
+
 async function getProduct(req: any, res: any) {
-
-    const productId: number = req.body.productId;
-
-    const productRepository = new ProductRepository();
-    const product: Product = (await productRepository.getById(productId))[0];
-
-    await productRepository.updateAccessCounter(productId);
-
-    const response = {
-        product: product
+    const url = URLparse(req.url,true);
+    const productIdString: string | undefined = url.query.pid;
+    if(productIdString !== undefined) {
+        const productId: number = parseInt(productIdString, 10);
+        const productRepository = new ProductRepository();
+        const product: Product = (await productRepository.getById(productId))[0];
+    
+        await productRepository.updateAccessCounter(productId);
+    
+        const response = {
+            product: product
+        }
+    
+        res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(response));
     }
-
-    res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(response));
-
 }
 
 async function getProductsPicturesByCategory(req: any, res: any) {
+    const url = URLparse(req.url,true);
+    const productIdString: string | undefined = url.query.pid;
 
-    const prodId: number = req.body.productId;
-
-    const productCategoryRepository = new ProductCategoryRepository();
-    const productCategory: Productcategory = (await productCategoryRepository.getByProductId(prodId))[0];
-
-    const products = await productCategoryRepository.getByCategoryId(productCategory.categoryId);
-
-    const productRepository = new ProductRepository();
-
-    let index: number = 0;
-    let productsImagesByCategory: string[] = [];
-
-    while (index < products.length) {
-        const product: Product = (await productRepository.getById(products[index].productId))[0];
-        productsImagesByCategory.push(`${product.picture} ${product.id}`);
-        index++;
+    if(productIdString !== undefined) {
+        const prodId: number = parseInt(productIdString, 10);
+        const productCategoryRepository = new ProductCategoryRepository();
+        const productCategory: Productcategory = (await productCategoryRepository.getByProductId(prodId))[0];
+    
+        const products = await productCategoryRepository.getByCategoryId(productCategory.categoryId);
+    
+        const productRepository = new ProductRepository();
+    
+        let index: number = 0;
+        let productsImagesByCategory: string[] = [];
+    
+        while (index < products.length) {
+            const product: Product = (await productRepository.getById(products[index].productId))[0];
+            productsImagesByCategory.push(`${product.picture} ${product.id}`);
+            index++;
+        }
+    
+    
+        const response = {
+            images: productsImagesByCategory
+        }
+    
+        res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(response));
     }
-
-
-    const response = {
-        images: productsImagesByCategory
-    }
-
-    res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(response));
 }
 
 

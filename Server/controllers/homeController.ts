@@ -10,7 +10,6 @@ import { Searchkey } from "../models/entities/Searchkey";
 import { Soldproducts } from "../models/entities/Soldproducts";
 import { SoldProductsRepository } from "../repositories/SoldProductsRepository";
 
-const JSONToCSV = require('json2csv').parse;
 
 async function getImagesForCarousels(req: any, res: any) {
     const forFamily: string = 'Pentru familie';
