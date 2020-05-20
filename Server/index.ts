@@ -29,29 +29,50 @@ createConnection().then(async () => {
             const basename:string = path.basename(req.url);
             const type: string = basename.slice(basename.indexOf(".")+1);
 
-            res.writeHead(HttpStatus.OK, { 'Content-Type': `image/${type}`, 'Cache-Control': 'max-age=31536000' });
+            res.writeHead(HttpStatus.OK, {
+                'Content-Type': `image/${type}`,
+                'Cache-Control': 'max-age=31536000',
+            });
             Render(req.url, res);
 
         } else if (req.url.match("\.js$")) {
 
-            res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/javascript', 'Cache-Control': 'max-age=31536000' });
+            res.writeHead(HttpStatus.OK, {
+                'Content-Type': 'text/javascript',
+                'Cache-Control': 'max-age=31536000',
+            });
             Render(req.url, res);
 
         } else if (req.url.match("\.html$")) {
-            res.writeHead(HttpStatus.OK, { 'Content-Type': 'text/html', 'Cache-Control': 'max-age=31536000' });
+            res.writeHead(HttpStatus.OK, {
+                'Content-Type': 'text/html',
+                'Cache-Control': 'max-age=31536000',
+            });
             Render(req.url, res);
 
         } else if(req.url.match("\.otf$")) {
-            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/otf', 'Cache-Control': 'max-age=31536000' });
+            res.writeHead(HttpStatus.OK, {
+                'Content-Type': 'application/otf',
+                'Cache-Control': 'max-age=31536000',
+            });
             Render(req.url, res);
         } else if(req.url.match("\.json$")) {
-            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json', 'Cache-Control': 'max-age=31536000' });
+            res.writeHead(HttpStatus.OK, {
+                'Content-Type': 'application/json',
+                'Cache-Control': 'max-age=31536000',
+            });
             Render(req.url, res);
         } else if(req.url.match("\.svg$")) {
-            res.writeHead(HttpStatus.OK, { 'Content-Type': 'image/svg+xml', 'Cache-Control': 'max-age=31536000' });
+            res.writeHead(HttpStatus.OK, {
+                'Content-Type': 'image/svg+xml',
+                'Cache-Control': 'max-age=31536000',
+            });
             Render(req.url, res);
         } else if(req.url.match('\.xml$')) {
-            res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/xml', 'Cache-Control': 'max-age=31536000' });
+            res.writeHead(HttpStatus.OK, {
+                'Content-Type': 'application/xml',
+                'Cache-Control': 'max-age=31536000',
+            });
             Render(req.url, res);
         }
 
