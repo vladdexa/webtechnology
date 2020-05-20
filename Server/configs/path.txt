@@ -84,5 +84,8 @@
 ../Pages/Admin/design.svg
 ../ClientServices/GoogleCloudServices/GoogleCloudConfig.js
 ../ClientServices/GoogleCloudServices/ImageUploaderService.js
-
+../Documentation/Documentation.html
+../Documentation/api-routes-controllers.png
+../Documentation/database_schema_online_toys.png
+../Documentation/entities&repository-pattern.png
 

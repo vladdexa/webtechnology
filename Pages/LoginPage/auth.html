@@ -1,38 +1,41 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <title>Online Toys - Log In or Sign Up</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="auth.css">
-    <link rel="stylesheet" href="../../Components/Generics/Modal/modal.css">
-    <script src="../../Components/RegisterComponents/RegisterModalFunctions.js"></script>
-    <script src="../../Components/Generics/Modal/Modal.js"></script>
-    <script src="../../Components/ForgotPasswordComponent/forgotPasswordFunctions.js"></script>
-    <script src="auth.js" type="text/javascript"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+    <meta name="description"
+          content="Online toys store">
+    <link rel="stylesheet" href="auth.css" media="screen">
+    <link rel="stylesheet" href="../../Components/Generics/Modal/modal.css" media="screen">
+    <script async src="../../Components/RegisterComponents/RegisterModalFunctions.js"></script>
+    <script async src="../../Components/Generics/Modal/Modal.js"></script>
+    <script async src="../../Components/ForgotPasswordComponent/forgotPasswordFunctions.js"></script>
+    <script  async src="auth.js" type="text/javascript"></script>
+    <script defer async src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
 </head>
 
 <body>
     <section class="top-side">
         <div class="top-text">WELCOME TO ONLINE</div>
-        <img class="logo-top-bar" src="LoginImages/logo.png">
+        <img class="logo-top-bar" src="LoginImages/logo.png" alt="logo">
     </section>
 
     <section class="auth-side" id="authSide">
         <form class="login-form" id="#loginForm">
             <div class="svg-container">
-                <img src="LoginImages/login-icon.png" class="login-svg">
+                <img src="LoginImages/login-icon.png" class="login-svg" alt="login">
             </div>
 
             <div class="login-container">
                 <div>
-                    <label for="username">Username</b></label>
+                    <label for="username"><b>Username</b></label>
                     <input id="username" name="username" placeholder="Enter Username">
                 </div>
 
                 <div>
-                    <label for="password">Password</b></label>
+                    <label for="password"><b>Password</b></label>
                     <input id="password" name="password" placeholder="Enter Password" type="password">
                 </div>
 
