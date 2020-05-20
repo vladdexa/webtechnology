@@ -4,5 +4,10 @@ const user: string = 'twonlinetoys@gmail.com';
 const pass: string = 'Asdfg.123';
 const emailServiceProvider: string = 'gmail';
 
-const configs = {PORT,paths, user, pass, emailServiceProvider};
+//StorageUploader
+
+const projectId: string = "focused-poet-272519";
+
+const configs = {PORT,paths, user, pass, emailServiceProvider, projectId};
+
 export {configs}
