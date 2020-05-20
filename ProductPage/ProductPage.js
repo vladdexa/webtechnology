@@ -11,13 +11,7 @@ const productId = parseInt(param, 10);
 
 async function getProduct() {
 
-    const response = await fetch('http://localhost:3000/product', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `productId=${productId}`
-    });
+    const response = await fetch(`http://localhost:3000/product/get-product?pid=${productId}`);
 
     const responseFromServer = await response.json();
 
@@ -26,13 +20,7 @@ async function getProduct() {
 
 async function getImagesForCarousel() {
 
-    const response = await fetch('http://localhost:3000/product/products-byCategory', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `productId=${productId}`
-    })
+    const response = await fetch(`http://localhost:3000/product/products-byCategory?pid=${productId}`)
 
     const responseFromServer = await response.json();
     return responseFromServer.images;
@@ -49,13 +37,7 @@ function backToHome() {
 
 async function getProductsForShoppingCart() {
     const userId = authorizer();
-    const response = await fetch('http://localhost:3000/order/get-products-shopping-cart', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: `userId=${userId}`
-    });
+    const response = await fetch(`http://localhost:3000/order/get-products-shopping-cart?uid=${userId}`);
 
     const responseFromServer = await response.json();
 
@@ -101,18 +83,6 @@ async function addProductToShoppingCart() {
     }
 
 
-}
-
-function goToSearchPage() {
-    const value = urlParams.get('value');
-
-    if (authorizer() && value) {
-        window.location.assign(`http://localhost:3000/search?value=${value}`);
-    } else if (!value) {
-        alert('You do not have any search before.');
-    } else {
-        alert('You do not have authorization for this action');
-    }
 }
 
 async function renderProductPage() {

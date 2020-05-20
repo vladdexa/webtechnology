@@ -7,6 +7,8 @@ import { MailPayload, MailService } from "../services/MailService";
 import { SoldProductsRepository } from '../repositories/SoldProductsRepository';
 import { Soldproducts } from '../models/entities/Soldproducts';
 
+import URLparse from 'url-parse'
+
 interface UserDetailsPayload {
     userId: number,
     firstName: string;
@@ -20,34 +22,39 @@ interface UserDetailsPayload {
 }
 
 async function getProductsForShoppingCart(req: any, res: any) {
-    const userIdString: string = req.body.userId;
-    const userId: number = parseInt(userIdString, 10);
+    const url = URLparse(req.url,true);
+    const userIdString: string | undefined = url.query.uid;
 
-    const userProductRepository = new UserProductRepository();
-    const products: Userproduct[] = await userProductRepository.getByUserId(userId);
+    if(userIdString !== undefined) {
+        const userId: number = parseInt(userIdString, 10);
+        const userProductRepository = new UserProductRepository();
+        const products: Userproduct[] = await userProductRepository.getByUserId(userId);
+    
+        let productsForShoppingCarts: Product[] = [];
+        let index: number = 0;
+    
+        const productRepository = new ProductRepository();
+    
+        while (index < products.length) {
+            const product: Product = (await productRepository.getById(products[index].productId))[0];
+            productsForShoppingCarts.push(product);
+            index++;
+        }
 
-    let productsForShoppingCarts: Product[] = [];
-    let index: number = 0;
-
-    const productRepository = new ProductRepository();
-
-    while (index < products.length) {
-        const product: Product = (await productRepository.getById(products[index].productId))[0];
-        productsForShoppingCarts.push(product);
-        index++;
-    }
-
-    const response = {
-        products: productsForShoppingCarts
-    }
-
-
-    res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
-    res.end(JSON.stringify(response));
+    
+        const response = {
+            products: productsForShoppingCarts
+        }
+    
+    
+        res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
+        res.end(JSON.stringify(response));
+    } 
 }
 
 async function deleteProductFromShoppingCart(req: any, res: any) {
-    const productId: number = req.body.productId;
+    const productIdString: string = req.body.productId;
+    const productId: number = parseInt(productIdString, 10);
 
     const userProductRepository = new UserProductRepository();
     const userProduct: Userproduct = (await userProductRepository.getByProductId(productId))[0];

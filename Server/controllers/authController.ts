@@ -172,7 +172,7 @@ async function register(req: any, res: any) {
     }
     else if (ok) {
         await userRepository.create(newUser);
-        res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
+        res.writeHead(HttpStatus.CREATED, { 'Content-Type': 'application/json' });
         const response = {
             message: "register successfully"
         }
@@ -269,7 +269,7 @@ async function forgotPass(req: any, res: any) {
                 const user = await userRepository.getByEmail(email);
                 await userRepository.updatePassword(hashedPassword, user[0].id);
 
-                res.writeHead(HttpStatus.BAD_REQUEST, { 'Content-Type': 'application/json' });
+                res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
                 const response = {
                     message: "Successfully changed password"
                 }
