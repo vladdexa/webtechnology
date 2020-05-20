@@ -43,6 +43,10 @@ const sendData = async() => {
                 }
             case admin:
                 {
+                    const userId = messageFromServer.userId.toString();
+                    const encrypted = CryptoJS.AES.encrypt(userId, "Secret Passphrase");
+
+                    window.localStorage.setItem('user', encrypted);
                     window.location.replace("http://localhost:3000/admin");
                     break;
                 }

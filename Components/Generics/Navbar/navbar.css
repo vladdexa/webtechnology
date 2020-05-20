@@ -1,11 +1,18 @@
 @font-face {
     font-family: Waltograph;
     src: url("../../../Fonts/waltograph42.otf");
+    font-display: swap;
 }
 
 @font-face {
     font-family: Junior;
     src: url("../../../Fonts/Junior-Bold.otf");
+    font-display: swap;
+}
+
+body{
+    overflow-x: hidden;
+    margin: 1px;
 }
 
 .search-btn {
@@ -165,7 +172,7 @@
 }
 
 .UserActions {
-    margin-left: 2rem;
+    margin-left: 5vh;
     position: inherit;
     display: inline-block;
     width: 100%;
@@ -284,6 +291,13 @@
 }
 
 @media (min-width: 320px) {
+    .UserActions {
+        margin-left: 8vh;
+    }
+    .MenuItems{
+        margin-left: 3vh;
+    }
+
     .MenuItems a {
         font-size: 1.5rem;
         padding: 0 0 5px 0;
@@ -293,7 +307,7 @@
         margin-left: 0;
     }
     .SearchBarDiv {
-        margin-left: 0;
+        margin-left: 2vh;
     }
     .SearchInput {
         width: 30ch;
@@ -306,6 +320,21 @@
     }
     .NavbarMenuIcon {
         bottom: 1.3rem;
+    }
+}
+
+@media (min-width: 768px){
+    .AppLogo {
+        width: 100%;
+        margin-left: 3vw;
+    }
+
+    .MenuItems {
+        margin-left: 10vw;
+    }
+
+    .UserActions{
+        margin-left: 14ch;
     }
 }
 
@@ -354,7 +383,7 @@
 
 @media (min-width: 1440px) {
     .MenuItems {
-        margin-left: 10%;
+        margin-left: 7vw;
     }
     .MyBagButtonDropdown {
         right: 35%;
@@ -365,6 +394,7 @@
     .NavbarMenuIcon {
         bottom: 2.5rem;
     }
+
 }
 
 @media (min-width: 1660px) {

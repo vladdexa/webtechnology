@@ -40,4 +40,58 @@ async function getProductsByCategoryId(req: any, res: any) {
     }
 }
 
-export { getProductsByCategoryId }
+async function createCategory(req:any, res: any) {
+    const payload = req.body;
+
+    if(!payload) {
+        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type': 'application/json'});
+        const response =  {
+            success  : false,
+            error: 'Invalid request',
+        };
+
+        res.end(JSON.stringify(response));
+    }
+
+    const name = payload.name;
+
+    if(!name) {
+        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type': 'application/json'});
+        const response =  {
+            success  : false,
+            error: 'Name is required',
+        };
+
+        res.end(JSON.stringify(response));
+    }
+    const parentName  = payload.parentName? payload.parentName : null;
+
+    const category: Category = new Category();
+    category.name = name;
+    category.parentName = parentName;
+
+    const repository = new CategoryRepository();
+
+    try {
+        await repository.create(category);
+
+        res.writeHead(HttpStatus.OK, {'Content-Type': 'application/json'});
+        const respone = {
+            success: true,
+            message: 'Category created successfully',
+        };
+
+        res.end(JSON.stringify(respone));
+    } catch(error) {
+        console.log(error);
+        res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, {'Content-Type': 'application/json'});
+        const response = {
+            success: false,
+            message: 'There was an error creating the category',
+        };
+    }
+
+
+}
+
+export {getProductsByCategoryId, createCategory}

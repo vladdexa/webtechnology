@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="AdminPage.css">
+    <script type="module" src="AdminPage.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js" integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
+    <script src="https://apis.google.com/js/client.js"></script>
+    <title>Admin</title>
+</head>
+<body id="#body">
+<section class="header">
+    <div class="title">
+        <h1> Welcome to Online Toys Control Panel</h1>
+    </div>
+    <div class="card">
+
+            <h3 class="card-title">Category Panel</h3>
+            <span class="card-title">
+                <img class="card-logo" src="design.svg" alt="Create Logo">
+            </span>
+            <button
+                    class="submit card-button"
+                    id="createCategoryButton"
+            >Create
+            </button>
+    </div>
+    <div class="card card-product">
+
+        <h3 class="card-title">Product Panel</h3>
+        <span class="card-title">
+                <img class="card-logo" src="design.svg" alt="Create Logo">
+            </span>
+        <button
+                class="submit card-button"
+                id="createProductButton"
+        >
+            Create
+        </button>
+    </div>
+</section>
+<section class="category-form">
+    <div class="category-form-container">
+        <div class="details-container"
+             id="detailsContainerCategory"
+        >
+            <div>
+                <h3>Create Category</h3>
+            </div>
+            <form class="category-form-form">
+                <label for="name">Name*</label>
+                <input type="text" id="name" required>
+
+                <label for="parentName">Parent name</label>
+                <select id="parentName"  class="select-parent" required>
+                    <option>None</option>
+                </select>
+
+                <div>
+                    <button class="discard" type="reset">Discard changes</button>
+                    <button class="submit" id="submitButton"  type ="button">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="product-form">
+    <div class="product-form-container">
+        <div class="details-container"
+             id="detailsContainerProduct"
+        >
+            <div>
+                <h3>Create a Product</h3>
+            </div>
+            <form class="category-form-form">
+                <label for="nameP">Name*</label>
+                <input type="text" id="nameP" required>
+
+                <label for="description">Description</label>
+                <textarea id="description"></textarea>
+
+                <label for="price">Set the price</label>
+                <input type="number" min="0" id="price">
+
+                <label for="categories">Category</label>
+                <select class="select-parent" id="categories">
+                    <option>None</option>
+                </select>
+
+                <label for="picture">Upload Product Picture</label>
+                <input type="file" id="picture">
+
+                <div class="options-container">
+                    <button class="discard" type="reset">Discard changes</button>
+                    <button class="submit" id="submitButtonProduct"  type ="button">Create</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+</body>
+</html>

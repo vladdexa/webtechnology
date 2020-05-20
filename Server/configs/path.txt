@@ -77,3 +77,12 @@
 ../Pages/CategoryPage/categoryPage.css
 ../Pages/CategoryPage/categoryPage.js
 ../Components/Generics/authorizer.js
+
+../Pages/Admin/AdminPage.html
+../Pages/Admin/AdminPage.css
+../Pages/Admin/AdminPage.js
+../Pages/Admin/design.svg
+../ClientServices/GoogleCloudServices/GoogleCloudConfig.js
+../ClientServices/GoogleCloudServices/ImageUploaderService.js
+
+

@@ -182,3 +182,28 @@ input {
     margin-bottom: 2%;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
+
+@media screen and (max-width:950px){
+    .profile-header{
+        width:400px;
+    }
+    .profile-side{
+        width:400px;
+    }
+    .forgot-form{
+        width:378px;
+        margin-left:20%;
+    }
+}
+
+@media screen and (max-width:590px){
+    .profile-header{
+        margin-left:0%;
+    }
+    .profile-side{
+        margin-left:0%;
+    }
+    .forgot-form{
+        margin-left:0%;
+    }
+}

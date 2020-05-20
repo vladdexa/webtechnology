@@ -5,6 +5,8 @@ import { ProductCategoryRepository } from "../repositories/ProductCategoryReposi
 import { Productcategory } from "../models/entities/Productcategory";
 import { UserProductRepository } from "../repositories/UserProductRepository";
 import { Userproduct } from "../models/entities/Userproduct";
+import {CategoryRepository} from "../repositories/CategoryRepository";
+import {Category} from "../models/entities/Category";
 
 import URLparse from 'url-parse'
 
@@ -66,7 +68,7 @@ async function addProductToShoppingCart(req:any,res:any) {
     const userId:number = parseInt(userIdString,10);
 
     const userProductRepository = new UserProductRepository();
-    
+
     const newUserProduct:Userproduct = new Userproduct();
     newUserProduct.userId=userId;
     newUserProduct.productId=productId;
@@ -82,4 +84,91 @@ async function addProductToShoppingCart(req:any,res:any) {
 
 }
 
-export { getProduct, getProductsPicturesByCategory, addProductToShoppingCart}
+async function createProduct(req: any, res: any) {
+    const name = req.body.name;
+    const description = req.body.description;
+    const price = req.body.price;
+    const category = req.body.category;
+    const picture = req.body.picture;
+
+    if(!name || name.length <=0 ) {
+        res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
+        const response = {
+            success: false,
+            message: 'Product name is required',
+        };
+
+        res.end(JSON.stringify(response));
+    }
+
+
+    const categoryRepository: CategoryRepository = new CategoryRepository();
+    const productRepository: ProductRepository = new ProductRepository();
+    const productCategoryRepository : ProductCategoryRepository = new ProductCategoryRepository();
+
+    const product: Product = new Product();
+    product.name = name;
+    product.description = description;
+    product.picture = picture;
+    product.price = price;
+
+    try{
+       await productRepository.create(product);
+
+
+       const productByName: Product | undefined = (await productRepository.getAll()).find(item => item.name === product.name);
+
+       if(!productByName) {
+           res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, {'Content-Type':'application/json'});
+           const response = {
+               success: false,
+               message: 'There was an error creating the product',
+           };
+
+           res.end(JSON.stringify(response));
+           return;
+       }
+
+       const categoryByName: Category | undefined = (await categoryRepository.getByName(category.name))[0];
+       if(!categoryByName) {
+           res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
+           const response = {
+               success: false,
+               message: 'Nonexistent category',
+           };
+
+           res.end(JSON.stringify(response));
+           return;
+       }
+
+
+       const productcategory: Productcategory = new Productcategory();
+       productcategory.productId = productByName.id;
+       productcategory.categoryId = categoryByName.id;
+
+       await productCategoryRepository.create(productcategory);
+
+        res.writeHead(HttpStatus.OK, {'Content-Type':'application/json'});
+        const response = {
+            success: true,
+            message: 'Product created',
+        };
+
+        res.end(JSON.stringify(response));
+    }
+     catch(error) {
+         res.writeHead(HttpStatus.INTERNAL_SERVER_ERROR, {'Content-Type':'application/json'});
+         const response = {
+             success: false,
+             message: 'There was an error creating the product',
+         };
+
+         res.end(JSON.stringify(response));
+         throw (error);
+     }
+
+}
+
+
+
+export { getProduct, getProductsPicturesByCategory, addProductToShoppingCart, createProduct}

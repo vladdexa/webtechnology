@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Documentatie Online ToyShop</title>
+    <link rel="stylesheet" href="/Documentation/Documentation.css">
+    <script src=""></script>
+</head>
+<body prefix="schema: http://schema.org">
+<header>
+    <h1>Academic Thesis Manager</h1>
+</header>
+
+<div role="contentinfo">
+    <dl>
+        <dt>Membrii echipei</dt>
+        <dd>
+            Epure Codrin, Vlad Dexamir, Brinza Tiberiu
+        </dd>
+        <dt>Profesor indrumator</dt>
+        <dd>
+            <a href="https://profs.info.uaic.ro/~andrei.panu/">Dr. Andrei Panu</a>
+        </dd>
+    </dl>
+</div>
+<section typeof="sa:Descriere" id="Descriere" role="doc-descriere">
+    <h2>Descrierea proiectului</h2>
+    <p>
+        OTO(online toys) este o aplicatie web ce consta in gestionarea colectiilor de jucarii de diferite varste si
+        diferite categorii.
+        Sistemul ofera suport pentru activitati de cumparare a jucariilor si administrarea utilizatorilor.
+        De asemenea, sistemul ofera posibilitatea de a genera statistici exportate in format PDF si CSV. Se poate realiza
+        si un clasament al celor mai populare produse, disponibil si ca flux de date RSS.
+
+    </p>
+</section>
+
+<section id="DescierePagini">
+    <h2>Descrierea paginilor</h2>
+    <section id="login">
+        <h3>Pagina autentificare</h3>
+        <p>
+            <p>
+                Register
+                ofera posibilitatea vizitatorilor de a se inregistra pe site completand un formular scurt cu datele personale
+                pentru ca mai apoi sa fie posibila conectarea acestuia prin sistemul de login.Acestea sunt necesare pentru ca
+                utilizatorii sa poata beneficia de optiunile noastre de vizualizare produse, adaugare in cos, plasare comanda.
+                <br>
+                Este implementat si sistemul de ForgotPassword care ofera posibilitatea utilizatorului sa-si recupereze parola
+                cu ajutorul emailului.
+
+            </p>
+
+        </p>
+    </section>
+    <section id="home">
+        <h3>Pagina Acasa </h3>
+        <p>
+            Dupa logare, utilizatorii sunt redirectionati catre pagina Home ce contine o parte din produsele
+            disponibile pe site dar si un navbar simplificat usor de utilizat si foarte folositor.
+            Acest navbar ofera acces la statistici PDF si CSV legate de produsele noastre, ofera de asemenea posibilitatea
+            de a fi redirectionat pe pagina de categorii, detalii utilizator si vizualizarea cosului de cumparaturi.
+
+        </p>
+    </section>
+    <section id="proiecte">
+        <h3>Pagina Categorii</h3>
+        <p>
+            In aceasta pagina sunt prezentate produsele provenite doar dintr-o anumita categorie selectata de utilizator.
+        </p>
+    </section>
+    <section id="etape">
+        <h3>Pagina User</h3>
+        <p>
+           In pagina utilizatorului sunt prezentate detaliile acestuia, mai exact username-ul si email-ul cu care acesta
+            s-a conectat pe site-ul nostru.
+            <br>
+            Tot aici este prezenta si posibilitatea utilizatorului de a-si schimba parola prin completarea formului
+            "change your password".
+        </p>
+    </section>
+    <section id="etape">
+        <h3>Pagina de comanda</h3>
+        <p>
+           Order Page este pagina unde utilizatorul poate finaliza procesul de cumparare a jucariilor prezente in cosul
+            de cumparaturi, prin completarea unui form cu detaliile de plata si adresa.
+        </p>
+    </section>
+</section>
+
+<section id="tehnologii">
+    <h3>Tehnologii utilizate</h3>
+    <p><ul>
+    <li> 	Ajax </li>
+    <li> 	Node JS </li>
+    <li> 	MySql </li>
+    <li>    TypeOrm</li>
+    <li> 	HTML si CSS pentru partea de front-end </li>
+
+</ul> <p>
+</section>
+
+    <section id="use-case">
+        <h3>Api-routes-controllers</h3>
+        <br>
+        <img src="api-routes-controllers.png" alt="Use Case" width="50%">
+    </section>
+    <section id="BazeDeDate">
+        <h3>Database-schema-online-toys</h3>
+        <br>
+        <img src="database_schema_online_toys.png" alt="BazeDeDate" width="50%">
+    </section>
+    <section id="uml">
+        <h3>Entities-repository-pattern</h3>
+        <br>
+        <img src="entities&repository-pattern.png" alt="UML" width="50%">
+    </section>
+</section>
+<
+
+</body>
+</html>

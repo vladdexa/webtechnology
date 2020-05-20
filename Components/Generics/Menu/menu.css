@@ -1,6 +1,7 @@
 @font-face {
     font-family: Junior;
     src: url("../../../Fonts/Junior-Bold.otf");
+    font-display: swap;
 }
 
 .MenuContainer {
@@ -12,7 +13,6 @@
 }
 
 
-/* MenuContainer Top Level  */
 
 .MenuContainer ul {
     z-index: 100;
@@ -23,7 +23,7 @@
 }
 
 
-/*  Top level items list*/
+
 
 .MenuContainer ul li {
     position: relative;
@@ -31,7 +31,6 @@
 }
 
 
-/* Top level  items */
 
 .MenuContainer ul li a,
 .MenuContainer ul li span {
@@ -49,14 +48,13 @@
 }
 
 
-/* On hover Top Level */
+
 
 .MenuContainer ul li:hover>a {
     background: #d0e1eb;
 }
 
 
-/* subList level Container */
 
 .MenuContainer ul li ul {
     position: absolute;
@@ -71,7 +69,7 @@
 }
 
 
-/* on hover subList */
+
 
 .MenuContainer ul li:hover>ul {
     visibility: visible;
@@ -82,7 +80,7 @@
 }
 
 
-/* subLevel Menu list items  */
+
 
 .MenuContainer ul li ul li {
     display: list-item;
@@ -95,21 +93,19 @@
 }
 
 
-/* Sub Levels link style on hover and when active */
 
 .MenuContainer ul ul li:hover>a {
     background: #d0e1eb;
 }
 
 
-/* Sub Levels UL style on hover */
+
 
 .MenuContainer ul ul li:hover>ul {
     left: 100%;
 }
 
 
-/* Sub Levels menu links style */
 
 .MenuContainer ul li ul li a {
     font: 1.3rem Junior, serif;
@@ -121,14 +117,12 @@
 }
 
 
-/* Nested LI */
 
 .MenuContainer ul li>a {
     padding-right: 25px;
 }
 
 
-/* LI Simple */
 
 .MenuContainer ul li>a:only-child {
     padding-right: 10px;
@@ -136,7 +130,6 @@
 }
 
 
-/* LIs with a sub UL pseudo class  */
 
 .MenuContainer ul li>a:after {
     content: "";
@@ -149,8 +142,6 @@
     right: 8px;
 }
 
-
-/* LIs with NO sub UL pseudo class */
 
 .MenuContainer ul li>a:only-child:after {
     display: none;
