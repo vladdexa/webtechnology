@@ -112,7 +112,19 @@ const createProduct = async()=> {
    });
 
     const messageFromServer = await response.json();
-    console.log(messageFromServer);
+
+    alert(messageFromServer.message);
+
+
+};
+
+const redirectToHomepage = () => {
+    if(authorizer()) {
+        window.location.assign('http://localhost:3000/home');
+    }
+    else {
+        alert('You are not authorized to perform this action');
+    }
 
 };
 
@@ -145,3 +157,4 @@ const initialize = async () => {
 document.getElementById('#body').addEventListener('load', initialize());
 document.getElementById('submitButton').addEventListener('click', createCategory);
 document.getElementById('submitButtonProduct').addEventListener('click', createProduct);
+document.getElementById('homepageButton').addEventListener('click', redirectToHomepage);
