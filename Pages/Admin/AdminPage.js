@@ -112,7 +112,9 @@ const createProduct = async()=> {
    });
 
     const messageFromServer = await response.json();
-    console.log(messageFromServer);
+
+    alert(messageFromServer.message);
+
 
 };
 

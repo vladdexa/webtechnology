@@ -17,13 +17,13 @@ async function getProduct(req: any, res: any) {
         const productId: number = parseInt(productIdString, 10);
         const productRepository = new ProductRepository();
         const product: Product = (await productRepository.getById(productId))[0];
-    
+
         await productRepository.updateAccessCounter(productId);
-    
+
         const response = {
             product: product
         }
-    
+
         res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(response));
     }
@@ -37,25 +37,25 @@ async function getProductsPicturesByCategory(req: any, res: any) {
         const prodId: number = parseInt(productIdString, 10);
         const productCategoryRepository = new ProductCategoryRepository();
         const productCategory: Productcategory = (await productCategoryRepository.getByProductId(prodId))[0];
-    
+
         const products = await productCategoryRepository.getByCategoryId(productCategory.categoryId);
-    
+
         const productRepository = new ProductRepository();
-    
+
         let index: number = 0;
         let productsImagesByCategory: string[] = [];
-    
+
         while (index < products.length) {
             const product: Product = (await productRepository.getById(products[index].productId))[0];
             productsImagesByCategory.push(`${product.picture} ${product.id}`);
             index++;
         }
-    
-    
+
+
         const response = {
             images: productsImagesByCategory
         }
-    
+
         res.writeHead(HttpStatus.OK, { 'Content-Type': 'application/json' });
         res.end(JSON.stringify(response));
     }
@@ -129,7 +129,7 @@ async function createProduct(req: any, res: any) {
            return;
        }
 
-       const categoryByName: Category | undefined = (await categoryRepository.getByName(category.name))[0];
+       const categoryByName: Category | undefined = (await categoryRepository.getByName(category))[0];
        if(!categoryByName) {
            res.writeHead(HttpStatus.BAD_REQUEST, {'Content-Type':'application/json'});
            const response = {
