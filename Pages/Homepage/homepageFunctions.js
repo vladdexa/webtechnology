@@ -89,7 +89,7 @@ const initialize = async() => {
     const rssButton = document.getElementById('rss');
     if(authorizer()) {
         rssButton.addEventListener('click', () => {
-            window.location.assign('/rss');
+            window.open('http://localhost:3000/rss','_blank');
                 })
     }
 };
